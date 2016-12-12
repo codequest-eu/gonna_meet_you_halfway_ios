@@ -31,6 +31,7 @@ class SearchContactViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search email"
+        searchController.searchBar.delegate = self
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
@@ -78,8 +79,16 @@ extension SearchContactViewController: UITableViewDataSource {
 extension SearchContactViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dismiss(animated: true, completion: {
-            self.delegate?.didChooseContact(contact: self.currentContacts()[indexPath.row])
-        })
+        self.view.endEditing(true)
+        searchController.dismiss(animated: true, completion: nil)
+        self.delegate?.didChooseContact(contact: self.currentContacts()[indexPath.row])
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SearchContactViewController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 class Globals {
-    
     static let basicBackgroundColor = UIColor(red: 0, green: 0.67, blue: 0.5, alpha: 1.0)
     static let basicDarkBackgroundColor = UIColor(red: 0.21, green: 0.57, blue: 0.47, alpha: 1.0)
-    
+    static let activeButtonColor = UIColor.green
+    static let inactiveButtonColor = UIColor.gray
 }

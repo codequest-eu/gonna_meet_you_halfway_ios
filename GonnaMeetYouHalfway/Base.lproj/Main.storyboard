@@ -107,7 +107,7 @@
         <!--Search Contact View Controller-->
         <scene sceneID="tHg-ty-JTY">
             <objects>
-                <viewController storyboardIdentifier="SearchControllerIdentifier" id="U2S-w8-PwS" customClass="SearchContactViewController" customModule="GonnaMeetYouHalfway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchControllerIdentifier" modalPresentationStyle="currentContext" id="U2S-w8-PwS" customClass="SearchContactViewController" customModule="GonnaMeetYouHalfway" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O4e-VT-Asx"/>
                         <viewControllerLayoutGuide type="bottom" id="bbX-YO-b2L"/>

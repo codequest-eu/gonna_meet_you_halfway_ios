@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		283F36AF21F9428751A4D355 /* Pods_GonnaMeetYouHalfway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
-		9060F3671DFEAAE600213743 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3661DFEAAE600213743 /* ViewController.swift */; };
+		9060F3671DFEAAE600213743 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3661DFEAAE600213743 /* ContactViewController.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
 		9060F36C1DFEAAE600213743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36B1DFEAAE600213743 /* Assets.xcassets */; };
 		9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */; };
+		EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8031DFEB56F00E444F7 /* Globals.swift */; };
+		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +23,13 @@
 		8EA338C6C9937B0F5D67045C /* Pods-GonnaMeetYouHalfway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GonnaMeetYouHalfway.release.xcconfig"; path = "Pods/Target Support Files/Pods-GonnaMeetYouHalfway/Pods-GonnaMeetYouHalfway.release.xcconfig"; sourceTree = "<group>"; };
 		9060F3611DFEAAE600213743 /* GonnaMeetYouHalfway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GonnaMeetYouHalfway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9060F3641DFEAAE600213743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9060F3661DFEAAE600213743 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9060F3661DFEAAE600213743 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		9060F3691DFEAAE600213743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9060F36B1DFEAAE600213743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9060F36E1DFEAAE600213743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9060F3701DFEAAE600213743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE4CC8031DFEB56F00E444F7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +65,14 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
+				EE4CC8051DFEB69300E444F7 /* Extensions */,
 				9060F3641DFEAAE600213743 /* AppDelegate.swift */,
-				9060F3661DFEAAE600213743 /* ViewController.swift */,
+				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
 				9060F3681DFEAAE600213743 /* Main.storyboard */,
 				9060F36B1DFEAAE600213743 /* Assets.xcassets */,
 				9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */,
 				9060F3701DFEAAE600213743 /* Info.plist */,
+				EE4CC8031DFEB56F00E444F7 /* Globals.swift */,
 			);
 			path = GonnaMeetYouHalfway;
 			sourceTree = "<group>";
@@ -86,6 +92,14 @@
 				8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE4CC8051DFEB69300E444F7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9060F3671DFEAAE600213743 /* ViewController.swift in Sources */,
+				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
+				9060F3671DFEAAE600213743 /* ContactViewController.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
+				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +390,7 @@
 				9060F3751DFEAAE600213743 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,20 +9,22 @@
 import UIKit
 import Contacts
 
+protocol AddContactViewControllerDelegate: class {
+    func didChooseContact(contact: CNContact)
+}
+
 class SearchContactViewController: UIViewController {
 
+    weak var delegate: AddContactViewControllerDelegate!
     var contacts = [CNContact]()
-    var filteredContacts = [CNContact]()
-    let searchController = UISearchController(searchResultsController: nil)
-    var inviteEmail: String = ""
+    fileprivate var filteredContacts = [CNContact]()
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -31,7 +33,6 @@ class SearchContactViewController: UIViewController {
         searchController.searchBar.placeholder = "Search email"
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
     }
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -43,7 +44,13 @@ class SearchContactViewController: UIViewController {
 
         tableView.reloadData()
     }
-
+    
+    fileprivate func currentContacts() -> [CNContact] {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredContacts
+        }
+        return contacts
+    }
 }
 
 extension SearchContactViewController: UISearchResultsUpdating {
@@ -56,21 +63,12 @@ extension SearchContactViewController: UISearchResultsUpdating {
 extension SearchContactViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredContacts.count
-        }
-        return contacts.count
+        return currentContacts().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactCell
-        
-        let contact: CNContact
-        if searchController.isActive && searchController.searchBar.text != "" {
-            contact = filteredContacts[indexPath.row]
-        } else {
-            contact = contacts[indexPath.row]
-        }
+        let contact = currentContacts()[indexPath.row]
         cell.setupLabels(contact: contact)
         
         return cell
@@ -80,6 +78,8 @@ extension SearchContactViewController: UITableViewDataSource {
 extension SearchContactViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //to do: Handle when contact has more than one available mail
+        dismiss(animated: true, completion: {
+            self.delegate?.didChooseContact(contact: self.currentContacts()[indexPath.row])
+        })
     }
 }

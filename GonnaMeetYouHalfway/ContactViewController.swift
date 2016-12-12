@@ -12,9 +12,7 @@ import Contacts
 import RxSwift
 import RxCocoa
 
-protocol AddContactViewControllerDelegate: class {
-    func didFetchContacts(contacts: [CNContact])
-}
+
 
 class ContactViewController: UIViewController {
 
@@ -23,7 +21,7 @@ class ContactViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var inviteButton: UIButton!
     
-    weak var delegate: AddContactViewControllerDelegate!
+
     var contactStore = CNContactStore()
     private let disposeBag = DisposeBag()
     private let throttleInterval = 0.1
@@ -83,8 +81,6 @@ class ContactViewController: UIViewController {
             completionHandler(true)
         }
     }
-    
-
 }
 
 extension ContactViewController: UITextFieldDelegate {
@@ -124,6 +120,13 @@ extension ContactViewController: UITextFieldDelegate {
             }
         }
         return true
+    }
+}
+
+extension ContactViewController: AddContactViewControllerDelegate {
+    
+    func didChooseContact(contact: CNContact) {
+        //to do: Handle when contact has more than one available mail and send invite
     }
 }
 

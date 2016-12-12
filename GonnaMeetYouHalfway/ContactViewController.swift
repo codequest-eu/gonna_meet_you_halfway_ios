@@ -26,7 +26,7 @@ class ContactViewController: UIViewController {
         super.viewDidLoad()
         inviteEmailTextField.delegate = self
         createGradient(view: self.view)
-        setupTextChangeHandling()
+//        setupTextChangeHandling()
     }
     
     func setupRxObservable() {
@@ -125,48 +125,85 @@ class ContactViewController: UIViewController {
 extension ContactViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField)  {
-        
+        searchContact()
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    private func searchContact() {
         requestForAccess { (accessGranted) -> Void in
             if accessGranted {
-                let predicate = CNContact.predicateForContacts(matchingName: self.inviteEmailTextField.text!)
-                let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey, CNContactBirthdayKey]
-                var filterContacts = [CNContact]()
-                var message: String!
-                
-                let contactsStore = AppDelegate.getAppDelegate().contactStore
-                do {
-                    let contacts = try contactsStore.unifiedContacts(matching: predicate, keysToFetch: keys as [CNKeyDescriptor])
-                    
-                    if contacts.count == 0 {
-                        message = "No contacts were found matching the given name."
+                let store = CNContactStore()
+                store.requestAccess(for: .contacts) { granted, error in
+                    guard granted else {
+                        return
                     }
-                    filterContacts = contacts.filter { $0.emailAddresses.count > 0 }
-                }
-                catch {
-                    message = "Unable to fetch contacts."
-                }
-                
-                if message != nil {
-                    self.showAlert(title: "Warning", message: message)
-                } else {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchControllerIdentifier") as! SearchContactViewController
-                    vc.contacts = filterContacts
-                    self.present(vc, animated: true, completion: nil)
+                    
+                    // get the contacts
+                    var filterContacts = [CNContact]()
+                    var contacts = [CNContact]()
+                    let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey]
+                    var message: String!
+
+                    let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+                    do {
+                        try store.enumerateContacts(with: request) { contact, stop in
+                            contacts.append(contact)
+                        }
+                        filterContacts = contacts.filter { $0.emailAddresses.count > 0 }
+                        if filterContacts.count == 0 {
+                            message = "No contacts were found."
+                        }
+                    } catch {
+                        print(error)
+                    }
+                    
+                    if message != nil {
+                        DispatchQueue.main.async {
+                            self.showAlert(title: "Warning", message: message)
+                        }
+                    } else {
+                        OperationQueue.main.addOperation {
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchControllerIdentifier") as! SearchContactViewController
+                            vc.contacts = filterContacts
+                            vc.delegate = self
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                    }
                 }
             }
         }
-        return true
     }
 }
 
 extension ContactViewController: AddContactViewControllerDelegate {
     
     func didChooseContact(contact: CNContact) {
-        //to do: Handle when contact has more than one available mail and send invite
+        //if chosen user has more that one email display alert 
+        
+        guard contact.emailAddresses.count == 1 else {
+            DispatchQueue.main.async {
+                self.displayAlertForMoreThanOneEmail(with: contact)
+            }
+            return
+        }
+        inviteEmailTextField.text = contact.emailAddresses[0].value as String
+    }
+    
+    private func displayAlertForMoreThanOneEmail(with contact: CNContact) {
+        let email1 = contact.emailAddresses[0].value as String
+        let email2 = contact.emailAddresses[1].value as String
+        displayActionSheet(email1, buttonOneAction: { _ in
+            self.inviteEmailTextField.text = contact.emailAddresses[0].value as String
+        }, buttonTwoTitle: email2, buttonTwoAction: { _ in
+            self.inviteEmailTextField.text = contact.emailAddresses[1].value as String
+        }, cancelAction: nil)
     }
 }
-
-

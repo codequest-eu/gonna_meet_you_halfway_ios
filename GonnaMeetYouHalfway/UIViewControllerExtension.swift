@@ -29,5 +29,23 @@ extension UIViewController {
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
     }
-
+    
+    func displayActionSheet(_ buttonOneTitle: String?, buttonOneAction: ((UIAlertAction)->Void)?, buttonTwoTitle: String?, buttonTwoAction: ((UIAlertAction)->Void)?, cancelAction: ((UIAlertAction)->Void)?) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        if let buttonOneTitle = buttonOneTitle {
+            let actionOne = UIAlertAction(title: buttonOneTitle, style: .default, handler: buttonOneAction)
+            alertController.addAction(actionOne)
+        }
+        
+        if let buttonTwoTitle = buttonTwoTitle {
+            let actionTwo = UIAlertAction(title: buttonTwoTitle, style: .default, handler: buttonTwoAction)
+            alertController.addAction(actionTwo)
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }

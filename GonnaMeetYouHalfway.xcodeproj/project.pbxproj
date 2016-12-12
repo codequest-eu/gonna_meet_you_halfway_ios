@@ -15,6 +15,8 @@
 		9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */; };
 		EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8031DFEB56F00E444F7 /* Globals.swift */; };
 		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
+		EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */; };
+		EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54420D1DFEDFF000EDC654 /* ContactCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9060F3701DFEAAE600213743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE4CC8031DFEB56F00E444F7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
+		EE54420D1DFEDFF000EDC654 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +69,11 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
+				EE54420F1DFEDFF500EDC654 /* Cells */,
 				EE4CC8051DFEB69300E444F7 /* Extensions */,
 				9060F3641DFEAAE600213743 /* AppDelegate.swift */,
 				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
+				EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */,
 				9060F3681DFEAAE600213743 /* Main.storyboard */,
 				9060F36B1DFEAAE600213743 /* Assets.xcassets */,
 				9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */,
@@ -100,6 +106,14 @@
 				EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		EE54420F1DFEDFF500EDC654 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EE54420D1DFEDFF000EDC654 /* ContactCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +239,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
+				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
 				9060F3671DFEAAE600213743 /* ContactViewController.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,

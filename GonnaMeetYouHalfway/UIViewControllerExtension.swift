@@ -19,5 +19,15 @@ extension UIViewController {
         gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
         aView.layer.insertSublayer(gradient, at:0)
     }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let dismissAction = UIAlertAction(title: "OK", style: .default) { (action) -> Void in
+        }
+        
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true, completion: nil)
+    }
 
 }

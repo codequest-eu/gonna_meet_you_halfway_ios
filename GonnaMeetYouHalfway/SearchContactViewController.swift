@@ -14,7 +14,7 @@ class SearchContactViewController: UIViewController {
     var contacts = [CNContact]()
     var filteredContacts = [CNContact]()
     let searchController = UISearchController(searchResultsController: nil)
-    var inviteContact = CNContact()
+    var inviteEmail: String = ""
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,6 +28,7 @@ class SearchContactViewController: UIViewController {
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search email"
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
@@ -35,15 +36,11 @@ class SearchContactViewController: UIViewController {
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredContacts.removeAll()
-        let searchPredicate = NSPredicate(format: "inviteContact CONTAINS[c] %@", searchText)
-        let array = (contacts as NSArray).filtered(using: searchPredicate)
-        filteredContacts = array as! [CNContact]
-//        
-//        filteredContacts = contacts.filter { contact in
-//            return contact.emailAddresses.contains(searchText)
-//            return contact.emailAddresses.lowercased().containsString(searchText.lowercased())
-//        }
-//
+        filteredContacts = contacts.filter{ contact in
+            let email = contact.emailAddresses.map{ "\($0.value)" }.joined(separator: ", ")
+            return email.lowercased().contains(searchText.lowercased())
+        }
+
         tableView.reloadData()
     }
 
@@ -83,6 +80,6 @@ extension SearchContactViewController: UITableViewDataSource {
 extension SearchContactViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //to do: Handle when contact has more than one available mail
     }
 }

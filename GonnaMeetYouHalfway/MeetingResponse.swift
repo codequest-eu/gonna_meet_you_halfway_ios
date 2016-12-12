@@ -1,17 +1,19 @@
 import ObjectMapper
 
 struct MeetingResponse {
-
-    var suggestionsTopicName: String
-    var myLocationTopicName: String
-    var otherLocationTopicName: String
-    var meetingLocationTopicName: String
+    
+    let meetingIdentifier: String
+    let suggestionsTopicName: String
+    let myLocationTopicName: String
+    let otherLocationTopicName: String
+    let meetingLocationTopicName: String
     
 }
 
 extension MeetingResponse: ImmutableMappable {
     
     init(map: Map) throws {
+        meetingIdentifier = try map.value("meetingIdentifier")
         suggestionsTopicName = try map.value("suggestionsTopicName")
         myLocationTopicName = try map.value("myLocationTopicName")
         otherLocationTopicName = try map.value("otherLocationTopicName")

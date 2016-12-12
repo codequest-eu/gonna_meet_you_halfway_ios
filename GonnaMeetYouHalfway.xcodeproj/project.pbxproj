@@ -17,6 +17,7 @@
 		9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
 		906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */; };
+		906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CF1DFED95700F4136F /* SuggestionRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9060F3791DFEB12800213743 /* MeetingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingResponse.swift; sourceTree = "<group>"; };
 		9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetAPI.swift; sourceTree = "<group>"; };
 		906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetProvider.swift; sourceTree = "<group>"; };
+		906874CF1DFED95700F4136F /* SuggestionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				9060F3771DFEB0AB00213743 /* MeetingRequest.swift */,
 				9060F3791DFEB12800213743 /* MeetingResponse.swift */,
+				906874CF1DFED95700F4136F /* SuggestionRequest.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */,
 				9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */,
 				9060F3671DFEAAE600213743 /* ViewController.swift in Sources */,
+				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
 				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,
 			);

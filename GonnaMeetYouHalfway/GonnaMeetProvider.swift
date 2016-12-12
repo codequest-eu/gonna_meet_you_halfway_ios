@@ -1,12 +1,12 @@
 import UIKit
 import Moya
 import RxSwift
+import CoreLocation
 
 class GonnaMeetProvider {
 
     private static let shared = GonnaMeetProvider()
-    
-    class var `default`: GonnaMeetProvider { return shared }
+    static var `default`: GonnaMeetProvider { return shared }
     
     private let provider: RxMoyaProvider<GonnaMeetAPI>
     
@@ -27,6 +27,17 @@ class GonnaMeetProvider {
         let request = MeetingRequest(name: name, email: email, otherEmail: otherEmail)
         return provider.request(.createMeeting(request: request))
             .mapObject(MeetingResponse.self)
+    }
+
+    func suggest(meetingIdentifier: String, coordinate: CLLocationCoordinate2D) -> Observable<Void> {
+        let suggestion = SuggestionRequest(meetingIdentifier: meetingIdentifier,
+                                           latitude: coordinate.latitude,
+                                           longitude: coordinate.longitude)
+        return provider.request(.suggest(suggestion: suggestion)).map { _ in }
+    }
+    
+    func accept(suggestionIdentifier: String) -> Observable<Void> {
+        return provider.request(.accept(suggestionIdentifier: suggestionIdentifier)).map { _ in }
     }
     
 }

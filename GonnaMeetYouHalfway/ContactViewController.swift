@@ -46,8 +46,8 @@ class ContactViewController: UIViewController {
     }
     
     fileprivate func updateButtonState(active: Bool) {
-        inviteButton.isEnabled = active
-        inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
+//        inviteButton.isEnabled = active
+//        inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
     }
     
     fileprivate func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
@@ -74,8 +74,12 @@ class ContactViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
-        let vm: InviteViewModelProtocol = InviteViewModel(controller: self)
-        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!)
+//        let vm: InviteViewModelProtocol = InviteViewModel(controller: self)
+//        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!)
+
+        // FOR TESTS
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        self.present(vc, animated: true, completion: nil)
     }
     
     func showError(error: Error.Protocol) {

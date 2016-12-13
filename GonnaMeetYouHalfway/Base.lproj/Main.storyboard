@@ -210,15 +210,36 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fl1-KP-wah">
                                 <rect key="frame" x="16" y="94" width="343" height="514"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFw-th-1Qg">
+                                <rect key="frame" x="171" y="28" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="HK4-c7-OAm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pc-2p-cv3">
+                                <rect key="frame" x="28" y="582" width="22" height="22"/>
+                                <connections>
+                                    <action selector="centerMapOnUserLocation:" destination="zwu-aA-R17" eventType="touchUpInside" id="0Xj-XD-v8p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4pc-2p-cv3" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="-26" id="BbM-rY-OWh"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leading" constant="16" id="CdN-CJ-xFP"/>
                             <constraint firstItem="Rqq-ea-zUO" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="59" id="F3q-Fx-8sC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fFw-th-1Qg" secondAttribute="trailing" constant="142" id="HV2-Gv-o4h"/>
+                            <constraint firstItem="fFw-th-1Qg" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="8" id="JQa-Hd-WYJ"/>
                             <constraint firstAttribute="trailing" secondItem="Fl1-KP-wah" secondAttribute="trailing" constant="16" id="JbT-xF-nVw"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="74" id="Moj-NG-6yj"/>
+                            <constraint firstItem="fFw-th-1Qg" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leadingMargin" constant="155" id="dxD-0z-oZ5"/>
+                            <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="4pc-2p-cv3" secondAttribute="trailing" constant="-34" id="gOi-R4-Tak"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="map" destination="Fl1-KP-wah" id="JeZ-Ja-tJH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPX-ai-tAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

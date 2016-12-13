@@ -8,17 +8,94 @@
 
 import UIKit
 import MapKit
+import CoreLocation
+import RxSwift
 
 class LocationViewController: UIViewController {
 
+    //MARK: Outlets
+    @IBOutlet weak var map: MKMapView!
+    
+    var locationManager: CLLocationManager!
+    var userLocation: CLLocationCoordinate2D?
+    var userLocationDefined = false
+    let mapLatDelta: CLLocationDegrees = 0.05
+    let mapLonDelta: CLLocationDegrees = 0.05
+    private (set) var authorized: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        map.showsScale = true
+        map.showsUserLocation = true
+        if (CLLocationManager.locationServicesEnabled()) {
+            setupLocationManager()
+        }
     }
+    
+    // RX Setup
+    private func setupLocationManager() {
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    // Zoom map to current location
+    fileprivate func showUserCurrentLocation() {
+        if let location = self.userLocation {
+            let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)
+            let region = MKCoordinateRegion(center: location, span: span)
+            self.map.setRegion(region, animated: true)
+        }
+    }
+    
+    //MARK: Actions
+    
+    @IBAction func centerMapOnUserLocation(_ sender: Any) {
+        showUserCurrentLocation()
+    }
+}
+
+extension LocationViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        //  Check access for user location
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            locationManager.requestLocation()
+            self.showUserCurrentLocation()
+        } else {
+            showSettingsAlert()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        if let location = locations.first {
+            self.userLocation = location.coordinate
+            if !userLocationDefined {
+                self.showUserCurrentLocation()
+                userLocationDefined = true
+            }
+        }
     }
-
+    
+    private func showSettingsAlert() {
+        // Create the actions buttons for settings alert
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            UIAlertAction in
+            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        }
+        
+        showAlert(title: "Error",
+                  message: "No access to location services. Do you want to change your settings now?",
+                  buttonOneTitle: "Go to Settings",
+                  cancelButtonTitle: "Cancel",
+                  action: okAction)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 }

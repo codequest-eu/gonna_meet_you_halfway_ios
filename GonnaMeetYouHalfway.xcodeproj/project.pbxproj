@@ -24,6 +24,8 @@
 		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
 		EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */; };
 		EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54420D1DFEDFF000EDC654 /* ContactCell.swift */; };
+		EE8B8CBC1E00423800901313 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */; };
+		EE8B8CBE1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
 		EE54420D1DFEDFF000EDC654 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
+		EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocationManager+Rx.swift"; path = "Extensions/CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxCLLocationManagerDelegateProxy.swift; path = Extensions/RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */,
+				EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */,
+				EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -301,9 +307,11 @@
 				9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */,
 				906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */,
 				EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */,
+				EE8B8CBC1E00423800901313 /* CLLocationManager+Rx.swift in Sources */,
 				9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */,
 				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
+				EE8B8CBE1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

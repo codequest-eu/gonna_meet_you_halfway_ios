@@ -1,6 +1,7 @@
 import UIKit
 import Moya
 import RxSwift
+import RxOptional
 import CoreLocation
 import Moya_ObjectMapper
 
@@ -10,9 +11,12 @@ class GonnaMeetClient {
     static var `default`: GonnaMeetClient { return shared }
     
     private let provider: RxMoyaProvider<GonnaMeetAPI>
+    private let mqttClient: RxMqttClient
     
-    init(provider: RxMoyaProvider<GonnaMeetAPI> = GonnaMeetClient.defaultProvider()) {
+    init(provider: RxMoyaProvider<GonnaMeetAPI> = GonnaMeetClient.defaultProvider(),
+         mqttClient: RxMqttClient = GonnaMeetClient.defaultMqttClient()) {
         self.provider = provider
+        self.mqttClient = mqttClient
     }
     
     private static func defaultProvider() -> RxMoyaProvider<GonnaMeetAPI> {
@@ -22,6 +26,10 @@ class GonnaMeetClient {
     private static let endpointClosure = { (target: GonnaMeetAPI) -> Endpoint<GonnaMeetAPI> in
         let defaultEndpoint = MoyaProvider.defaultEndpointMapping(target)
         return defaultEndpoint.adding(parameterEncoding: JSONEncoding.default)
+    }
+
+    private static func defaultMqttClient() -> RxMqttClient {
+        return RxMqttClient()
     }
     
     func requestMeeting(name: String, email: String, otherEmail: String) -> Observable<MeetingResponse> {
@@ -39,6 +47,28 @@ class GonnaMeetClient {
     
     func accept(suggestionIdentifier: String) -> Observable<Void> {
         return provider.request(.accept(suggestionIdentifier: suggestionIdentifier)).map { _ in }
+    }
+    
+    func placeSuggestions(from topic: String) -> Observable<[PlaceSuggestion]> {
+        return mqttClient.subscribe(to: topic)
+            .map { [PlaceSuggestion](JSONString: $0) ?? [] }
+    }
+
+    func meetingSuggestions(from topic: String) -> Observable<MeetingSuggestion> {
+        return mqttClient.subscribe(to: topic)
+            .map { try? MeetingSuggestion(JSONString: $0) }
+            .filterNil()
+    }
+    
+    func send(location: CLLocationCoordinate2D, to topic: String) {
+        let jsonLocation = Location(latitude: location.latitude, longitude: location.longitude).toJSONString()!
+        mqttClient.publish(to: topic, message: jsonLocation)
+    }
+    
+    func otherLocations(from topic: String) -> Observable<Location> {
+        return mqttClient.subscribe(to: topic)
+            .map { try? Location(JSONString: $0) }
+            .filterNil()
     }
     
 }

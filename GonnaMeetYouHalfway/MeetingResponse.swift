@@ -14,10 +14,10 @@ extension MeetingResponse: ImmutableMappable {
     
     init(map: Map) throws {
         meetingIdentifier = try map.value("meetingIdentifier")
-        suggestionsTopicName = try map.value("suggestionsTopicName")
-        myLocationTopicName = try map.value("myLocationTopicName")
-        otherLocationTopicName = try map.value("otherLocationTopicName")
-        meetingLocationTopicName = try map.value("meetingLocationTopicName")
+        suggestionsTopicName = try map.value("topics.suggestionsTopicName")
+        myLocationTopicName = try map.value("topics.myLocationTopicName")
+        otherLocationTopicName = try map.value("topics.otherLocationTopicName")
+        meetingLocationTopicName = try map.value("topics.meetingLocationTopicName")
     }
     
 }

@@ -18,6 +18,8 @@
 		906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */; };
 		906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CF1DFED95700F4136F /* SuggestionRequest.swift */; };
 		EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3661DFEAAE600213743 /* ContactViewController.swift */; };
+		EE4CC75D1E0015EB005C5186 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC75C1E0015EB005C5186 /* LocationViewController.swift */; };
+		EE4CC7611E0022A7005C5186 /* InviteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC7601E0022A7005C5186 /* InviteViewModel.swift */; };
 		EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8031DFEB56F00E444F7 /* Globals.swift */; };
 		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
 		EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */; };
@@ -40,6 +42,8 @@
 		9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetAPI.swift; sourceTree = "<group>"; };
 		906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetProvider.swift; sourceTree = "<group>"; };
 		906874CF1DFED95700F4136F /* SuggestionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionRequest.swift; sourceTree = "<group>"; };
+		EE4CC75C1E0015EB005C5186 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ViewControllers/LocationViewController.swift; sourceTree = "<group>"; };
+		EE4CC7601E0022A7005C5186 /* InviteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteViewModel.swift; path = ViewModel/InviteViewModel.swift; sourceTree = "<group>"; };
 		EE4CC8031DFEB56F00E444F7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
@@ -79,13 +83,13 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
+				EE4CC75F1E002281005C5186 /* ViewModel */,
+				EE4CC75B1E001523005C5186 /* ViewControllers */,
 				EE54420F1DFEDFF500EDC654 /* Cells */,
 				EE4CC8051DFEB69300E444F7 /* Extensions */,
 				9060F37C1DFEB1F200213743 /* Network */,
 				9060F3761DFEB05500213743 /* Model */,
 				9060F3641DFEAAE600213743 /* AppDelegate.swift */,
-				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
-				EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */,
 				9060F3681DFEAAE600213743 /* Main.storyboard */,
 				9060F36B1DFEAAE600213743 /* Assets.xcassets */,
 				9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */,
@@ -129,6 +133,24 @@
 				8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE4CC75B1E001523005C5186 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
+				EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */,
+				EE4CC75C1E0015EB005C5186 /* LocationViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EE4CC75F1E002281005C5186 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE4CC7601E0022A7005C5186 /* InviteViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		EE4CC8051DFEB69300E444F7 /* Extensions */ = {
@@ -273,6 +295,8 @@
 				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
+				EE4CC7611E0022A7005C5186 /* InviteViewModel.swift in Sources */,
+				EE4CC75D1E0015EB005C5186 /* LocationViewController.swift in Sources */,
 				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
 				9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */,
 				906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */,

@@ -24,8 +24,8 @@ class GonnaMeetProvider {
         return defaultEndpoint.adding(parameterEncoding: JSONEncoding.default)
     }
     
-    func requestMeeting(name: String, email: String, otherEmail: String) -> Observable<MeetingResponse> {
-        let request = MeetingRequest(name: name, email: email, otherEmail: otherEmail)
+    func requestMeeting(name: String, email: String, inviteEmail: String) -> Observable<MeetingResponse> {
+        let request = MeetingRequest(name: name, email: email, otherEmail: inviteEmail)
         return provider.request(.createMeeting(request: request))
             .mapObject(MeetingResponse.self)
     }

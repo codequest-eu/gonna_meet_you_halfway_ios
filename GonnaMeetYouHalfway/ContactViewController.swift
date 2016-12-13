@@ -13,6 +13,11 @@ import RxCocoa
 
 let throttleInterval = 0.1
 
+protocol ContactViewControllerProtocol {
+    func didInviteFriendWithSuccess()
+    func didInviteFriendWithFailure()
+}
+
 class ContactViewController: UIViewController {
 
     @IBOutlet weak var userEmailTextField: UITextField!
@@ -41,6 +46,7 @@ class ContactViewController: UIViewController {
     }
     
     fileprivate func updateButtonState(active: Bool) {
+        inviteButton.isEnabled = active
         inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
     }
     
@@ -66,11 +72,21 @@ class ContactViewController: UIViewController {
         }
     }
     
-    //MARK: - Rx Setup
+    //MARK: Actions
+    @IBAction func invite(_ sender: Any) {
+        let vm: InviteViewModelProtocol = InviteViewModel(controller: self)
+        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!)
+    }
     
+    func showError(error: Error.Protocol) {
+        self.showAlert(title: "Warning", message: "Sorry, an error occured while inviting. Please try again later")
+    }
+    
+    //MARK: - Rx Setup
     func setupTextChangeHandling() {
         
         inviteEmail.asObservable().bindTo(inviteEmailTextField.rx.text).addDisposableTo(disposeBag)
+        inviteEmailTextVariable.asObservable().bindTo(inviteEmailTextField.rx.text).addDisposableTo(disposeBag)
         
         let userMailValid = userEmailTextField
             .rx
@@ -195,5 +211,17 @@ extension ContactViewController: UITextFieldDelegate {
         }, buttonTwoTitle: email2, buttonTwoAction: { _ in
             self.inviteEmail.value = contact.emailAddresses[1].value as String
         }, cancelAction: nil)
+    }
+}
+
+extension ContactViewController: ContactViewControllerProtocol {
+    
+    func didInviteFriendWithSuccess() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func didInviteFriendWithFailure() {
+        self.showAlert(title: "Error", message: "Sorry, an error occured. Please try again later")
     }
 }

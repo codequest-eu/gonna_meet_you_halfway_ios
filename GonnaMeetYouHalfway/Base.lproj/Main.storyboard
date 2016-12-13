@@ -70,6 +70,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.4842526882" green="1" blue="0.64976226709999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="invite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1O9-DK-LIA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -190,7 +193,36 @@
                 <searchDisplayController id="Mcr-2k-5gZ"/>
                 <searchDisplayController id="OfF-7U-bES"/>
             </objects>
-            <point key="canvasLocation" x="477.60000000000002" y="-18.440779610194905"/>
+            <point key="canvasLocation" x="385" y="-18"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="dIC-kO-7Vi">
+            <objects>
+                <viewController storyboardIdentifier="LocationViewController" id="zwu-aA-R17" customClass="LocationViewController" customModule="GonnaMeetYouHalfway" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="waA-bF-hUL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rqq-ea-zUO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Div-3S-Yzl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fl1-KP-wah">
+                                <rect key="frame" x="16" y="94" width="343" height="514"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leading" constant="16" id="CdN-CJ-xFP"/>
+                            <constraint firstItem="Rqq-ea-zUO" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="59" id="F3q-Fx-8sC"/>
+                            <constraint firstAttribute="trailing" secondItem="Fl1-KP-wah" secondAttribute="trailing" constant="16" id="JbT-xF-nVw"/>
+                            <constraint firstItem="Fl1-KP-wah" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="74" id="Moj-NG-6yj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPX-ai-tAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1080.8" y="-18.440779610194905"/>
         </scene>
     </scenes>
 </document>

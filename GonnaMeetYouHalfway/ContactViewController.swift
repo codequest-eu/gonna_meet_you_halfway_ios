@@ -11,6 +11,8 @@ import Contacts
 import RxSwift
 import RxCocoa
 
+let throttleInterval = 0.1
+
 class ContactViewController: UIViewController {
 
     @IBOutlet weak var userEmailTextField: UITextField!
@@ -19,9 +21,8 @@ class ContactViewController: UIViewController {
     @IBOutlet weak var inviteButton: UIButton!
 
     var contactStore = CNContactStore()
-    private let disposeBag = DisposeBag()
-    private let throttleInterval = 0.1
-    
+    var inviteEmail = Variable("")
+    fileprivate let disposeBag = DisposeBag()
     fileprivate let inviteEmailTextVariable = Variable("")
     
     override func viewDidLoad() {
@@ -29,17 +30,6 @@ class ContactViewController: UIViewController {
         inviteEmailTextField.delegate = self
         createGradient(view: self.view)
         setupTextChangeHandling()
-    }
-    
-    func setupRxObservable() {
-        let textField1Text = inviteEmailTextField
-            .rx
-            .text
-            .throttle(throttleInterval, scheduler: MainScheduler.instance)
-        
-        textField1Text
-            .subscribe()
-            .addDisposableTo(disposeBag)
     }
 
     // Validate email format
@@ -80,46 +70,25 @@ class ContactViewController: UIViewController {
     
     func setupTextChangeHandling() {
         
-        inviteEmailTextVariable.asObservable().bindTo(inviteEmailTextField.rx.text).addDisposableTo(disposeBag)
+        inviteEmail.asObservable().bindTo(inviteEmailTextField.rx.text).addDisposableTo(disposeBag)
         
         let userMailValid = userEmailTextField
             .rx
             .text
             .throttle(throttleInterval, scheduler: MainScheduler.instance)
             .map { self.isValidEmail(mail: $0!) }
-//        userMailValid
-////            .subscribe()
-////            .subscribe(onNext: { self.userEmailTextField.isValidEmail = $0 })
-//            .addDisposableTo(disposeBag)
-        
-        let inviteMailValid = inviteEmailTextField
-            .rx
-            .text
-            .throttle(throttleInterval, scheduler: MainScheduler.instance)
-            .map { self.isValidEmail(mail: $0!) }
-        
-//        inviteMailValid
-////            .subscribe()
-////            .subscribe(onNext: { self.expirationDateTextField.valid = $0 })
-//            .addDisposableTo(disposeBag)
-        
+
+        let inviteEmailValid = inviteEmail
+            .asObservable()
+            .map{ self.isValidEmail(mail: $0) }
+
         let nameValid = nameTextField
             .rx
             .text
-            .map { $0 != nil }
-        
-//        nameValid
-//            .subscribe()
-////            .subscribe(onNext: { self.cvvTextField.valid = $0 })
-//            .addDisposableTo(disposeBag)
-        
-        nameValid.asObservable()
-            .bindNext {
-                print("name \($0)")
-        }.addDisposableTo(disposeBag)
+            .map { $0 != "" }
         
         let everythingValid = Observable
-            .combineLatest(userMailValid, inviteMailValid, nameValid) {
+            .combineLatest(userMailValid, inviteEmailValid, nameValid) {
                 $0 && $1 && $2 // all true
         }
         
@@ -128,7 +97,6 @@ class ContactViewController: UIViewController {
                 self.updateButtonState(active: isActive)
             }
             .addDisposableTo(disposeBag)
-
     }
 }
 
@@ -155,65 +123,77 @@ extension ContactViewController: UITextFieldDelegate {
                     guard granted else {
                         return
                     }
-                    
-                    // get the contacts
-                    var filterContacts = [CNContact]()
-                    var contacts = [CNContact]()
-                    let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey]
-                    var message: String!
-
-                    let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
-                    do {
-                        try store.enumerateContacts(with: request) { contact, stop in
-                            contacts.append(contact)
-                        }
-                        filterContacts = contacts.filter { $0.emailAddresses.count > 0 }
-                        if filterContacts.count == 0 {
-                            message = "No contacts were found."
-                        }
-                    } catch {
-                        print(error)
-                    }
-                    
-                    if message != nil {
-                        DispatchQueue.main.async {
-                            self.showAlert(title: "Warning", message: message)
-                        }
-                    } else {
-                        OperationQueue.main.addOperation {
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchControllerIdentifier") as! SearchContactViewController
-                            vc.contacts = filterContacts
-                            vc.delegate = self
-                            self.present(vc, animated: true, completion: nil)
-                        }
-                    }
+                    self.prepareContactData(from: store)
                 }
             }
         }
     }
-}
-
-extension ContactViewController: AddContactViewControllerDelegate {
     
-    func didChooseContact(contact: CNContact) {
-        //if chosen user has more that one email display alert
-        // TODO: not sure if should handle more than 2 emails
-        guard contact.emailAddresses.count == 1 else {
-            DispatchQueue.main.async {
-                self.displayAlertForMoreThanOneEmail(with: contact)
+    private func prepareContactData(from store: CNContactStore) {
+        // get the contacts
+        var filterContacts = [CNContact]()
+        var contacts = [CNContact]()
+        let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey]
+        var message: String!
+        
+        let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+        do {
+            try store.enumerateContacts(with: request) { contact, stop in
+                contacts.append(contact)
             }
-            return
+            filterContacts = contacts.filter { $0.emailAddresses.count > 0 }
+            if filterContacts.count == 0 {
+                message = "No contacts were found."
+            }
+        } catch {
+            message = "Sorry, an error occured."
         }
-        inviteEmailTextVariable.value = contact.emailAddresses[0].value as String
+        
+        if message != nil {
+            DispatchQueue.main.async {
+                self.showAlert(title: "Warning", message: message)
+            }
+        } else {
+            showSearchContactController(with: filterContacts)
+        }
     }
     
+    private func showSearchContactController(with filterContacts: [CNContact]) {
+        OperationQueue.main.addOperation {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchControllerIdentifier") as! SearchContactViewController
+            vc.contacts = filterContacts
+            
+            vc.inviteContact
+                .asObservable()
+                .bindNext({ (contact) in
+                    guard contact.emailAddresses.count == 1 else {
+                        if contact.emailAddresses.count > 0  {
+                            DispatchQueue.main.async {
+                                self.displayAlertForMoreThanOneEmail(with: contact)
+                            }
+                        }
+                        return
+                    }
+                    self.inviteEmail.value = contact.emailAddresses[0].value as String
+                })
+                .addDisposableTo(self.disposeBag)
+            
+            vc.inviteEmailOutsideAddressbook
+                .asObservable()
+                .bindTo(self.inviteEmail)
+                .addDisposableTo(self.disposeBag)
+            
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+
     private func displayAlertForMoreThanOneEmail(with contact: CNContact) {
         let email1 = contact.emailAddresses[0].value as String
         let email2 = contact.emailAddresses[1].value as String
         displayActionSheet(email1, buttonOneAction: { _ in
-            self.inviteEmailTextField.text = contact.emailAddresses[0].value as String
+            self.inviteEmail.value = contact.emailAddresses[0].value as String
         }, buttonTwoTitle: email2, buttonTwoAction: { _ in
-            self.inviteEmailTextField.text = contact.emailAddresses[1].value as String
+            self.inviteEmail.value = contact.emailAddresses[1].value as String
         }, cancelAction: nil)
     }
 }

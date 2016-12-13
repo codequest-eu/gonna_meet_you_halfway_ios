@@ -117,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f89-8L-yox">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactCell" rowHeight="68" id="bTK-9Q-gpp" customClass="ContactCell" customModule="GonnaMeetYouHalfway" customModuleProvider="target">
@@ -172,32 +172,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1me-rL-Hic">
-                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
-                                <color key="backgroundColor" red="0.94168470139311788" green="0.39973170612731546" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="CHf-lf-J4K"/>
-                                </constraints>
-                                <state key="normal" title="Add new email">
-                                    <color key="titleShadowColor" red="0.4842526882" green="1" blue="0.64976226709999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1me-rL-Hic" firstAttribute="leading" secondItem="t14-PV-9sb" secondAttribute="leading" id="8YH-tE-Bbu"/>
                             <constraint firstAttribute="trailing" secondItem="f89-8L-yox" secondAttribute="trailing" id="8hl-Ae-z22"/>
-                            <constraint firstItem="1me-rL-Hic" firstAttribute="top" secondItem="f89-8L-yox" secondAttribute="bottom" id="FrU-Ba-LrQ"/>
                             <constraint firstItem="f89-8L-yox" firstAttribute="top" secondItem="t14-PV-9sb" secondAttribute="top" id="HUT-ra-t2v"/>
-                            <constraint firstItem="bbX-YO-b2L" firstAttribute="top" secondItem="1me-rL-Hic" secondAttribute="bottom" id="U0f-K6-vYl"/>
-                            <constraint firstAttribute="trailing" secondItem="1me-rL-Hic" secondAttribute="trailing" id="oO5-da-7dT"/>
+                            <constraint firstItem="bbX-YO-b2L" firstAttribute="top" secondItem="f89-8L-yox" secondAttribute="bottom" id="R9T-uT-HNc"/>
                             <constraint firstItem="f89-8L-yox" firstAttribute="leading" secondItem="t14-PV-9sb" secondAttribute="leading" id="sF3-eH-RYO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EcM-nn-loe"/>
                     <connections>
-                        <outlet property="addEmailButton" destination="1me-rL-Hic" id="k77-yT-SlS"/>
-                        <outlet property="bottomButtonConstraint" destination="U0f-K6-vYl" id="atj-FE-ohZ"/>
                         <outlet property="tableView" destination="f89-8L-yox" id="kHr-D3-JJA"/>
                     </connections>
                 </viewController>

@@ -22,11 +22,13 @@ class ContactViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let throttleInterval = 0.1
     
+    fileprivate let inviteEmailTextVariable = Variable("")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         inviteEmailTextField.delegate = self
         createGradient(view: self.view)
-//        setupTextChangeHandling()
+        setupTextChangeHandling()
     }
     
     func setupRxObservable() {
@@ -78,15 +80,17 @@ class ContactViewController: UIViewController {
     
     func setupTextChangeHandling() {
         
+        inviteEmailTextVariable.asObservable().bindTo(inviteEmailTextField.rx.text).addDisposableTo(disposeBag)
+        
         let userMailValid = userEmailTextField
             .rx
             .text
             .throttle(throttleInterval, scheduler: MainScheduler.instance)
             .map { self.isValidEmail(mail: $0!) }
-        userMailValid
-            .subscribe()
-//            .subscribe(onNext: { self.userEmailTextField.isValidEmail = $0 })
-            .addDisposableTo(disposeBag)
+//        userMailValid
+////            .subscribe()
+////            .subscribe(onNext: { self.userEmailTextField.isValidEmail = $0 })
+//            .addDisposableTo(disposeBag)
         
         let inviteMailValid = inviteEmailTextField
             .rx
@@ -94,30 +98,36 @@ class ContactViewController: UIViewController {
             .throttle(throttleInterval, scheduler: MainScheduler.instance)
             .map { self.isValidEmail(mail: $0!) }
         
-        inviteMailValid
-            .subscribe()
-//            .subscribe(onNext: { self.expirationDateTextField.valid = $0 })
-            .addDisposableTo(disposeBag)
+//        inviteMailValid
+////            .subscribe()
+////            .subscribe(onNext: { self.expirationDateTextField.valid = $0 })
+//            .addDisposableTo(disposeBag)
         
         let nameValid = nameTextField
             .rx
             .text
             .map { $0 != nil }
         
-        nameValid
-            .subscribe()
-//            .subscribe(onNext: { self.cvvTextField.valid = $0 })
-            .addDisposableTo(disposeBag)
+//        nameValid
+//            .subscribe()
+////            .subscribe(onNext: { self.cvvTextField.valid = $0 })
+//            .addDisposableTo(disposeBag)
         
+        nameValid.asObservable()
+            .bindNext {
+                print("name \($0)")
+        }.addDisposableTo(disposeBag)
         
         let everythingValid = Observable
             .combineLatest(userMailValid, inviteMailValid, nameValid) {
-                $0 && $1 && $2 //All must be true
+                $0 && $1 && $2 // all true
         }
         
-//        everythingValid
-//            .bindTo(inviteButton.rx.enabled)
-//            .addDisposableTo(disposeBag)
+        everythingValid
+            .bindNext { (isActive) in
+                self.updateButtonState(active: isActive)
+            }
+            .addDisposableTo(disposeBag)
 
     }
 }
@@ -186,15 +196,15 @@ extension ContactViewController: UITextFieldDelegate {
 extension ContactViewController: AddContactViewControllerDelegate {
     
     func didChooseContact(contact: CNContact) {
-        //if chosen user has more that one email display alert 
-        
+        //if chosen user has more that one email display alert
+        // TODO: not sure if should handle more than 2 emails
         guard contact.emailAddresses.count == 1 else {
             DispatchQueue.main.async {
                 self.displayAlertForMoreThanOneEmail(with: contact)
             }
             return
         }
-        inviteEmailTextField.text = contact.emailAddresses[0].value as String
+        inviteEmailTextVariable.value = contact.emailAddresses[0].value as String
     }
     
     private func displayAlertForMoreThanOneEmail(with contact: CNContact) {

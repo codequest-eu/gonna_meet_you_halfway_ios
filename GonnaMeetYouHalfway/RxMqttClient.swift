@@ -6,6 +6,7 @@ class RxMqttClient {
 
     let connected: Variable<Bool> = Variable(false)
     let incomingMessages: Variable<(String, String)?> = Variable(nil)
+    var subscriptions: [String: Observable<String>] = [:]
 
     var mqttClient: MQTTClient! = nil
     
@@ -30,6 +31,16 @@ class RxMqttClient {
     }
     
     func subscribe(to topic: String, qos: Int32 = 2) -> Observable<String> {
+        if let subscription = subscriptions[topic] {
+            return subscription
+        } else {
+            let subscription = createSubscription(to: topic, qos: qos)
+            subscriptions[topic] = subscription
+            return subscription
+        }
+    }
+
+    private func createSubscription(to topic: String, qos: Int32) -> Observable<String> {
         return connect()
             .flatMap { self.trySubscribe(to: topic, qos: qos) }
             .flatMap { _ in self.incomingMessages.asObservable() }
@@ -38,6 +49,7 @@ class RxMqttClient {
                 return messageTopic == topic }
             .map { message in message! }
             .map { (topic, payload) in payload }
+            .share()
     }
     
     private func connect() -> Observable<Void> {
@@ -46,8 +58,10 @@ class RxMqttClient {
     
     private func trySubscribe(to topic: String, qos: Int32 = 2) -> Observable<Int> {
         return Observable.create({ observer in
-            let cancel = Disposables.create {
-                self.mqttClient.unsubscribe(topic)
+            let cancel = Disposables.create { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.subscriptions.removeValue(forKey: topic)
+                strongSelf.mqttClient.unsubscribe(topic)
             }
             self.mqttClient.subscribe(topic, qos: qos) { (result, messageId) in
                 if !cancel.isDisposed {

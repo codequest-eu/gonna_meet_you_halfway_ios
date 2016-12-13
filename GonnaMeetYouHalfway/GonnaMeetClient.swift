@@ -33,13 +33,15 @@ class GonnaMeetClient {
     }
     
     func requestMeeting(name: String, email: String, otherEmail: String, location: CLLocationCoordinate2D) -> Observable<MeetingResponse> {
-        let request = MeetingRequest(name: name, email: email, otherEmail: otherEmail, latitude: location.latitude, longitude: location.longitude)
+        let location = Location(latitude: location.latitude, longitude: location.longitude)
+        let request = MeetingRequest(name: name, email: email, otherEmail: otherEmail, position: location)
         return provider.request(.createMeeting(request: request))
             .mapObject(MeetingResponse.self)
     }
 
     func acceptMeeting(name: String, meetingIdentifier: String, location: CLLocationCoordinate2D) -> Observable<MeetingResponse> {
-        let request = AcceptMeetingRequest(name: name, meetingIdentifier: meetingIdentifier, latitude: location.latitude, longitude: location.longitude)
+        let location = Location(latitude: location.latitude, longitude: location.longitude)
+        let request = AcceptMeetingRequest(name: name, meetingIdentifier: meetingIdentifier, position: location)
         return provider.request(.acceptMeeting(request: request))
             .mapObject(MeetingResponse.self)
     }

@@ -26,6 +26,7 @@
 		EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54420D1DFEDFF000EDC654 /* ContactCell.swift */; };
 		EE8B8CBC1E00423800901313 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */; };
 		EE8B8CBE1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */; };
+		EE8B8CC01E0096B100901313 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBF1E0096B100901313 /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		EE54420D1DFEDFF000EDC654 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
 		EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocationManager+Rx.swift"; path = "Extensions/CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxCLLocationManagerDelegateProxy.swift; path = Extensions/RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
+		EE8B8CBF1E0096B100901313 /* LocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewModel.swift; path = ViewModel/LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
+				EE8B8CC11E0096FD00901313 /* Helpers */,
 				EE4CC75F1E002281005C5186 /* ViewModel */,
 				EE4CC75B1E001523005C5186 /* ViewControllers */,
 				EE54420F1DFEDFF500EDC654 /* Cells */,
@@ -153,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				EE4CC7601E0022A7005C5186 /* InviteViewModel.swift */,
+				EE8B8CBF1E0096B100901313 /* LocationViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -173,6 +177,13 @@
 				EE54420D1DFEDFF000EDC654 /* ContactCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		EE8B8CC11E0096FD00901313 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				EE4CC75D1E0015EB005C5186 /* LocationViewController.swift in Sources */,
 				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
 				9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */,
+				EE8B8CC01E0096B100901313 /* LocationViewModel.swift in Sources */,
 				906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */,
 				EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */,
 				EE8B8CBC1E00423800901313 /* CLLocationManager+Rx.swift in Sources */,

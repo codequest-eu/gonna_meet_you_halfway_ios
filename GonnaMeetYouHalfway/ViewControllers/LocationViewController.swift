@@ -16,12 +16,16 @@ class LocationViewController: UIViewController {
     //MARK: Outlets
     @IBOutlet weak var map: MKMapView!
     
+    private var locationFirstLoad = true
     var locationManager: CLLocationManager!
     var userLocation: CLLocationCoordinate2D?
-    var userLocationDefined = false
     let mapLatDelta: CLLocationDegrees = 0.05
     let mapLonDelta: CLLocationDegrees = 0.05
     private (set) var authorized: Bool!
+    
+    //MARK: for test purpose
+    var friendLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.436180, -122.395842)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,12 @@ class LocationViewController: UIViewController {
         if (CLLocationManager.locationServicesEnabled()) {
             setupLocationManager()
         }
+        addMeetingsAnnotation(from: friendLocation)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     // RX Setup
@@ -43,6 +53,17 @@ class LocationViewController: UIViewController {
     }
     
     // Show user and his friend position on the map
+    private func showUserAndHisFriendPosition() {
+        if locationFirstLoad {
+            let deadlineTime = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.map.showAnnotations(self.map.annotations, animated: true)
+            }
+            locationFirstLoad = false
+        } else {
+            self.map.showAnnotations(self.map.annotations, animated: true)
+        }
+    }
     
     // Show proposed meeting locations by adding annotations to map
     private func addMeetingsAnnotation(from coordinate: CLLocationCoordinate2D) {
@@ -75,20 +96,14 @@ extension LocationViewController: CLLocationManagerDelegate {
         //  Check access for user location
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             locationManager.requestLocation()
-            self.showUserCurrentLocation()
         } else {
             showSettingsAlert()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         if let location = locations.first {
             self.userLocation = location.coordinate
-            if !userLocationDefined {
-                self.showUserCurrentLocation()
-                userLocationDefined = true
-            }
         }
     }
     

@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		283F36AF21F9428751A4D355 /* Pods_GonnaMeetYouHalfway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
-		9060F3671DFEAAE600213743 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3661DFEAAE600213743 /* ContactViewController.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
 		9060F36C1DFEAAE600213743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36B1DFEAAE600213743 /* Assets.xcassets */; };
 		9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */; };
+		9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3771DFEB0AB00213743 /* MeetingRequest.swift */; };
+		9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
+		9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
+		906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */; };
+		906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CF1DFED95700F4136F /* SuggestionRequest.swift */; };
+		EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3661DFEAAE600213743 /* ContactViewController.swift */; };
 		EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8031DFEB56F00E444F7 /* Globals.swift */; };
 		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
 		EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */; };
@@ -30,6 +35,11 @@
 		9060F36B1DFEAAE600213743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9060F36E1DFEAAE600213743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9060F3701DFEAAE600213743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9060F3771DFEB0AB00213743 /* MeetingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
+		9060F3791DFEB12800213743 /* MeetingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingResponse.swift; sourceTree = "<group>"; };
+		9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetAPI.swift; sourceTree = "<group>"; };
+		906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetProvider.swift; sourceTree = "<group>"; };
+		906874CF1DFED95700F4136F /* SuggestionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionRequest.swift; sourceTree = "<group>"; };
 		EE4CC8031DFEB56F00E444F7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +81,8 @@
 			children = (
 				EE54420F1DFEDFF500EDC654 /* Cells */,
 				EE4CC8051DFEB69300E444F7 /* Extensions */,
+				9060F37C1DFEB1F200213743 /* Network */,
+				9060F3761DFEB05500213743 /* Model */,
 				9060F3641DFEAAE600213743 /* AppDelegate.swift */,
 				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
 				EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */,
@@ -81,6 +93,25 @@
 				EE4CC8031DFEB56F00E444F7 /* Globals.swift */,
 			);
 			path = GonnaMeetYouHalfway;
+			sourceTree = "<group>";
+		};
+		9060F3761DFEB05500213743 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9060F3771DFEB0AB00213743 /* MeetingRequest.swift */,
+				9060F3791DFEB12800213743 /* MeetingResponse.swift */,
+				906874CF1DFED95700F4136F /* SuggestionRequest.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9060F37C1DFEB1F200213743 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */,
+				906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		B58DEBF5039DB340F80B740C /* Pods */ = {
@@ -242,9 +273,14 @@
 				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
-				9060F3671DFEAAE600213743 /* ContactViewController.swift in Sources */,
-				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
 				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
+				9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */,
+				906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */,
+				EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */,
+				9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */,
+				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,
+				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
+				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

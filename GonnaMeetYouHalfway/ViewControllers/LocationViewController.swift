@@ -11,47 +11,42 @@ import MapKit
 import CoreLocation
 import RxSwift
 
+protocol LocationViewControllerProtocol {
+    func didPerformRequestWithFailure()
+}
+
 class LocationViewController: UIViewController {
 
-    //MARK: Outlets
+    //MARK: - Outlets
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var statusLabel: UILabel!
     
+    // MARK: - Properties
+    var friendName = ""
+    var meetingDetails: MeetingResponse!
     private var locationFirstLoad = true
-    var locationManager: CLLocationManager!
-    var userLocation: CLLocationCoordinate2D?
+    let lm = LocationManager.sharedInstance
     let mapLatDelta: CLLocationDegrees = 0.05
     let mapLonDelta: CLLocationDegrees = 0.05
-    private (set) var authorized: Bool!
+    var locationVM: LocationViewModelProtocol!
     
     //MARK: for test purpose
     var friendLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.436180, -122.395842)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        map.delegate = self
         map.showsScale = true
         map.showsUserLocation = true
-        if (CLLocationManager.locationServicesEnabled()) {
-            setupLocationManager()
-        }
         addMeetingsAnnotation(from: friendLocation)
+        locationVM = LocationViewModel(controller: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showUserAndHisFriendPosition()
     }
-    
-    // RX Setup
-    private func setupLocationManager() {
 
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
     // Show user and his friend position on the map
     private func showUserAndHisFriendPosition() {
         if locationFirstLoad {
@@ -76,7 +71,7 @@ class LocationViewController: UIViewController {
     
     // Zoom map to current user location
     fileprivate func showUserCurrentLocation() {
-        if let location = self.userLocation {
+        if let location = self.lm.userLocation {
             let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)
             let region = MKCoordinateRegion(center: location, span: span)
             self.map.setRegion(region, animated: true)
@@ -90,38 +85,27 @@ class LocationViewController: UIViewController {
     }
 }
 
-extension LocationViewController: CLLocationManagerDelegate {
+extension LocationViewController: MKMapViewDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        //  Check access for user location
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
-            locationManager.requestLocation()
-        } else {
-            showSettingsAlert()
-        }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // Propose place to meet
+        locationVM.proposePlaceToMeet(with: meetingDetails, coordinates: friendLocation)
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            self.userLocation = location.coordinate
-        }
-    }
-    
-    private func showSettingsAlert() {
-        // Create the actions buttons for settings alert
-        let okAction = UIAlertAction(title: "OK", style: .default) {
-            UIAlertAction in
-            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
-        }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annotationView.isEnabled = true
+        annotationView.canShowCallout = true
         
-        showAlert(title: "Error",
-                  message: "No access to location services. Do you want to change your settings now?",
-                  buttonOneTitle: "Go to Settings",
-                  cancelButtonTitle: "Cancel",
-                  action: okAction)
+        let btn = UIButton(type: .contactAdd)
+        annotationView.rightCalloutAccessoryView = btn
+        return annotationView
     }
+}
+
+extension LocationViewController: LocationViewControllerProtocol {
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+    func didPerformRequestWithFailure() {
+        showAlert(title: "Error", message: "Sorry, an error occured. Please try again later")
     }
 }

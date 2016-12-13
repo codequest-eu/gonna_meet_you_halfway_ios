@@ -14,19 +14,18 @@ protocol InviteViewModelProtocol {
 
 class InviteViewModel: InviteViewModelProtocol {
     
-    let controller: ContactViewControllerProtocol
+    private let controller: ContactViewControllerProtocol
+    private let disposeBag = DisposeBag()
+    private let apiProvider = GonnaMeetClient()
     
     init(controller: ContactViewControllerProtocol) {
         self.controller = controller
     }
     
-    fileprivate let disposeBag = DisposeBag()
-    private let apiProvider = GonnaMeetProvider()
-    
     func inviteFriend(name: String, inviteEmail: String, userEmail: String) {
-        apiProvider.requestMeeting(name: name, email: userEmail, inviteEmail: inviteEmail)
+        apiProvider.requestMeeting(name: name, email: userEmail, otherEmail: inviteEmail)
             .subscribe(onNext: { (response) in
-                self.controller.didInviteFriendWithSuccess()
+                self.controller.didInviteFriendWithSuccess(response: response)
                 print(response)
             }, onError: { (error) in
                 self.controller.didInviteFriendWithFailure()

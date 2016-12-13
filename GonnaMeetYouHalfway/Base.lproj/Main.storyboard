@@ -210,35 +210,52 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fl1-KP-wah">
                                 <rect key="frame" x="16" y="94" width="343" height="514"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFw-th-1Qg">
-                                <rect key="frame" x="171" y="28" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="HK4-c7-OAm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pc-2p-cv3">
                                 <rect key="frame" x="28" y="582" width="22" height="22"/>
                                 <connections>
                                     <action selector="centerMapOnUserLocation:" destination="zwu-aA-R17" eventType="touchUpInside" id="0Xj-XD-v8p"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6Q-QX-E0U">
+                                <rect key="frame" x="18" y="38" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For Meeting Place Approval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1H-6j-tVp">
+                                <rect key="frame" x="80" y="38" width="272" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFw-th-1Qg">
+                                <rect key="frame" x="171" y="50" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="HK4-c7-OAm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="f1H-6j-tVp" firstAttribute="leading" secondItem="o6Q-QX-E0U" secondAttribute="trailing" constant="8" id="4FL-EE-C6m"/>
+                            <constraint firstItem="f1H-6j-tVp" firstAttribute="centerY" secondItem="o6Q-QX-E0U" secondAttribute="centerY" id="4I1-F5-eYa"/>
                             <constraint firstItem="4pc-2p-cv3" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="-26" id="BbM-rY-OWh"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leading" constant="16" id="CdN-CJ-xFP"/>
                             <constraint firstItem="Rqq-ea-zUO" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="59" id="F3q-Fx-8sC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fFw-th-1Qg" secondAttribute="trailing" constant="142" id="HV2-Gv-o4h"/>
-                            <constraint firstItem="fFw-th-1Qg" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="8" id="JQa-Hd-WYJ"/>
+                            <constraint firstItem="fFw-th-1Qg" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="30" id="JQa-Hd-WYJ"/>
                             <constraint firstAttribute="trailing" secondItem="Fl1-KP-wah" secondAttribute="trailing" constant="16" id="JbT-xF-nVw"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="74" id="Moj-NG-6yj"/>
                             <constraint firstItem="fFw-th-1Qg" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leadingMargin" constant="155" id="dxD-0z-oZ5"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="4pc-2p-cv3" secondAttribute="trailing" constant="-34" id="gOi-R4-Tak"/>
+                            <constraint firstItem="o6Q-QX-E0U" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="18" id="hxh-OD-vlU"/>
+                            <constraint firstItem="o6Q-QX-E0U" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leading" constant="18" id="iDN-UZ-RLp"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="map" destination="Fl1-KP-wah" id="JeZ-Ja-tJH"/>
+                        <outlet property="statusLabel" destination="f1H-6j-tVp" id="RIl-NH-J4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPX-ai-tAN" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -6,8 +6,30 @@
 //  Copyright © 2016 Codequest. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+import CoreLocation
 
-class LocationViewModel {
+protocol LocationViewModelProtocol {
+    func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D)
+}
+
+class LocationViewModel: LocationViewModelProtocol {
     
+    private let controller: LocationViewControllerProtocol
+    private let disposeBag = DisposeBag()
+    private let apiProvider = GonnaMeetClient()
+    
+    init(controller: LocationViewControllerProtocol) {
+        self.controller = controller
+    }
+    
+    func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D) {
+        apiProvider.suggest(meetingIdentifier: details.meetingIdentifier, coordinate: coordinates)
+            .subscribe(onNext: { response in
+                print(response)
+            }, onError: { _ in
+                self.controller.didPerformRequestWithFailure()
+            })
+            .addDisposableTo(disposeBag)
+    }
 }

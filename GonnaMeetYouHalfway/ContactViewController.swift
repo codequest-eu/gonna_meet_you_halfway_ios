@@ -14,7 +14,7 @@ import RxCocoa
 let throttleInterval = 0.1
 
 protocol ContactViewControllerProtocol {
-    func didInviteFriendWithSuccess()
+    func didInviteFriendWithSuccess(response: MeetingResponse)
     func didInviteFriendWithFailure()
 }
 
@@ -27,6 +27,7 @@ class ContactViewController: UIViewController {
 
     var contactStore = CNContactStore()
     var inviteEmail = Variable("")
+    var inviteName: String?
     fileprivate let disposeBag = DisposeBag()
     fileprivate let inviteEmailTextVariable = Variable("")
     
@@ -74,12 +75,15 @@ class ContactViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
-//        let vm: InviteViewModelProtocol = InviteViewModel(controller: self)
-//        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!)
-
-        // FOR TESTS
-        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
-        self.present(vc, animated: true, completion: nil)
+        let vm: InviteViewModelProtocol = InviteViewModel(controller: self)
+        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!)
+//
+//        // FOR TESTS
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+//        if let name = inviteName {
+//            vc.friendName = name
+//        }
+//        self.present(vc, animated: true, completion: nil)
     }
     
     func showError(error: Error.Protocol) {
@@ -195,6 +199,7 @@ extension ContactViewController: UITextFieldDelegate {
                         return
                     }
                     self.inviteEmail.value = contact.emailAddresses[0].value as String
+                    self.inviteName = contact.givenName
                 })
                 .addDisposableTo(self.disposeBag)
             
@@ -208,6 +213,7 @@ extension ContactViewController: UITextFieldDelegate {
     }
 
     private func displayAlertForMoreThanOneEmail(with contact: CNContact) {
+        self.inviteName = contact.givenName
         let email1 = contact.emailAddresses[0].value as String
         let email2 = contact.emailAddresses[1].value as String
         displayActionSheet(email1, buttonOneAction: { _ in
@@ -220,8 +226,12 @@ extension ContactViewController: UITextFieldDelegate {
 
 extension ContactViewController: ContactViewControllerProtocol {
     
-    func didInviteFriendWithSuccess() {
+    func didInviteFriendWithSuccess(response: MeetingResponse) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        if let name = inviteName {
+            vc.friendName = name
+        }
+        vc.meetingDetails = response
         self.present(vc, animated: true, completion: nil)
     }
     

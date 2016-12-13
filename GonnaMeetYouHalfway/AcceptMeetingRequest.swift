@@ -1,10 +1,9 @@
 import CoreLocation
 
-struct MeetingRequest {
-
+struct AcceptMeetingRequest {
+    
     let name: String
-    let email: String
-    let otherEmail: String
+    let meetingIdentifier: String
     let position: Location
     
 }

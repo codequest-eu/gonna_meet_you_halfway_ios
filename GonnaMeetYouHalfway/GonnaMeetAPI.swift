@@ -2,6 +2,7 @@ import UIKit
 import Moya
 import Wrap
 import CoreLocation
+import ObjectMapper
 
 enum GonnaMeetAPI {
 
@@ -13,8 +14,7 @@ enum GonnaMeetAPI {
 
 extension GonnaMeetAPI: TargetType {
     
-    //var baseURL: URL { return URL(string: "http://halfway-29eb2e90.0a374f81.svc.dockerapp.io:8080")! }
-    var baseURL: URL { return URL(string: "http://localhost:8080")! }
+    var baseURL: URL { return URL(string: "http://halfway-29eb2e90.0a374f81.svc.dockerapp.io:8080")! }
     
     var path: String {
         switch self {

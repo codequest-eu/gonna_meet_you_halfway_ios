@@ -42,7 +42,18 @@ class LocationViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
-    // Zoom map to current location
+    // Show user and his friend position on the map
+    
+    // Show proposed meeting locations by adding annotations to map
+    private func addMeetingsAnnotation(from coordinate: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = "Place to meet"
+        annotation.subtitle = "GOOOOOOOOOOOSIA"
+        map.addAnnotation(annotation)
+    }
+    
+    // Zoom map to current user location
     fileprivate func showUserCurrentLocation() {
         if let location = self.userLocation {
             let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)

@@ -16,8 +16,10 @@
 		9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3771DFEB0AB00213743 /* MeetingRequest.swift */; };
 		9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
-		906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */; };
+		906874CE1DFEBCB600F4136F /* GonnaMeetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */; };
 		906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CF1DFED95700F4136F /* SuggestionRequest.swift */; };
+		906874D21DFEE2AD00F4136F /* GonnaMeetNotificationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874D11DFEE2AD00F4136F /* GonnaMeetNotificationClient.swift */; };
+		906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874D31DFF51DC00F4136F /* GonnaMeetError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,10 @@
 		9060F3771DFEB0AB00213743 /* MeetingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
 		9060F3791DFEB12800213743 /* MeetingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingResponse.swift; sourceTree = "<group>"; };
 		9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetAPI.swift; sourceTree = "<group>"; };
-		906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetProvider.swift; sourceTree = "<group>"; };
+		906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetClient.swift; sourceTree = "<group>"; };
 		906874CF1DFED95700F4136F /* SuggestionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionRequest.swift; sourceTree = "<group>"; };
+		906874D11DFEE2AD00F4136F /* GonnaMeetNotificationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetNotificationClient.swift; sourceTree = "<group>"; };
+		906874D31DFF51DC00F4136F /* GonnaMeetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */,
-				906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */,
+				906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */,
+				906874D11DFEE2AD00F4136F /* GonnaMeetNotificationClient.swift */,
+				906874D31DFF51DC00F4136F /* GonnaMeetError.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -242,8 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */,
+				906874D21DFEE2AD00F4136F /* GonnaMeetNotificationClient.swift in Sources */,
 				9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */,
-				906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */,
+				906874CE1DFEBCB600F4136F /* GonnaMeetClient.swift in Sources */,
 				9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */,
 				9060F3671DFEAAE600213743 /* ViewController.swift in Sources */,
 				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,

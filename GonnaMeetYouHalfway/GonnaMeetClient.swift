@@ -2,20 +2,21 @@ import UIKit
 import Moya
 import RxSwift
 import CoreLocation
+import Moya_ObjectMapper
 
-class GonnaMeetProvider {
+class GonnaMeetClient {
 
-    private static let shared = GonnaMeetProvider()
-    static var `default`: GonnaMeetProvider { return shared }
+    private static let shared = GonnaMeetClient()
+    static var `default`: GonnaMeetClient { return shared }
     
     private let provider: RxMoyaProvider<GonnaMeetAPI>
     
-    init(provider: RxMoyaProvider<GonnaMeetAPI> = GonnaMeetProvider.defaultProvider()) {
+    init(provider: RxMoyaProvider<GonnaMeetAPI> = GonnaMeetClient.defaultProvider()) {
         self.provider = provider
     }
     
-    private class func defaultProvider() -> RxMoyaProvider<GonnaMeetAPI> {
-        return RxMoyaProvider<GonnaMeetAPI>(endpointClosure: GonnaMeetProvider.endpointClosure)
+    private static func defaultProvider() -> RxMoyaProvider<GonnaMeetAPI> {
+        return RxMoyaProvider<GonnaMeetAPI>(endpointClosure: GonnaMeetClient.endpointClosure)
     }
     
     private static let endpointClosure = { (target: GonnaMeetAPI) -> Endpoint<GonnaMeetAPI> in

@@ -2,6 +2,7 @@ import UIKit
 import Moya
 import Wrap
 import CoreLocation
+import ObjectMapper
 
 enum GonnaMeetAPI {
 

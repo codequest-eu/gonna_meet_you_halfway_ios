@@ -39,7 +39,7 @@ class LocationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        showUserAndHisFriendPosition()
     }
     
     // RX Setup

@@ -13,20 +13,18 @@
 		9060F36C1DFEAAE600213743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36B1DFEAAE600213743 /* Assets.xcassets */; };
 		9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */; };
 		9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3771DFEB0AB00213743 /* MeetingRequest.swift */; };
-		9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
-		9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
-		906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */; };
 		906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CF1DFED95700F4136F /* SuggestionRequest.swift */; };
+		906874D21DFEE2AD00F4136F /* RxMqttClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874D11DFEE2AD00F4136F /* RxMqttClient.swift */; };
+		906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874D31DFF51DC00F4136F /* GonnaMeetError.swift */; };
+		90741C791E00190B001E88E4 /* PlaceSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C781E00190B001E88E4 /* PlaceSuggestion.swift */; };
+		90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */; };
+		90741C7E1E00267F001E88E4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C7D1E00267F001E88E4 /* Location.swift */; };
+		EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31906C1E009BB90045569E /* LocationViewController.swift */; };
 		EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3661DFEAAE600213743 /* ContactViewController.swift */; };
-		EE4CC75D1E0015EB005C5186 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC75C1E0015EB005C5186 /* LocationViewController.swift */; };
-		EE4CC7611E0022A7005C5186 /* InviteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC7601E0022A7005C5186 /* InviteViewModel.swift */; };
 		EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8031DFEB56F00E444F7 /* Globals.swift */; };
 		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
 		EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */; };
 		EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54420D1DFEDFF000EDC654 /* ContactCell.swift */; };
-		EE8B8CBC1E00423800901313 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */; };
-		EE8B8CBE1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */; };
-		EE8B8CC01E0096B100901313 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B8CBF1E0096B100901313 /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,17 +41,18 @@
 		9060F3771DFEB0AB00213743 /* MeetingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
 		9060F3791DFEB12800213743 /* MeetingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingResponse.swift; sourceTree = "<group>"; };
 		9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetAPI.swift; sourceTree = "<group>"; };
-		906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetProvider.swift; sourceTree = "<group>"; };
+		906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetClient.swift; sourceTree = "<group>"; };
 		906874CF1DFED95700F4136F /* SuggestionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionRequest.swift; sourceTree = "<group>"; };
-		EE4CC75C1E0015EB005C5186 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ViewControllers/LocationViewController.swift; sourceTree = "<group>"; };
-		EE4CC7601E0022A7005C5186 /* InviteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteViewModel.swift; path = ViewModel/InviteViewModel.swift; sourceTree = "<group>"; };
+		906874D11DFEE2AD00F4136F /* RxMqttClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMqttClient.swift; sourceTree = "<group>"; };
+		906874D31DFF51DC00F4136F /* GonnaMeetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetError.swift; sourceTree = "<group>"; };
+		90741C781E00190B001E88E4 /* PlaceSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSuggestion.swift; sourceTree = "<group>"; };
+		90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingSuggestion.swift; sourceTree = "<group>"; };
+		90741C7D1E00267F001E88E4 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		EE31906C1E009BB90045569E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ViewControllers/LocationViewController.swift; sourceTree = "<group>"; };
 		EE4CC8031DFEB56F00E444F7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
 		EE54420D1DFEDFF000EDC654 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
-		EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CLLocationManager+Rx.swift"; path = "Extensions/CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
-		EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxCLLocationManagerDelegateProxy.swift; path = Extensions/RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
-		EE8B8CBF1E0096B100901313 /* LocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewModel.swift; path = ViewModel/LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +88,7 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
-				EE8B8CC11E0096FD00901313 /* Helpers */,
-				EE4CC75F1E002281005C5186 /* ViewModel */,
-				EE4CC75B1E001523005C5186 /* ViewControllers */,
+				EE31906B1E009BA80045569E /* ViewControllers */,
 				EE54420F1DFEDFF500EDC654 /* Cells */,
 				EE4CC8051DFEB69300E444F7 /* Extensions */,
 				9060F37C1DFEB1F200213743 /* Network */,
@@ -112,6 +109,9 @@
 				9060F3771DFEB0AB00213743 /* MeetingRequest.swift */,
 				9060F3791DFEB12800213743 /* MeetingResponse.swift */,
 				906874CF1DFED95700F4136F /* SuggestionRequest.swift */,
+				90741C781E00190B001E88E4 /* PlaceSuggestion.swift */,
+				90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */,
+				90741C7D1E00267F001E88E4 /* Location.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -120,7 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */,
-				906874CD1DFEBCB600F4136F /* GonnaMeetProvider.swift */,
+				906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */,
+				906874D11DFEE2AD00F4136F /* RxMqttClient.swift */,
+				906874D31DFF51DC00F4136F /* GonnaMeetError.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -142,31 +144,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EE4CC75B1E001523005C5186 /* ViewControllers */ = {
+		EE31906B1E009BA80045569E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE31906C1E009BB90045569E /* LocationViewController.swift */,
 				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
 				EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */,
-				EE4CC75C1E0015EB005C5186 /* LocationViewController.swift */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		EE4CC75F1E002281005C5186 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EE4CC7601E0022A7005C5186 /* InviteViewModel.swift */,
-				EE8B8CBF1E0096B100901313 /* LocationViewModel.swift */,
-			);
-			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		EE4CC8051DFEB69300E444F7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */,
-				EE8B8CBB1E00423800901313 /* CLLocationManager+Rx.swift */,
-				EE8B8CBD1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -177,13 +168,6 @@
 				EE54420D1DFEDFF000EDC654 /* ContactCell.swift */,
 			);
 			name = Cells;
-			sourceTree = "<group>";
-		};
-		EE8B8CC11E0096FD00901313 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,21 +293,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */,
+				906874D21DFEE2AD00F4136F /* RxMqttClient.swift in Sources */,
+				90741C791E00190B001E88E4 /* PlaceSuggestion.swift in Sources */,
+				90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */,
 				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
-				EE4CC7611E0022A7005C5186 /* InviteViewModel.swift in Sources */,
-				EE4CC75D1E0015EB005C5186 /* LocationViewController.swift in Sources */,
+				EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */,
 				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
-				9060F37E1DFEB20900213743 /* GonnaMeetAPI.swift in Sources */,
-				EE8B8CC01E0096B100901313 /* LocationViewModel.swift in Sources */,
-				906874CE1DFEBCB600F4136F /* GonnaMeetProvider.swift in Sources */,
 				EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */,
-				EE8B8CBC1E00423800901313 /* CLLocationManager+Rx.swift in Sources */,
-				9060F37A1DFEB12800213743 /* MeetingResponse.swift in Sources */,
 				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
-				EE8B8CBE1E00427800901313 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
+				90741C7E1E00267F001E88E4 /* Location.swift in Sources */,
 				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WBU-kD-R1g">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="GF5-tW-1DQ">
+            <objects>
+                <controller identifier="Home" id="WBU-kD-R1g" customClass="HomeInterfaceController" customModule="HalfwayWatch_Extension"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="-44"/>
+        </scene>
+        <!--Arrive in-->
+        <scene sceneID="KZK-Za-te4">
+            <objects>
+                <controller identifier="Arrival" title="Arrive in" id="zoi-Zw-upe" customClass="ArrivalInterfaceController" customModule="HalfwayWatch_Extension">
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="4" y="295"/>
+        </scene>
+        <!--Locations-->
+        <scene sceneID="R1g-zH-teP">
+            <objects>
+                <controller identifier="Map" title="Locations" id="uQG-rU-KSy" customClass="MapInterfaceController" customModule="HalfwayWatch_Extension">
+                    <items>
+                        <map width="1" height="1" alignment="center" verticalAlignment="center" id="brg-Qe-oma"/>
+                    </items>
+                    <connections>
+                        <outlet property="map" destination="brg-Qe-oma" id="tew-LR-kJf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="272" y="295"/>
+        </scene>
+    </scenes>
+</document>

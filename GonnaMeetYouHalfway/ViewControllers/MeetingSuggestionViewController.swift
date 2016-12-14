@@ -10,6 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol MeetingSuggestionViewControllerProtocol {
+    func didPerformRequestWithFailure()
+    func userDidAcceptSuggestion()
+}
+
 class MeetingSuggestionViewController: UIViewController {
 
     //MARK: - Outlets
@@ -21,6 +26,7 @@ class MeetingSuggestionViewController: UIViewController {
     //MARK: - Properties
     var place: MeetingSuggestion!
     var friendName: String!
+    var meetingVM: MeetingViewModelProtocol!
     
     // MARK: - Actions
     @IBAction func rejectSuggestion(_ sender: Any) {
@@ -28,11 +34,12 @@ class MeetingSuggestionViewController: UIViewController {
     }
     
     @IBAction func acceptSuggestion(_ sender: Any) {
-        
+        meetingVM.acceptPlaceSuggestion(placeIdentifier: <#T##String#>)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        meetingVM = MeetingViewModel(controller: self)
         setupLabels()
         setupMap()
     }
@@ -50,5 +57,16 @@ class MeetingSuggestionViewController: UIViewController {
         let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)
         let region = MKCoordinateRegion(center: coordinates, span: span)
         self.map.setRegion(region, animated: true)
+    }
+}
+
+extension MeetingSuggestionViewController: MeetingSuggestionViewControllerProtocol {
+    
+    func didPerformRequestWithFailure() {
+        
+    }
+    
+    func userDidAcceptSuggestion() {
+        
     }
 }

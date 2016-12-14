@@ -20,6 +20,7 @@
 		90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */; };
 		90741C7E1E00267F001E88E4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C7D1E00267F001E88E4 /* Location.swift */; };
 		EE2D53061E014CD700D839C0 /* MeetingSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */; };
+		EE2D53081E0151EA00D839C0 /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D53071E0151EA00D839C0 /* MeetingViewModel.swift */; };
 		EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31906C1E009BB90045569E /* LocationViewController.swift */; };
 		EE3190721E009DA80045569E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3190711E009DA80045569E /* LocationManager.swift */; };
 		EE3190761E00A1D50045569E /* InviteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3190741E00A1D50045569E /* InviteViewModel.swift */; };
@@ -57,6 +58,7 @@
 		90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingSuggestion.swift; sourceTree = "<group>"; };
 		90741C7D1E00267F001E88E4 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingSuggestionViewController.swift; path = ViewControllers/MeetingSuggestionViewController.swift; sourceTree = "<group>"; };
+		EE2D53071E0151EA00D839C0 /* MeetingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingViewModel.swift; path = ViewModel/MeetingViewModel.swift; sourceTree = "<group>"; };
 		EE31906C1E009BB90045569E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ViewControllers/LocationViewController.swift; sourceTree = "<group>"; };
 		EE3190711E009DA80045569E /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EE3190741E00A1D50045569E /* InviteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteViewModel.swift; path = ViewModel/InviteViewModel.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				EE3190741E00A1D50045569E /* InviteViewModel.swift */,
 				EE3190751E00A1D50045569E /* LocationViewModel.swift */,
+				EE2D53071E0151EA00D839C0 /* MeetingViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				90741C791E00190B001E88E4 /* PlaceSuggestion.swift in Sources */,
 				90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */,
 				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
+				EE2D53081E0151EA00D839C0 /* MeetingViewModel.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
 				EE3190771E00A1D50045569E /* LocationViewModel.swift in Sources */,

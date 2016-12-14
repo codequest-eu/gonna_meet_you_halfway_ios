@@ -34,6 +34,8 @@
 		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
 		EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */; };
 		EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54420D1DFEDFF000EDC654 /* ContactCell.swift */; };
+		EE6ECA251E01A9B7006DE828 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6ECA241E01A9B7006DE828 /* NavigationViewController.swift */; };
+		EE6ECA271E01AD91006DE828 /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6ECA261E01AD91006DE828 /* AlertHandler.swift */; };
 		EEA12C401E01680B008A98CE /* GonnaMeetAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */; };
 		EEA12C421E0170B4008A98CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA12C411E0170B4008A98CE /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,8 @@
 		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
 		EE54420D1DFEDFF000EDC654 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
+		EE6ECA241E01A9B7006DE828 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = ViewControllers/NavigationViewController.swift; sourceTree = "<group>"; };
+		EE6ECA261E01AD91006DE828 /* AlertHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHandler.swift; path = Helpers/AlertHandler.swift; sourceTree = "<group>"; };
 		EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetAnnotation.swift; path = Helpers/GonnaMeetAnnotation.swift; sourceTree = "<group>"; };
 		EEA12C411E0170B4008A98CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEA12C451E018B41008A98CE /* GonnaMeetYouHalfway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GonnaMeetYouHalfway.entitlements; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
 				EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */,
 				EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */,
+				EE6ECA241E01A9B7006DE828 /* NavigationViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				EE3190711E009DA80045569E /* LocationManager.swift */,
 				EE31907B1E00BDDB0045569E /* MeetingStatus.swift */,
 				EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */,
+				EE6ECA261E01AD91006DE828 /* AlertHandler.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -358,12 +364,14 @@
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
 				EE3190771E00A1D50045569E /* LocationViewModel.swift in Sources */,
+				EE6ECA251E01A9B7006DE828 /* NavigationViewController.swift in Sources */,
 				EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */,
 				EE3190791E00A22F0045569E /* GonnaMeetAPI.swift in Sources */,
 				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
 				EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */,
 				EE3190761E00A1D50045569E /* InviteViewModel.swift in Sources */,
 				EE3190781E00A2080045569E /* GonnaMeetClient.swift in Sources */,
+				EE6ECA271E01AD91006DE828 /* AlertHandler.swift in Sources */,
 				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
 				EE31907C1E00BDDB0045569E /* MeetingStatus.swift in Sources */,

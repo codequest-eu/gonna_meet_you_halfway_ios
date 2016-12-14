@@ -17,7 +17,7 @@ protocol MeetingSuggestionViewControllerProtocol {
     func userDidAcceptSuggestion()
 }
 
-class MeetingSuggestionViewController: UIViewController {
+class MeetingSuggestionViewController: UIViewController, AlertHandler {
 
     //MARK: - Outlets
     @IBOutlet weak var infoLabel: UILabel!
@@ -72,7 +72,7 @@ extension MeetingSuggestionViewController: MeetingSuggestionViewControllerProtoc
     
     func didPerformRequestWithFailure() {
         proposalAccepted.value = false
-        showAlert(title: "Error", message: "Sorry, an error occured. Please try again.")
+        showError()
     }
     
     func userDidAcceptSuggestion() {

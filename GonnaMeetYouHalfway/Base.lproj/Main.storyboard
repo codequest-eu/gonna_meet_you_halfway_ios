@@ -382,6 +382,73 @@
             </objects>
             <point key="canvasLocation" x="2677.5999999999999" y="-16.641679160419791"/>
         </scene>
+        <!--Navigation View Controller-->
+        <scene sceneID="qqu-bc-f5o">
+            <objects>
+                <viewController storyboardIdentifier="NavigationViewController" id="fjE-yq-gmR" customClass="NavigationViewController" customModule="GonnaMeetYouHalfway" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WJf-sd-XrM"/>
+                        <viewControllerLayoutGuide type="bottom" id="De1-SY-dsF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y6k-Bx-Gqd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to destination:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeJ-Od-dip">
+                                <rect key="frame" x="16" y="20" width="152" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00 h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hw-3S-xkA">
+                                <rect key="frame" x="219" y="20" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John time to destination:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7s-Fd-f1b">
+                                <rect key="frame" x="16" y="58" width="189" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00 h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgM-kj-7wj">
+                                <rect key="frame" x="219" y="58" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7mc-MJ-kNe">
+                                <rect key="frame" x="0.0" y="87" width="375" height="580"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Hw-3S-xkA" firstAttribute="centerY" secondItem="HeJ-Od-dip" secondAttribute="centerY" id="0jO-5O-fdM"/>
+                            <constraint firstItem="SgM-kj-7wj" firstAttribute="centerY" secondItem="d7s-Fd-f1b" secondAttribute="centerY" id="3EO-BB-W20"/>
+                            <constraint firstItem="3Hw-3S-xkA" firstAttribute="leading" secondItem="d7s-Fd-f1b" secondAttribute="trailing" constant="14" id="MRC-K8-JEt"/>
+                            <constraint firstItem="SgM-kj-7wj" firstAttribute="leading" secondItem="3Hw-3S-xkA" secondAttribute="leading" id="Odg-Ju-Daz"/>
+                            <constraint firstItem="De1-SY-dsF" firstAttribute="top" secondItem="7mc-MJ-kNe" secondAttribute="bottom" id="SVP-J7-SLc"/>
+                            <constraint firstAttribute="trailing" secondItem="7mc-MJ-kNe" secondAttribute="trailing" id="UHr-S2-uZO"/>
+                            <constraint firstItem="HeJ-Od-dip" firstAttribute="top" secondItem="WJf-sd-XrM" secondAttribute="bottom" id="ZRT-bA-PrQ"/>
+                            <constraint firstItem="7mc-MJ-kNe" firstAttribute="leading" secondItem="y6k-Bx-Gqd" secondAttribute="leading" id="ca2-mk-O19"/>
+                            <constraint firstItem="d7s-Fd-f1b" firstAttribute="leading" secondItem="HeJ-Od-dip" secondAttribute="leading" id="fjw-i0-dMK"/>
+                            <constraint firstItem="7mc-MJ-kNe" firstAttribute="top" secondItem="d7s-Fd-f1b" secondAttribute="bottom" constant="8" id="qv9-41-fBq"/>
+                            <constraint firstItem="HeJ-Od-dip" firstAttribute="leading" secondItem="y6k-Bx-Gqd" secondAttribute="leading" constant="16" id="rQ6-8d-QKy"/>
+                            <constraint firstItem="d7s-Fd-f1b" firstAttribute="top" secondItem="HeJ-Od-dip" secondAttribute="bottom" constant="17" id="z3Z-RY-6Xu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="destinationTimeLabel" destination="3Hw-3S-xkA" id="xyu-xs-0Q3"/>
+                        <outlet property="friendDestinationTimeLabel" destination="SgM-kj-7wj" id="GqW-qs-MCa"/>
+                        <outlet property="friendInfoLabel" destination="d7s-Fd-f1b" id="CgF-Lq-ick"/>
+                        <outlet property="map" destination="7mc-MJ-kNe" id="GTl-82-nFh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TU3-qp-0k6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3408.8000000000002" y="-12.143928035982009"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMi-2P-JiJ">
             <objects>

@@ -21,7 +21,7 @@ protocol LocationViewControllerProtocol {
 let mapLatDelta: CLLocationDegrees = 0.05
 let mapLonDelta: CLLocationDegrees = 0.05
 
-class LocationViewController: UIViewController {
+class LocationViewController: UIViewController, AlertHandler {
 
     //MARK: - Outlets
     @IBOutlet weak var map: MKMapView!
@@ -31,9 +31,9 @@ class LocationViewController: UIViewController {
     // MARK: - Properties
     var friendName = ""
     var meetingDetails: MeetingResponse!
-    let lm = LocationManager.sharedInstance
     var meetingStatus = Variable(MeetingStatus.pending)
     var getInvitation = false
+    fileprivate let lm = LocationManager.sharedInstance
     fileprivate var locationVM: LocationViewModelProtocol!
     fileprivate let disposeBag = DisposeBag()
     fileprivate var places: [PlaceSuggestion]?
@@ -52,7 +52,11 @@ class LocationViewController: UIViewController {
         observeStatusChanges()
         locationVM.getPlaceSugestions(from: meetingDetails)
         locationVM.listenForYourFriendSuggestions(from: meetingDetails)
-        locationVM.sendUserLocation(location: lm.userLocation!, topic: meetingDetails.myLocationTopicName)
+        guard let location = lm.userLocation else {
+            showLocationSettingsAlert()
+            return
+        }
+        locationVM.sendUserLocation(location: location, topic: meetingDetails.myLocationTopicName)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -125,14 +129,14 @@ extension LocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // Propose place to meet
         guard let coordinates = view.annotation?.coordinate else {
-            showAlert(title: "Error", message: "Sorry, an error occured. Please try again later")
+            showError()
             return
         }
         
         let action = UIAlertAction(title: "Send proposal", style: .default, handler: { _ in
             self.locationVM.proposePlaceToMeet(with: self.meetingDetails, coordinates: coordinates)
         })
-        showAlert(title: "Alert", message: "Do you want to sent place proposal for place: ", cancelButtonTitle: "Cansel", action: action)
+        showAlert(title: "Alert", message: "Do you want to sent place proposal?", cancelButtonTitle: "Cancel", action: action)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -160,7 +164,7 @@ extension LocationViewController: MKMapViewDelegate {
 extension LocationViewController: LocationViewControllerProtocol {
     
     func didPerformRequestWithFailure() {
-        showAlert(title: "Error", message: "Sorry, an error occured. Please try again later")
+        showError()
     }
     
     func didFetchPlacesSugestion(places: [PlaceSuggestion]) {
@@ -173,8 +177,7 @@ extension LocationViewController: LocationViewControllerProtocol {
     func didFetchFriendSuggestion(place: MeetingSuggestion) {
         if place.accepted {
             // friend accepted your place suggestion
-            places?.removeAll()
-            configureView(with: place)
+            showNavivigationController(with: place)
         } else {
             // friend send you place suggestion
             showSuggestionView(for: place)
@@ -208,21 +211,20 @@ extension LocationViewController: LocationViewControllerProtocol {
         vc.proposalAccepted.asObservable()
             .bindNext { (accepted) in
                 if accepted {
-                    self.configureView(with: place)
+                    self.showNavivigationController(with: place)
                 }
             }
             .addDisposableTo(disposeBag)
         present(vc, animated: true, completion: nil)
     }
     
-    private func configureView(with place: MeetingSuggestion) {
-        showAlert(title: "Success", message: "\(friendName) has accepted your place suggestion!")
-        map.annotations.forEach { if !($0 is MKUserLocation) { map.removeAnnotation($0) } }
-        addAnnotation(for: friendLocation, image: "friend", title: friendName, subtitle: "")
-        
-        let placeCoordinates = CLLocationCoordinate2DMake(place.latitude, place.longitude)
-        addAnnotation(for: placeCoordinates, image: "place", title: place.name!, subtitle: place.description!)
-        meetingStatus.value = .accepted
-        showUserAndHisFriendPosition()
+    private func showNavivigationController(with place: MeetingSuggestion) {
+        let showFinalController = UIAlertAction(title: "Great!", style: .default, handler: { _ in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
+            vc.finalPlace = place
+            vc.meetingDetails = self.meetingDetails
+            self.present(vc, animated: true, completion: nil)
+        })
+        showAlert(title: "Success", message: "\(friendName) has accepted your place suggestion!", action: showFinalController)
     }
 }

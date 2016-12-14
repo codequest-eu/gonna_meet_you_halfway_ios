@@ -18,7 +18,7 @@ protocol ContactViewControllerProtocol {
     func didInviteFriendWithFailure()
 }
 
-class ContactViewController: UIViewController {
+class ContactViewController: UIViewController, AlertHandler {
 
     //MARK: - Outlets
     @IBOutlet weak var userEmailTextField: UITextField!
@@ -81,7 +81,7 @@ class ContactViewController: UIViewController {
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
         guard let location = lm.userLocation else {
-            showSettingsAlert()
+            showLocationSettingsAlert()
             return
         }
         vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
@@ -129,19 +129,6 @@ class ContactViewController: UIViewController {
                 self.updateButtonState(active: isActive)
             }
             .addDisposableTo(disposeBag)
-    }
-    
-    private func showSettingsAlert() {
-        // Create the actions buttons for settings alert
-        let okAction = UIAlertAction(title: "Go to Settings", style: .default) {
-            UIAlertAction in
-            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
-        }
-
-        showAlert(title: "Error",
-                  message: "To send invitation we need your location. Do you want to change your settings now?",
-                  cancelButtonTitle: "Cancel",
-                  action: okAction)
     }
 }
 
@@ -257,6 +244,6 @@ extension ContactViewController: ContactViewControllerProtocol {
     }
     
     func didInviteFriendWithFailure() {
-        self.showAlert(title: "Error", message: "Sorry, an error occured. Please try again later")
+        showError()
     }
 }

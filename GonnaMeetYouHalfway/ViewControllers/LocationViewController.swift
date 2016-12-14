@@ -44,14 +44,12 @@ class LocationViewController: UIViewController, AlertHandler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        map.delegate = self
-        map.showsScale = true
-        map.showsUserLocation = true
-        
+        setupMap()
         locationVM = LocationViewModel(controller: self)
         observeStatusChanges()
         locationVM.getPlaceSugestions(from: meetingDetails)
         locationVM.listenForYourFriendSuggestions(from: meetingDetails)
+        locationVM.getFriendLocation(from: meetingDetails)
         guard let location = lm.userLocation else {
             showLocationSettingsAlert()
             return
@@ -62,6 +60,12 @@ class LocationViewController: UIViewController, AlertHandler {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showUserAndHisFriendPosition()
+    }
+    
+    private func setupMap() {
+        map.delegate = self
+        map.showsScale = true
+        map.showsUserLocation = true
     }
     
     //MARK: - RxSetup
@@ -145,7 +149,7 @@ extension LocationViewController: MKMapViewDelegate {
             return nil
         }
         
-        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil) //MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         annotationView.isEnabled = true
         annotationView.canShowCallout = true
         
@@ -223,6 +227,7 @@ extension LocationViewController: LocationViewControllerProtocol {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
             vc.finalPlace = place
             vc.meetingDetails = self.meetingDetails
+            vc.friendName = self.friendName
             self.present(vc, animated: true, completion: nil)
         })
         showAlert(title: "Success", message: "\(friendName) has accepted your place suggestion!", action: showFinalController)

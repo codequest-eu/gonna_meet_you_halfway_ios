@@ -13,7 +13,8 @@ protocol LocationViewModelProtocol {
     func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D)
     func getPlaceSugestions(from details: MeetingResponse)
     func listenForYourFriendSuggestions(from details: MeetingResponse)
-    func sendUserLocation(location: CLLocationCoordinate2D, topic: String) 
+    func sendUserLocation(location: CLLocationCoordinate2D, topic: String)
+    func getFriendLocation(from details: MeetingResponse)
 }
 
 class LocationViewModel: LocationViewModelProtocol {

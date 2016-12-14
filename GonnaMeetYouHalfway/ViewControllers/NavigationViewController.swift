@@ -22,31 +22,74 @@ class NavigationViewController: UIViewController, AlertHandler {
     // MARK: - Properties
     var finalPlace: MeetingSuggestion!
     var meetingDetails: MeetingResponse!
+    var friendName = ""
     fileprivate let lm = LocationManager.sharedInstance
     fileprivate var locationVM: LocationViewModelProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupMap()
         locationVM = LocationViewModel(controller: self)
-        locationVM.listenForYourFriendSuggestions(from: meetingDetails)
+        locationVM.getFriendLocation(from: meetingDetails)
+
         guard let location = lm.userLocation else {
             showLocationSettingsAlert()
             return
         }
         locationVM.sendUserLocation(location: location, topic: meetingDetails.myLocationTopicName)
     }
+    
+    private func setupMap() {
+        map.delegate = self
+        map.showsScale = true
+        map.showsUserLocation = true
+    }
 
+    // Show friend location
+    fileprivate func addFriendAnnotation(for place: CLLocationCoordinate2D) {
+        let annotation = GonnaMeetAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(place.latitude, place.longitude)
+        annotation.title = friendName
+        annotation.subtitle = ""
+        annotation.imageName = "friend"
+        map.addAnnotation(annotation)
+    }
 }
+
+extension NavigationViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if !(annotation is GonnaMeetAnnotation) {
+            return nil
+        }
+        
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annotationView.isEnabled = true
+        annotationView.canShowCallout = true
+        
+        let btn = UIButton(type: .contactAdd)
+        annotationView.rightCalloutAccessoryView = btn
+        
+        let gma = annotation as! GonnaMeetAnnotation
+        let image = UIImage(named: gma.imageName)
+        
+        annotationView.image = image
+        
+        return annotationView
+    }
+}
+
 
 extension NavigationViewController: LocationViewControllerProtocol {
     
     func didPerformRequestWithFailure() {
-        
+        showError()
     }
     
     func didFetchFriendLocation(coordinates: CLLocationCoordinate2D) {
-        
+        map.annotations.forEach { if !($0 is MKUserLocation) { map.removeAnnotation($0) } }
+        addFriendAnnotation(for: coordinates)
     }
     
     func didFetchPlacesSugestion(places: [PlaceSuggestion]) {}

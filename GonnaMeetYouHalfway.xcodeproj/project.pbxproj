@@ -175,9 +175,9 @@
 		EE31906B1E009BA80045569E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EE31906C1E009BB90045569E /* LocationViewController.swift */,
 				9060F3661DFEAAE600213743 /* ContactViewController.swift */,
 				EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */,
+				EE31906C1E009BB90045569E /* LocationViewController.swift */,
 				EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */,
 				EE6ECA241E01A9B7006DE828 /* NavigationViewController.swift */,
 			);

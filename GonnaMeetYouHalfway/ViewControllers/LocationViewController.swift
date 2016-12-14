@@ -13,6 +13,7 @@ import RxSwift
 
 protocol LocationViewControllerProtocol {
     func didPerformRequestWithFailure()
+    func didFetchPlacesSugestion(places: [PlaceSuggestion])
 }
 
 class LocationViewController: UIViewController {
@@ -38,8 +39,9 @@ class LocationViewController: UIViewController {
         map.delegate = self
         map.showsScale = true
         map.showsUserLocation = true
-        addMeetingsAnnotation(from: friendLocation)
+//        addMeetingsAnnotation(for: friendLocation)
         locationVM = LocationViewModel(controller: self)
+        locationVM.getPlaceSugestions(from: meetingDetails)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,11 +63,11 @@ class LocationViewController: UIViewController {
     }
     
     // Show proposed meeting locations by adding annotations to map
-    private func addMeetingsAnnotation(from coordinate: CLLocationCoordinate2D) {
+    fileprivate func addMeetingsAnnotation(for place: PlaceSuggestion) {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = "Place to meet"
-        annotation.subtitle = "GOOOOOOOOOOOSIA"
+        annotation.coordinate = CLLocationCoordinate2DMake(place.latitude, place.longitude)
+        annotation.title = place.name
+        annotation.subtitle = place.description
         map.addAnnotation(annotation)
     }
     
@@ -107,5 +109,11 @@ extension LocationViewController: LocationViewControllerProtocol {
     
     func didPerformRequestWithFailure() {
         showAlert(title: "Error", message: "Sorry, an error occured. Please try again later")
+    }
+    
+    func didFetchPlacesSugestion(places: [PlaceSuggestion]) {
+        for place in places {
+            addMeetingsAnnotation(for: place)
+        }
     }
 }

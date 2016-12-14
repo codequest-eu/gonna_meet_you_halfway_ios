@@ -11,7 +11,6 @@ import CoreLocation
 
 protocol InviteViewModelProtocol {
     func inviteFriend(name: String, inviteEmail: String, userEmail: String, location: CLLocationCoordinate2D)
-    func sendUserLocation(location: CLLocationCoordinate2D, topic: String)
 }
 
 class InviteViewModel: InviteViewModelProtocol {
@@ -34,9 +33,5 @@ class InviteViewModel: InviteViewModelProtocol {
                 print(error)
             })
         .addDisposableTo(disposeBag)
-    }
-    
-    func sendUserLocation(location: CLLocationCoordinate2D, topic: String) {
-        apiProvider.send(location: location, to: topic)
     }
 }

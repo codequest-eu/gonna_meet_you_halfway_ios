@@ -34,4 +34,3 @@ class MeetingViewModel: MeetingViewModelProtocol {
             .addDisposableTo(disposeBag)
     }
 }
-

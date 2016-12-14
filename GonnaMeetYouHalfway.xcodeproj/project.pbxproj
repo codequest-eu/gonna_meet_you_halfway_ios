@@ -72,6 +72,7 @@
 		EE54420D1DFEDFF000EDC654 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
 		EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetAnnotation.swift; path = Helpers/GonnaMeetAnnotation.swift; sourceTree = "<group>"; };
 		EEA12C411E0170B4008A98CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEA12C451E018B41008A98CE /* GonnaMeetYouHalfway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GonnaMeetYouHalfway.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +108,7 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
+				EEA12C451E018B41008A98CE /* GonnaMeetYouHalfway.entitlements */,
 				EE3190731E00A1BE0045569E /* ViewModel */,
 				EE3190701E009D980045569E /* Helpers */,
 				EE31906B1E009BA80045569E /* ViewControllers */,
@@ -248,7 +250,13 @@
 				TargetAttributes = {
 					9060F3601DFEAAE600213743 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = W5SLRW4B3C;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -482,6 +490,8 @@
 			baseConfigurationReference = 8201DA6CAC7D5D282D664A15 /* Pods-GonnaMeetYouHalfway.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GonnaMeetYouHalfway/GonnaMeetYouHalfway.entitlements;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				INFOPLIST_FILE = GonnaMeetYouHalfway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway;
@@ -495,6 +505,8 @@
 			baseConfigurationReference = 8EA338C6C9937B0F5D67045C /* Pods-GonnaMeetYouHalfway.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GonnaMeetYouHalfway/GonnaMeetYouHalfway.entitlements;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				INFOPLIST_FILE = GonnaMeetYouHalfway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway;

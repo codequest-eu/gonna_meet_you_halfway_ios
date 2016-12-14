@@ -30,7 +30,7 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func showAlert(title: String, message: String, buttonOneTitle: String, cancelButtonTitle: String, action: UIAlertAction) {
+    func showAlert(title: String, message: String, cancelButtonTitle: String, action: UIAlertAction) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let dismissAction = UIAlertAction(title: cancelButtonTitle, style: .default) { (action) -> Void in }

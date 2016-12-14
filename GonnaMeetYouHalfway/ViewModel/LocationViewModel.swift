@@ -13,6 +13,7 @@ protocol LocationViewModelProtocol {
     func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D)
     func getPlaceSugestions(from details: MeetingResponse)
     func listenForYourFriendSuggestions(from details: MeetingResponse)
+    func sendUserLocation(location: CLLocationCoordinate2D, topic: String) 
 }
 
 class LocationViewModel: LocationViewModelProtocol {
@@ -66,5 +67,9 @@ class LocationViewModel: LocationViewModelProtocol {
                 self.controller.didPerformRequestWithFailure()
             })
             .addDisposableTo(disposeBag)
+    }
+    
+    func sendUserLocation(location: CLLocationCoordinate2D, topic: String) {
+        apiProvider.send(location: location, to: topic)
     }
 }

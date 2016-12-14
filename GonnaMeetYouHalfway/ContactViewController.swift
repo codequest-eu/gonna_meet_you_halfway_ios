@@ -52,8 +52,8 @@ class ContactViewController: UIViewController {
     }
     
     fileprivate func updateButtonState(active: Bool) {
-//        inviteButton.isEnabled = active
-//        inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
+        inviteButton.isEnabled = active
+        inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
     }
     
     fileprivate func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
@@ -80,18 +80,18 @@ class ContactViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
-//        guard let location = lm.userLocation else {
-//            showSettingsAlert()
-//            return
-//        }
-//        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
-////
-        // FOR TESTS
-        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
-        if let name = inviteName {
-            vc.friendName = name
+        guard let location = lm.userLocation else {
+            showSettingsAlert()
+            return
         }
-        self.present(vc, animated: true, completion: nil)
+        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
+//
+//        // FOR TESTS
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+//        if let name = inviteName {
+//            vc.friendName = name
+//        }
+//        self.present(vc, animated: true, completion: nil)
     }
     
     func showError(error: Error.Protocol) {
@@ -133,14 +133,13 @@ class ContactViewController: UIViewController {
     
     private func showSettingsAlert() {
         // Create the actions buttons for settings alert
-        let okAction = UIAlertAction(title: "OK", style: .default) {
+        let okAction = UIAlertAction(title: "Go to Settings", style: .default) {
             UIAlertAction in
             UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
         }
 
         showAlert(title: "Error",
                   message: "To send invitation we need your location. Do you want to change your settings now?",
-                  buttonOneTitle: "Go to Settings",
                   cancelButtonTitle: "Cancel",
                   action: okAction)
     }
@@ -249,7 +248,6 @@ extension ContactViewController: UITextFieldDelegate {
 extension ContactViewController: ContactViewControllerProtocol {
     
     func didInviteFriendWithSuccess(response: MeetingResponse) {
-        vm.sendUserLocation(location: lm.userLocation!, topic: response.myLocationTopicName)
         let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
         if let name = inviteName {
             vc.friendName = name

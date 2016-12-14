@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 protocol MeetingSuggestionViewControllerProtocol {
     func didPerformRequestWithFailure()
@@ -27,10 +29,12 @@ class MeetingSuggestionViewController: UIViewController {
     var place: MeetingSuggestion!
     var friendName: String!
     var meetingVM: MeetingViewModelProtocol!
+    var proposalAccepted = Variable(false)
     
     // MARK: - Actions
     @IBAction func rejectSuggestion(_ sender: Any) {
-        
+        proposalAccepted.value = false
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func acceptSuggestion(_ sender: Any) {
@@ -67,10 +71,12 @@ class MeetingSuggestionViewController: UIViewController {
 extension MeetingSuggestionViewController: MeetingSuggestionViewControllerProtocol {
     
     func didPerformRequestWithFailure() {
-        
+        proposalAccepted.value = false
+        showAlert(title: "Error", message: "Sorry, an error occured. Please try again.")
     }
     
     func userDidAcceptSuggestion() {
-        
+        proposalAccepted.value = true
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -30,8 +30,6 @@ class LocationManager: NSObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
-
-    
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -40,8 +38,6 @@ extension LocationManager: CLLocationManagerDelegate {
         //  Check access for user location
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             locationManager.requestLocation()
-        } else {
-//            showSettingsAlert()
         }
     }
     
@@ -49,20 +45,6 @@ extension LocationManager: CLLocationManagerDelegate {
         if let location = locations.first {
             self.userLocation = location.coordinate
         }
-    }
-    
-    private func showSettingsAlert() {
-//        // Create the actions buttons for settings alert
-//        let okAction = UIAlertAction(title: "OK", style: .default) {
-//            UIAlertAction in
-//            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
-//        }
-//        
-//        showAlert(title: "Error",
-//                  message: "No access to location services. Do you want to change your settings now?",
-//                  buttonOneTitle: "Go to Settings",
-//                  cancelButtonTitle: "Cancel",
-//                  action: okAction)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

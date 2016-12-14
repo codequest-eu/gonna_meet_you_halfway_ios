@@ -34,7 +34,7 @@ class MeetingSuggestionViewController: UIViewController {
     }
     
     @IBAction func acceptSuggestion(_ sender: Any) {
-        meetingVM.acceptPlaceSuggestion(placeIdentifier: <#T##String#>)
+        meetingVM.acceptPlaceSuggestion(placeIdentifier: place.suggestionIdentifier)
     }
     
     override func viewDidLoad() {
@@ -46,8 +46,12 @@ class MeetingSuggestionViewController: UIViewController {
     
     private func setupLabels() {
         infoLabel.text = "\(friendName) has send you meeting place suggestion!"
-        titleLabel.text = ""
-        descriptionLabel.text = ""
+        if let name = place.name {
+            titleLabel.text = name
+        }
+        if let description = place.description {
+            descriptionLabel.text = description
+        }
     }
     
     private func setupMap() {

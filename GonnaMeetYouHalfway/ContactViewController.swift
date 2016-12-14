@@ -28,6 +28,7 @@ class ContactViewController: UIViewController {
     var contactStore = CNContactStore()
     var inviteEmail = Variable("")
     var inviteName: String?
+    fileprivate let lm = LocationManager.sharedInstance
     fileprivate let disposeBag = DisposeBag()
     fileprivate let inviteEmailTextVariable = Variable("")
     
@@ -76,7 +77,11 @@ class ContactViewController: UIViewController {
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
         let vm: InviteViewModelProtocol = InviteViewModel(controller: self)
-        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!)
+        guard let location = lm.userLocation else {
+            showSettingsAlert()
+            return
+        }
+        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
 //
 //        // FOR TESTS
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
@@ -121,6 +126,20 @@ class ContactViewController: UIViewController {
                 self.updateButtonState(active: isActive)
             }
             .addDisposableTo(disposeBag)
+    }
+    
+    private func showSettingsAlert() {
+        // Create the actions buttons for settings alert
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            UIAlertAction in
+            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        }
+
+        showAlert(title: "Error",
+                  message: "To send invitation we need your location. Do you want to change your settings now?",
+                  buttonOneTitle: "Go to Settings",
+                  cancelButtonTitle: "Cancel",
+                  action: okAction)
     }
 }
 

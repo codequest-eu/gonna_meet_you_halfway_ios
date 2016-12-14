@@ -7,9 +7,10 @@
 //
 
 import RxSwift
+import CoreLocation
 
 protocol InviteViewModelProtocol {
-    func inviteFriend(name: String, inviteEmail: String, userEmail: String)
+    func inviteFriend(name: String, inviteEmail: String, userEmail: String, location: CLLocationCoordinate2D)
 }
 
 class InviteViewModel: InviteViewModelProtocol {
@@ -22,8 +23,8 @@ class InviteViewModel: InviteViewModelProtocol {
         self.controller = controller
     }
     
-    func inviteFriend(name: String, inviteEmail: String, userEmail: String) {
-        apiProvider.requestMeeting(name: name, email: userEmail, otherEmail: inviteEmail)
+    func inviteFriend(name: String, inviteEmail: String, userEmail: String, location: CLLocationCoordinate2D) {
+        apiProvider.requestMeeting(name: name, email: userEmail, otherEmail: inviteEmail, location: location)
             .subscribe(onNext: { (response) in
                 self.controller.didInviteFriendWithSuccess(response: response)
                 print(response)

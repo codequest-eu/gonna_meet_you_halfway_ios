@@ -714,6 +714,7 @@
 				90041EAE1E0172C900DDBD97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90041EB11E0172C900DDBD97 /* Build configuration list for PBXNativeTarget "HalfwayWatch" */ = {
 			isa = XCConfigurationList;
@@ -722,6 +723,7 @@
 				90041EAC1E0172C900DDBD97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9060F35C1DFEAAE600213743 /* Build configuration list for PBXProject "GonnaMeetYouHalfway" */ = {
 			isa = XCConfigurationList;

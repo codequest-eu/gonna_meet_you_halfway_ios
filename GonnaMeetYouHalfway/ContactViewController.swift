@@ -20,20 +20,24 @@ protocol ContactViewControllerProtocol {
 
 class ContactViewController: UIViewController {
 
+    //MARK: - Outlets
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var inviteEmailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var inviteButton: UIButton!
 
+    //MARK: - Properties
     var contactStore = CNContactStore()
     var inviteEmail = Variable("")
     var inviteName: String?
     fileprivate let lm = LocationManager.sharedInstance
     fileprivate let disposeBag = DisposeBag()
     fileprivate let inviteEmailTextVariable = Variable("")
+    var vm: InviteViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        vm = InviteViewModel(controller: self)
         inviteEmailTextField.delegate = self
         createGradient(view: self.view)
         setupTextChangeHandling()
@@ -76,19 +80,18 @@ class ContactViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
-        let vm: InviteViewModelProtocol = InviteViewModel(controller: self)
-        guard let location = lm.userLocation else {
-            showSettingsAlert()
-            return
-        }
-        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
-//
-//        // FOR TESTS
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
-//        if let name = inviteName {
-//            vc.friendName = name
+//        guard let location = lm.userLocation else {
+//            showSettingsAlert()
+//            return
 //        }
-//        self.present(vc, animated: true, completion: nil)
+//        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
+////
+        // FOR TESTS
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        if let name = inviteName {
+            vc.friendName = name
+        }
+        self.present(vc, animated: true, completion: nil)
     }
     
     func showError(error: Error.Protocol) {
@@ -246,6 +249,7 @@ extension ContactViewController: UITextFieldDelegate {
 extension ContactViewController: ContactViewControllerProtocol {
     
     func didInviteFriendWithSuccess(response: MeetingResponse) {
+        vm.sendUserLocation(location: lm.userLocation!, topic: response.myLocationTopicName)
         let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
         if let name = inviteName {
             vc.friendName = name

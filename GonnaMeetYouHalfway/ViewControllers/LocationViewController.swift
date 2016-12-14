@@ -43,8 +43,8 @@ class LocationViewController: UIViewController {
         map.showsUserLocation = true
 //        addMeetingsAnnotation(for: friendLocation)
         locationVM = LocationViewModel(controller: self)
-        locationVM.getPlaceSugestions(from: meetingDetails)
-        locationVM.listenForYourFriendSuggestions(from: meetingDetails)
+//        locationVM.getPlaceSugestions(from: meetingDetails)
+//        locationVM.listenForYourFriendSuggestions(from: meetingDetails)
     }
     
     override func viewDidAppear(_ animated: Bool) {

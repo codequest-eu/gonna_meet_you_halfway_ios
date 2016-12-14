@@ -49,11 +49,13 @@ class GonnaMeetClient {
         return provider.request(.accept(suggestionIdentifier: suggestionIdentifier)).map { _ in }
     }
     
+    // get place suggestions from server
     func placeSuggestions(from topic: String) -> Observable<[PlaceSuggestion]> {
         return mqttClient.subscribe(to: topic)
             .map { [PlaceSuggestion](JSONString: $0) ?? [] }
     }
 
+    //listen for meeting suggest from friend
     func meetingSuggestions(from topic: String) -> Observable<MeetingSuggestion> {
         return mqttClient.subscribe(to: topic)
             .map { try? MeetingSuggestion(JSONString: $0) }

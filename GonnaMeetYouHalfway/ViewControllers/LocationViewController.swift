@@ -14,7 +14,11 @@ import RxSwift
 protocol LocationViewControllerProtocol {
     func didPerformRequestWithFailure()
     func didFetchPlacesSugestion(places: [PlaceSuggestion])
+    func didFetchFriendSuggestion(place: MeetingSuggestion)
 }
+
+let mapLatDelta: CLLocationDegrees = 0.05
+let mapLonDelta: CLLocationDegrees = 0.05
 
 class LocationViewController: UIViewController {
 
@@ -27,8 +31,6 @@ class LocationViewController: UIViewController {
     var meetingDetails: MeetingResponse!
     private var locationFirstLoad = true
     let lm = LocationManager.sharedInstance
-    let mapLatDelta: CLLocationDegrees = 0.05
-    let mapLonDelta: CLLocationDegrees = 0.05
     var locationVM: LocationViewModelProtocol!
     
     //MARK: for test purpose
@@ -42,6 +44,7 @@ class LocationViewController: UIViewController {
 //        addMeetingsAnnotation(for: friendLocation)
         locationVM = LocationViewModel(controller: self)
         locationVM.getPlaceSugestions(from: meetingDetails)
+        locationVM.listenForYourFriendSuggestions(from: meetingDetails)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,7 +79,7 @@ class LocationViewController: UIViewController {
         if let location = self.lm.userLocation {
             let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)
             let region = MKCoordinateRegion(center: location, span: span)
-            self.map.setRegion(region, animated: true)
+            map.setRegion(region, animated: true)
         }
     }
     
@@ -115,5 +118,12 @@ extension LocationViewController: LocationViewControllerProtocol {
         for place in places {
             addMeetingsAnnotation(for: place)
         }
+    }
+    
+    func didFetchFriendSuggestion(place: MeetingSuggestion) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MeetingSuggestionViewController") as! MeetingSuggestionViewController
+        vc.place = place
+        vc.friendName = friendName
+        present(vc, animated: true, completion: nil)
     }
 }

@@ -12,6 +12,7 @@ import CoreLocation
 protocol LocationViewModelProtocol {
     func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D)
     func getPlaceSugestions(from details: MeetingResponse)
+    func listenForYourFriendSuggestions(from details: MeetingResponse)
 }
 
 class LocationViewModel: LocationViewModelProtocol {
@@ -50,6 +51,16 @@ class LocationViewModel: LocationViewModelProtocol {
         apiProvider.accept(suggestionIdentifier: placeIdentifier)
             .subscribe(onNext: { (response) in
                 print(response)
+            }, onError: { _ in
+                self.controller.didPerformRequestWithFailure()
+            })
+            .addDisposableTo(disposeBag)
+    }
+    
+    func listenForYourFriendSuggestions(from details: MeetingResponse) {
+        apiProvider.meetingSuggestions(from: details.meetingIdentifier)
+            .subscribe(onNext: { place in
+                self.controller.didFetchFriendSuggestion(place: place)
             }, onError: { _ in
                 self.controller.didPerformRequestWithFailure()
             })

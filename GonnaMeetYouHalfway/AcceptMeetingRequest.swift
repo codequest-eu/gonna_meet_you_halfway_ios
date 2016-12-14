@@ -4,6 +4,6 @@ struct AcceptMeetingRequest {
     
     let name: String
     let meetingIdentifier: String
-    let position: Location
+    let position: CLLocationCoordinate2D
     
 }

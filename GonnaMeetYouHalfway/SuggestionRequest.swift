@@ -4,8 +4,7 @@ import CoreLocation
 struct SuggestionRequest {
     
     let meetingIdentifier: String
-    let latitude: CLLocationDegrees
-    let longitude: CLLocationDegrees
+    let position: CLLocationCoordinate2D
     let name: String?
     let description: String?
 

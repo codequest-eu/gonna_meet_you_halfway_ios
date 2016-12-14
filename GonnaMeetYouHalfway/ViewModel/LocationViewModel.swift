@@ -45,4 +45,14 @@ class LocationViewModel: LocationViewModelProtocol {
             })
             .addDisposableTo(disposeBag)
     }
+    
+    func acceptPlaceSuggestion(placeIdentifier: String) {
+        apiProvider.accept(suggestionIdentifier: placeIdentifier)
+            .subscribe(onNext: { (response) in
+                print(response)
+            }, onError: { _ in
+                self.controller.didPerformRequestWithFailure()
+            })
+            .addDisposableTo(disposeBag)
+    }
 }

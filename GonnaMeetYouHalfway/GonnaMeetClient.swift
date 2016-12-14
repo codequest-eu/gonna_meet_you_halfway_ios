@@ -69,13 +69,13 @@ class GonnaMeetClient {
     }
     
     func send(location: CLLocationCoordinate2D, to topic: String) {
-        let jsonLocation = Location(latitude: location.latitude, longitude: location.longitude).toJSONString()!
+        let jsonLocation = location.toJSONString()!
         mqttClient.publish(to: topic, message: jsonLocation)
     }
     
-    func otherLocations(from topic: String) -> Observable<Location> {
+    func otherLocations(from topic: String) -> Observable<CLLocationCoordinate2D> {
         return mqttClient.subscribe(to: topic)
-            .map { try? Location(JSONString: $0) }
+            .map { try? CLLocationCoordinate2D(JSONString: $0) }
             .filterNil()
     }
     

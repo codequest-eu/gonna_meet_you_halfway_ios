@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		283F36AF21F9428751A4D355 /* Pods_GonnaMeetYouHalfway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */; };
 		90041E681E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041E671E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift */; };
+		90041EBA1E0182CA00DDBD97 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
+		90041EBB1E0182CA00DDBD97 /* GonnaMeetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */; };
+		90041EBC1E0182CA00DDBD97 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
@@ -285,6 +288,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90041EBA1E0182CA00DDBD97 /* GonnaMeetAPI.swift in Sources */,
+				90041EBB1E0182CA00DDBD97 /* GonnaMeetClient.swift in Sources */,
+				90041EBC1E0182CA00DDBD97 /* MeetingResponse.swift in Sources */,
 				906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */,
 				9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */,
 				906874D21DFEE2AD00F4136F /* RxMqttClient.swift in Sources */,

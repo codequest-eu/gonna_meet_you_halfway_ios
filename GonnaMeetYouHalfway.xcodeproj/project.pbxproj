@@ -11,7 +11,6 @@
 		9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
-		9060F36C1DFEAAE600213743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36B1DFEAAE600213743 /* Assets.xcassets */; };
 		9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */; };
 		9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3771DFEB0AB00213743 /* MeetingRequest.swift */; };
 		906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CF1DFED95700F4136F /* SuggestionRequest.swift */; };
@@ -35,6 +34,8 @@
 		EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */; };
 		EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */; };
 		EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54420D1DFEDFF000EDC654 /* ContactCell.swift */; };
+		EEA12C401E01680B008A98CE /* GonnaMeetAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */; };
+		EEA12C421E0170B4008A98CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA12C411E0170B4008A98CE /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +47,6 @@
 		9060F3641DFEAAE600213743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9060F3661DFEAAE600213743 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		9060F3691DFEAAE600213743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9060F36B1DFEAAE600213743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9060F36E1DFEAAE600213743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9060F3701DFEAAE600213743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9060F3771DFEB0AB00213743 /* MeetingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
@@ -70,6 +70,8 @@
 		EE4CC8061DFEB6A300E444F7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		EE4CC8081DFECE8800E444F7 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
 		EE54420D1DFEDFF000EDC654 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Cells/ContactCell.swift; sourceTree = "<group>"; };
+		EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetAnnotation.swift; path = Helpers/GonnaMeetAnnotation.swift; sourceTree = "<group>"; };
+		EEA12C411E0170B4008A98CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +116,10 @@
 				9060F3761DFEB05500213743 /* Model */,
 				9060F3641DFEAAE600213743 /* AppDelegate.swift */,
 				9060F3681DFEAAE600213743 /* Main.storyboard */,
-				9060F36B1DFEAAE600213743 /* Assets.xcassets */,
 				9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */,
 				9060F3701DFEAAE600213743 /* Info.plist */,
 				EE4CC8031DFEB56F00E444F7 /* Globals.swift */,
+				EEA12C411E0170B4008A98CE /* Assets.xcassets */,
 			);
 			path = GonnaMeetYouHalfway;
 			sourceTree = "<group>";
@@ -180,6 +182,7 @@
 			children = (
 				EE3190711E009DA80045569E /* LocationManager.swift */,
 				EE31907B1E00BDDB0045569E /* MeetingStatus.swift */,
+				EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -273,7 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */,
-				9060F36C1DFEAAE600213743 /* Assets.xcassets in Resources */,
+				EEA12C421E0170B4008A98CE /* Assets.xcassets in Resources */,
 				9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +344,7 @@
 				EE2D53061E014CD700D839C0 /* MeetingSuggestionViewController.swift in Sources */,
 				90741C791E00190B001E88E4 /* PlaceSuggestion.swift in Sources */,
 				90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */,
+				EEA12C401E01680B008A98CE /* GonnaMeetAnnotation.swift in Sources */,
 				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
 				EE2D53081E0151EA00D839C0 /* MeetingViewModel.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,

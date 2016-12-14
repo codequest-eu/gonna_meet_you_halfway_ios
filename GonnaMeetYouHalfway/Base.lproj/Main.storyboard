@@ -216,14 +216,8 @@
                                     <action selector="centerMapOnUserLocation:" destination="zwu-aA-R17" eventType="touchUpInside" id="0Xj-XD-v8p"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6Q-QX-E0U">
-                                <rect key="frame" x="18" y="38" width="54" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For Meeting Place Approval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1H-6j-tVp">
-                                <rect key="frame" x="80" y="38" width="272" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For Meeting Place Approval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1H-6j-tVp">
+                                <rect key="frame" x="51.5" y="38" width="272" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -235,11 +229,25 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="HK4-c7-OAm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6W-dg-cnw">
+                                <rect key="frame" x="131.5" y="623" width="112" height="30"/>
+                                <state key="normal" title="Show Directions"/>
+                                <connections>
+                                    <action selector="showDirections:" destination="zwu-aA-R17" eventType="touchUpInside" id="qV6-23-eoZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6Q-QX-E0U">
+                                <rect key="frame" x="160" y="14" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="f1H-6j-tVp" firstAttribute="leading" secondItem="o6Q-QX-E0U" secondAttribute="trailing" constant="8" id="4FL-EE-C6m"/>
-                            <constraint firstItem="f1H-6j-tVp" firstAttribute="centerY" secondItem="o6Q-QX-E0U" secondAttribute="centerY" id="4I1-F5-eYa"/>
+                            <constraint firstItem="o6Q-QX-E0U" firstAttribute="centerX" secondItem="Div-3S-Yzl" secondAttribute="centerX" id="8BX-OB-aon"/>
+                            <constraint firstItem="o6Q-QX-E0U" firstAttribute="top" secondItem="Div-3S-Yzl" secondAttribute="topMargin" constant="14" id="AqV-jt-S0O"/>
+                            <constraint firstItem="f1H-6j-tVp" firstAttribute="top" secondItem="o6Q-QX-E0U" secondAttribute="bottom" constant="3" id="BFY-gA-CJy"/>
                             <constraint firstItem="4pc-2p-cv3" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="-26" id="BbM-rY-OWh"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leading" constant="16" id="CdN-CJ-xFP"/>
                             <constraint firstItem="Rqq-ea-zUO" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="59" id="F3q-Fx-8sC"/>
@@ -247,14 +255,16 @@
                             <constraint firstItem="fFw-th-1Qg" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="30" id="JQa-Hd-WYJ"/>
                             <constraint firstAttribute="trailing" secondItem="Fl1-KP-wah" secondAttribute="trailing" constant="16" id="JbT-xF-nVw"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="74" id="Moj-NG-6yj"/>
+                            <constraint firstItem="E6W-dg-cnw" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="15" id="Sy6-8O-biT"/>
+                            <constraint firstItem="f1H-6j-tVp" firstAttribute="centerX" secondItem="Div-3S-Yzl" secondAttribute="centerX" id="Y6t-Xj-N7k"/>
                             <constraint firstItem="fFw-th-1Qg" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leadingMargin" constant="155" id="dxD-0z-oZ5"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="4pc-2p-cv3" secondAttribute="trailing" constant="-34" id="gOi-R4-Tak"/>
-                            <constraint firstItem="o6Q-QX-E0U" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="18" id="hxh-OD-vlU"/>
-                            <constraint firstItem="o6Q-QX-E0U" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leading" constant="18" id="iDN-UZ-RLp"/>
+                            <constraint firstItem="E6W-dg-cnw" firstAttribute="centerX" secondItem="Div-3S-Yzl" secondAttribute="centerX" id="s6G-89-3Oq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="map" destination="Fl1-KP-wah" id="JeZ-Ja-tJH"/>
+                        <outlet property="showDirectionsButton" destination="E6W-dg-cnw" id="UVN-1Q-4Dm"/>
                         <outlet property="statusLabel" destination="f1H-6j-tVp" id="RIl-NH-J4r"/>
                     </connections>
                 </viewController>
@@ -265,7 +275,7 @@
         <!--Meeting Suggestion View Controller-->
         <scene sceneID="d7I-87-UvQ">
             <objects>
-                <viewController storyboardIdentifier="MeetingSuggestionViewController" id="JEd-ZN-Zv0" customClass="MeetingSuggestionViewController" customModule="GonnaMeetYouHalfway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeetingSuggestionViewController" modalPresentationStyle="currentContext" id="JEd-ZN-Zv0" customClass="MeetingSuggestionViewController" customModule="GonnaMeetYouHalfway" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="11S-yM-L5H"/>
                         <viewControllerLayoutGuide type="bottom" id="SK8-Rz-B7i"/>

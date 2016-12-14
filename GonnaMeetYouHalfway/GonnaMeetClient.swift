@@ -56,6 +56,7 @@ class GonnaMeetClient {
         return provider.request(.suggest(suggestion: suggestion)).map { _ in }
     }
     
+    // accept friend place suggestion for meeting
     func accept(suggestionIdentifier: String) -> Observable<Void> {
         return provider.request(.accept(suggestionIdentifier: suggestionIdentifier)).map { _ in }
     }
@@ -73,11 +74,13 @@ class GonnaMeetClient {
             .filterNil()
     }
     
+    // send user location constantly
     func send(location: CLLocationCoordinate2D, to topic: String) {
         let jsonLocation = Location(latitude: location.latitude, longitude: location.longitude).toJSONString()!
         mqttClient.publish(to: topic, message: jsonLocation)
     }
     
+    // fetch friend location constantly
     func otherLocations(from topic: String) -> Observable<Location> {
         return mqttClient.subscribe(to: topic)
             .map { try? Location(JSONString: $0) }

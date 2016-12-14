@@ -56,4 +56,15 @@ class LocationViewModel: LocationViewModelProtocol {
             })
             .addDisposableTo(disposeBag)
     }
+    
+    func getFriendLocation(from details: MeetingResponse) {
+        apiProvider.otherLocations(from: details.otherLocationTopicName)
+            .subscribe(onNext: { location in
+                let coordinates = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                self.controller.didFetchFriendLocation(coordinates: coordinates)
+            }, onError: { _ in
+                self.controller.didPerformRequestWithFailure()
+            })
+            .addDisposableTo(disposeBag)
+    }
 }

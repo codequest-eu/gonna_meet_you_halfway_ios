@@ -39,7 +39,7 @@ class LocationViewModel: LocationViewModelProtocol {
     }
     
     func getPlaceSugestions(from details: MeetingResponse) {
-        apiProvider.placeSuggestions(from: details.meetingIdentifier)
+        apiProvider.placeSuggestions(from: details.suggestionsTopicName)
             .subscribe(onNext: { (places) in
                 self.controller.didFetchPlacesSugestion(places: places)
                 print(places)
@@ -51,7 +51,7 @@ class LocationViewModel: LocationViewModelProtocol {
     }
     
     func listenForYourFriendSuggestions(from details: MeetingResponse) {
-        apiProvider.meetingSuggestions(from: details.meetingIdentifier)
+        apiProvider.meetingSuggestions(from: details.meetingLocationTopicName)
             .subscribe(onNext: { place in
                 self.controller.didFetchFriendSuggestion(place: place)
             }, onError: { _ in

@@ -10,6 +10,17 @@ import WatchKit
 import Foundation
 
 
-class ArrivalInterfaceController: WKInterfaceController {
-
+class ArrivalInterfaceController: LocationInfoInterfaceController {
+    
+    @IBOutlet var myTimeLabel: WKInterfaceLabel!
+    @IBOutlet var otherTimeLabel: WKInterfaceLabel!
+    
+    override var locationInfo: LocationInfo? {
+        didSet {
+            guard let locationInfo = locationInfo else { return }
+            myTimeLabel.setText("\(locationInfo.myTime) min")
+            otherTimeLabel.setText("\(locationInfo.otherTime) min")
+        }
+    }
+    
 }

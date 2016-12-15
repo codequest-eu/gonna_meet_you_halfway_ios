@@ -9,15 +9,19 @@
 import WatchKit
 import Foundation
 
-class MapInterfaceController: WKInterfaceController {
+class MapInterfaceController: LocationInfoInterfaceController {
 
     @IBOutlet var map: WKInterfaceMap!
     
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        let mapLocation = CLLocationCoordinate2D(latitude: 52.25, longitude: 21.16)
-        let coordinateSpan = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
-        map.addAnnotation(mapLocation, with: WKInterfaceMapPinColor.purple)
-        map.setRegion(MKCoordinateRegion(center: mapLocation, span: coordinateSpan))
+    override var locationInfo: LocationInfo? {
+        didSet {
+            guard let locationInfo = locationInfo else { return }
+            map.removeAllAnnotations()
+            let mapLocation = locationInfo.myLocation
+            let coordinateSpan = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+            map.addAnnotation(mapLocation, with: WKInterfaceMapPinColor.purple)
+            map.setRegion(MKCoordinateRegion(center: mapLocation, span: coordinateSpan))
+        }
     }
+    
 }

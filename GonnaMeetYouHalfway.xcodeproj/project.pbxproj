@@ -12,16 +12,19 @@
 		90041E941E0172C900DDBD97 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90041E921E0172C900DDBD97 /* Interface.storyboard */; };
 		90041E961E0172C900DDBD97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90041E951E0172C900DDBD97 /* Assets.xcassets */; };
 		90041E9D1E0172C900DDBD97 /* HalfwayWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 90041E9C1E0172C900DDBD97 /* HalfwayWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		90041EA21E0172C900DDBD97 /* HomeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041EA11E0172C900DDBD97 /* HomeInterfaceController.swift */; };
 		90041EA41E0172C900DDBD97 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041EA31E0172C900DDBD97 /* ExtensionDelegate.swift */; };
 		90041EA61E0172C900DDBD97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90041EA51E0172C900DDBD97 /* Assets.xcassets */; };
 		90041EAA1E0172C900DDBD97 /* HalfwayWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 90041E901E0172C900DDBD97 /* HalfwayWatch.app */; };
 		90041EB41E01753F00DDBD97 /* ArrivalInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041EB31E01753F00DDBD97 /* ArrivalInterfaceController.swift */; };
 		90041EB61E01759200DDBD97 /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041EB51E01759200DDBD97 /* MapInterfaceController.swift */; };
-		90041EB71E0180D400DDBD97 /* GonnaMeetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */; };
 		90041EB81E0180FD00DDBD97 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
 		90041EB91E0180FD00DDBD97 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */; };
+		9028C3EE1E0296EA00F6AEC8 /* WatchNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */; };
+		9028C3F71E02B56E00F6AEC8 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */; };
+		9028C3F81E02B56E00F6AEC8 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */; };
+		9028C3FB1E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */; };
+		9036E13B1E01B39E005038CC /* GonnaMeetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
 		9060F36C1DFEAAE600213743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36B1DFEAAE600213743 /* Assets.xcassets */; };
@@ -91,13 +94,15 @@
 		90041E951E0172C900DDBD97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90041E971E0172C900DDBD97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90041E9C1E0172C900DDBD97 /* HalfwayWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HalfwayWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90041EA11E0172C900DDBD97 /* HomeInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterfaceController.swift; sourceTree = "<group>"; };
 		90041EA31E0172C900DDBD97 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		90041EA51E0172C900DDBD97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90041EA71E0172C900DDBD97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90041EB31E01753F00DDBD97 /* ArrivalInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalInterfaceController.swift; sourceTree = "<group>"; };
 		90041EB51E01759200DDBD97 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
 		9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptMeetingRequest.swift; sourceTree = "<group>"; };
+		9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchNotifier.swift; sourceTree = "<group>"; };
+		9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
+		9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfoInterfaceController.swift; sourceTree = "<group>"; };
 		9060F3611DFEAAE600213743 /* GonnaMeetYouHalfway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GonnaMeetYouHalfway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9060F3641DFEAAE600213743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9060F3661DFEAAE600213743 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -152,19 +157,36 @@
 		90041EA01E0172C900DDBD97 /* HalfwayWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				90041EA11E0172C900DDBD97 /* HomeInterfaceController.swift */,
 				90041EA31E0172C900DDBD97 /* ExtensionDelegate.swift */,
 				90041EA51E0172C900DDBD97 /* Assets.xcassets */,
 				90041EA71E0172C900DDBD97 /* Info.plist */,
 				90041EB31E01753F00DDBD97 /* ArrivalInterfaceController.swift */,
 				90041EB51E01759200DDBD97 /* MapInterfaceController.swift */,
+				9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */,
 			);
 			path = "HalfwayWatch Extension";
+			sourceTree = "<group>";
+		};
+		9028C3EC1E0296D500F6AEC8 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */,
+			);
+			name = Watch;
+			sourceTree = "<group>";
+		};
+		9028C3F51E02B54700F6AEC8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		9060F3581DFEAAE600213743 = {
 			isa = PBXGroup;
 			children = (
+				9028C3F51E02B54700F6AEC8 /* Shared */,
 				9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */,
 				90041E911E0172C900DDBD97 /* HalfwayWatch */,
 				90041EA01E0172C900DDBD97 /* HalfwayWatch Extension */,
@@ -187,6 +209,7 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
+				9028C3EC1E0296D500F6AEC8 /* Watch */,
 				EE54420F1DFEDFF500EDC654 /* Cells */,
 				EE4CC8051DFEB69300E444F7 /* Extensions */,
 				9060F37C1DFEB1F200213743 /* Network */,
@@ -332,14 +355,17 @@
 				TargetAttributes = {
 					90041E8F1E0172C900DDBD97 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = W5SLRW4B3C;
 						ProvisioningStyle = Automatic;
 					};
 					90041E9B1E0172C900DDBD97 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = W5SLRW4B3C;
 						ProvisioningStyle = Automatic;
 					};
 					9060F3601DFEAAE600213743 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = W5SLRW4B3C;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -448,9 +474,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				90041EA41E0172C900DDBD97 /* ExtensionDelegate.swift in Sources */,
+				9028C3FB1E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift in Sources */,
 				90041EB41E01753F00DDBD97 /* ArrivalInterfaceController.swift in Sources */,
+				9028C3F81E02B56E00F6AEC8 /* LocationInfo.swift in Sources */,
 				90041EB61E01759200DDBD97 /* MapInterfaceController.swift in Sources */,
-				90041EA21E0172C900DDBD97 /* HomeInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +487,6 @@
 			files = (
 				90041EB81E0180FD00DDBD97 /* GonnaMeetAPI.swift in Sources */,
 				90041EB91E0180FD00DDBD97 /* MeetingResponse.swift in Sources */,
-				90041EB71E0180D400DDBD97 /* GonnaMeetClient.swift in Sources */,
 				906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */,
 				9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */,
 				906874D21DFEE2AD00F4136F /* RxMqttClient.swift in Sources */,
@@ -469,12 +495,15 @@
 				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
+				9028C3F71E02B56E00F6AEC8 /* LocationInfo.swift in Sources */,
+				9036E13B1E01B39E005038CC /* GonnaMeetClient.swift in Sources */,
 				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
 				EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */,
 				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
 				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,
 				90041E681E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift in Sources */,
+				9028C3EE1E0296EA00F6AEC8 /* WatchNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +555,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				IBSC_MODULE = HalfwayWatch_Extension;
 				INFOPLIST_FILE = HalfwayWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp;
@@ -543,6 +573,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				IBSC_MODULE = HalfwayWatch_Extension;
 				INFOPLIST_FILE = HalfwayWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp;
@@ -559,6 +590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				INFOPLIST_FILE = "HalfwayWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp.watchkitextension;
@@ -575,6 +607,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				INFOPLIST_FILE = "HalfwayWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp.watchkitextension;
@@ -683,6 +716,7 @@
 			baseConfigurationReference = 8201DA6CAC7D5D282D664A15 /* Pods-GonnaMeetYouHalfway.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				INFOPLIST_FILE = GonnaMeetYouHalfway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway;
@@ -696,6 +730,7 @@
 			baseConfigurationReference = 8EA338C6C9937B0F5D67045C /* Pods-GonnaMeetYouHalfway.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
 				INFOPLIST_FILE = GonnaMeetYouHalfway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway;

@@ -74,9 +74,12 @@ class GonnaMeetClient {
     }
     
     func otherLocations(from topic: String) -> Observable<CLLocationCoordinate2D> {
-        return mqttClient.subscribe(to: topic)
-            .map { try? CLLocationCoordinate2D(JSONString: $0) }
-            .filterNil()
+        return Observable<Int>.interval(5, scheduler: MainScheduler.asyncInstance).map({ index in
+            CLLocationCoordinate2D(latitude: CLLocationDegrees(index), longitude: CLLocationDegrees(index+1))
+        })
+//        return mqttClient.subscribe(to: topic)
+//            .map { try? CLLocationCoordinate2D(JSONString: $0) }
+//            .filterNil()
     }
     
 }

@@ -7,15 +7,27 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, LocationInfoInterfaceControllerDelegate {
 
+    private var session: WCSession?
+    fileprivate var controllers: [LocationInfoInterfaceController] = []
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+    
+        if WCSession.isSupported() {
+            session = WCSession.default()
+            session?.delegate = self
+            session?.activate()
+        }
+        
     }
 
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        WKInterfaceController.reloadRootControllers(withNames: ["Arrival", "Map"], contexts: [self, self])
     }
 
     func applicationWillResignActive() {
@@ -47,4 +59,44 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         }
     }
 
+    func locationInfoInterfaceControllerDidWakeUp(_ controller: LocationInfoInterfaceController) {
+        if !controllers.contains(controller) {
+            controllers.append(controller)
+        }
+    }
+    
+    func startNotification(with session: WCSession) {
+        session.sendMessage(["startWatchNotification": true],
+                            replyHandler: { [weak self] map in
+                                let backgroundTimeRemaining = map["backgroundTimeRemaining"] as! TimeInterval
+                                let seconds = Int(backgroundTimeRemaining) + 5
+                                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(seconds)) {
+                                    self?.startNotification(with: session)
+                                }
+        },
+                            errorHandler: { error in
+                                print(error)
+        })
+    }
+    
+}
+
+extension ExtensionDelegate: WCSessionDelegate {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if error == nil && activationState == .activated {
+            startNotification(with: session)
+        } else {
+            print(error ?? "Unknown error occured on watch session activation \(activationState.rawValue)")
+        }
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        guard let locationInfoDictionary = applicationContext["locationInfo"] as? [String: Any] else { return }
+        let locationInfo = LocationInfo(dictionary: locationInfoDictionary)
+        controllers.forEach { controller in
+            controller.locationInfo = locationInfo
+        }
+    }
+        
 }

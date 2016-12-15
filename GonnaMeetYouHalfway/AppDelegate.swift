@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(components)
         // If universal link contains the proper path url for rebooking, trigger an action
 //        if components.path.range(of: "/rebooking/appointment_request/") != nil {
-            showLocationView()
+//            showLocationView()
             return true
 //        }
 //                return false
@@ -46,17 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if url.scheme == "halfway" {
             let meetingId = url.lastPathComponent
-            showLocationView()
+            showLocationView(id: meetingId)
         }
         
         return true
     }
     
-    private func showLocationView() {
+    private func showLocationView(id: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let detailVC = storyboard.instantiateViewController(withIdentifier: "NavigationController")
             as! LocationViewController
+        detailVC.meetingId = id
         
         let navigationVC = storyboard.instantiateViewController(withIdentifier: "LocationViewController")
             as! UINavigationController

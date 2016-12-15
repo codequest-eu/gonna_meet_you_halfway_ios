@@ -10,7 +10,9 @@ class RxMqttClient {
     var mqttClient: MQTTClient! = nil
     
     init() {
-        let mqttConfig = MQTTConfig(clientId: UUID().uuidString, host: "broker.hivemq.com", port: 1883, keepAlive: 60)
+        let mqttConfig = MQTTConfig(clientId: UUID().uuidString, host: "139.59.150.73", port: 1883, keepAlive: 60)
+		mqttConfig.mqttAuthOpts = MQTTAuthOpts(username: "half-way-codequest", password: "password1")
+		mqttConfig.cleanSession = false
         mqttConfig.onMessageCallback = { [weak self] (message: MQTTMessage) in
             if let payload = message.payloadString {
                 self?.incomingMessages.value = (message.topic, payload)

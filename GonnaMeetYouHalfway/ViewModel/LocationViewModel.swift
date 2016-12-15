@@ -15,6 +15,7 @@ protocol LocationViewModelProtocol {
     func listenForYourFriendSuggestions(from details: MeetingResponse)
     func sendUserLocation(location: CLLocationCoordinate2D, topic: String)
     func getFriendLocation(from details: MeetingResponse)
+    func acceptInvitation(meetingIdentifier: String, location: CLLocationCoordinate2D)
 }
 
 class LocationViewModel: LocationViewModelProtocol {
@@ -72,5 +73,15 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func sendUserLocation(location: CLLocationCoordinate2D, topic: String) {
         apiProvider.send(location: location, to: topic)
+    }
+    
+    func acceptInvitation(meetingIdentifier: String, location: CLLocationCoordinate2D) {
+        apiProvider.acceptMeeting(name: "", meetingIdentifier: meetingIdentifier, location: location)
+            .subscribe(onNext: { (response) in
+                self.controller.didAcceptInvitation(response: response)
+            }, onError: { _ in
+                self.controller.didPerformRequestWithFailure()
+            })
+            .addDisposableTo(disposeBag)
     }
 }

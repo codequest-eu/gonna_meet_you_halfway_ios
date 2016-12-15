@@ -16,6 +16,7 @@ protocol LocationViewControllerProtocol {
     func didFetchPlacesSugestion(places: [PlaceSuggestion])
     func didFetchFriendSuggestion(place: MeetingSuggestion)
     func didFetchFriendLocation(coordinates: CLLocationCoordinate2D)
+    func didAcceptInvitation(response: MeetingResponse)
 }
 
 let mapLatDelta: CLLocationDegrees = 0.05
@@ -32,6 +33,7 @@ class LocationViewController: UIViewController, AlertHandler {
     var meetingDetails: MeetingResponse!
     var meetingStatus = Variable(MeetingStatus.pending)
     var getInvitation = false
+    var meetingId: String?
     fileprivate let lm = LocationManager.sharedInstance
     fileprivate var locationVM: LocationViewModelProtocol!
     fileprivate let disposeBag = DisposeBag()
@@ -44,16 +46,21 @@ class LocationViewController: UIViewController, AlertHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
-        locationVM = LocationViewModel(controller: self)
         observeStatusChanges()
-        locationVM.getPlaceSugestions(from: meetingDetails)
-        locationVM.listenForYourFriendSuggestions(from: meetingDetails)
-        locationVM.getFriendLocation(from: meetingDetails)
+        locationVM = LocationViewModel(controller: self)
         guard let location = lm.userLocation.value else {
             showLocationSettingsAlert()
             return
         }
-        locationVM.sendUserLocation(location: location, topic: meetingDetails.myLocationTopicName)
+        if let id = meetingId {
+            meetingStatus.value = .waitingForPlaceSuggestion
+            locationVM.acceptInvitation(meetingIdentifier: id, location: location)
+        } else {
+            locationVM.getPlaceSugestions(from: meetingDetails)
+            locationVM.listenForYourFriendSuggestions(from: meetingDetails)
+            locationVM.getFriendLocation(from: meetingDetails)
+            locationVM.sendUserLocation(location: location, topic: meetingDetails.myLocationTopicName)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -187,6 +194,16 @@ extension LocationViewController: LocationViewControllerProtocol {
         map.annotations.forEach { if !($0 is MKUserLocation) { map.removeAnnotation($0) } }
         addAnnotation(for: coordinates, image: "friend", title: friendName, subtitle: "")
         addPlacesSuggestionsToMap()
+    }
+    
+    func didAcceptInvitation(response: MeetingResponse) {
+        locationVM.getPlaceSugestions(from: response)
+        locationVM.listenForYourFriendSuggestions(from: response)
+        locationVM.getFriendLocation(from: response)
+        guard let location = lm.userLocation.value else {
+            return
+        }
+        locationVM.sendUserLocation(location: location, topic: response.myLocationTopicName)
     }
     
     private func addPlacesSuggestionsToMap() {

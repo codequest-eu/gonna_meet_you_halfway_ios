@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if url.scheme == "halfway" {
             let meetingId = url.lastPathComponent
+            showLocationView()
         }
         
         return true

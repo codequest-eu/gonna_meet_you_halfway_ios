@@ -11,6 +11,10 @@ import CoreLocation
 import RxSwift
 import MapKit
 
+enum LocationStatus {
+    case accepted
+    case denied
+}
 
 class LocationManager: NSObject {
     
@@ -19,6 +23,7 @@ class LocationManager: NSObject {
     var locationManager: CLLocationManager!
     var userLocation: Variable<CLLocationCoordinate2D?> = Variable(nil)
     var placemark: CLPlacemark?
+    var status: LocationStatus?
     
     private override init() {
         super.init()
@@ -41,7 +46,10 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         //  Check access for user location
         if status == .authorizedWhenInUse || status == .authorizedAlways {
+            self.status = .accepted
             locationManager.requestLocation()
+        } else {
+            self.status = .denied
         }
     }
     

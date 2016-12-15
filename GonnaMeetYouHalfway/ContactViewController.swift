@@ -81,7 +81,11 @@ class ContactViewController: UIViewController, AlertHandler {
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
         guard let location = lm.userLocation.value else {
-            showLocationSettingsAlert()
+            if lm.status == .denied {
+                showLocationSettingsAlert()
+            } else {
+                showError()
+            }
             return
         }
         vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!.lowercased(), location: location)

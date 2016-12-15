@@ -14,56 +14,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var contactStore = CNContactStore()
+	var navigationController: UINavigationController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         application.statusBarStyle = UIStatusBarStyle.lightContent
         UINavigationBar.appearance().tintColor = UIColor.white
+		window = UIWindow.init(frame: UIScreen.main.bounds)
+		navigationController = UINavigationController()
+		showLocationView(in: navigationController, id: nil)
+		window?.rootViewController = navigationController
+		window?.makeKeyAndVisible()
         return true
     }
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        return true
-    }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        
-        // Handle universal links
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-            let url = userActivity.webpageURL,
-            let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-                return false
-        }
-        print(components)
-        // If universal link contains the proper path url for rebooking, trigger an action
-//        if components.path.range(of: "/rebooking/appointment_request/") != nil {
-//            showLocationView()
-            return true
-//        }
+//    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+//        
+//        // Handle universal links
+//        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+//            let url = userActivity.webpageURL,
+//            let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
 //                return false
-    }
-    
+//        }
+//        print(components)
+//        // If universal link contains the proper path url for rebooking, trigger an action
+////        if components.path.range(of: "/rebooking/appointment_request/") != nil {
+////            showLocationView()
+//            return true
+////        }
+////                return false
+//    }
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
         if url.scheme == "halfway" {
-            let meetingId = url.lastPathComponent
-            showLocationView(id: meetingId)
+            let meetingId = url.host
+            showLocationView(in: navigationController, id: meetingId)
+			return true
         }
         
-        return true
+        return false
     }
     
-    private func showLocationView(id: String) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let detailVC = storyboard.instantiateViewController(withIdentifier: "NavigationController")
-            as! LocationViewController
-        detailVC.meetingId = id
-        
-        let navigationVC = storyboard.instantiateViewController(withIdentifier: "LocationViewController")
-            as! UINavigationController
-        navigationVC.modalPresentationStyle = .formSheet
-        
-        navigationVC.pushViewController(detailVC, animated: true)
+	private func showLocationView(in navController: UINavigationController, id: String?) {
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		var mainController: UIViewController
+		if let id = id {
+			mainController = storyboard.instantiateViewController(withIdentifier: "LocationViewController")
+				as! LocationViewController
+			(mainController as! LocationViewController).meetingId = id
+		} else {
+			mainController = storyboard.instantiateViewController(withIdentifier: "ContactViewController")
+				as! ContactViewController
+		}
+        navController.pushViewController(mainController, animated: true)
     }
 }
 

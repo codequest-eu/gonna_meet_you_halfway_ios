@@ -49,10 +49,12 @@ class LocationViewController: UIViewController, AlertHandler {
         observeStatusChanges()
         locationVM = LocationViewModel(controller: self)
         guard let location = lm.userLocation.value else {
-            showLocationSettingsAlert()
+            if lm.status == .denied {
+                showLocationSettingsAlert()
+            }
             return
         }
-        if let id = meetingId {
+        if let id = meetingId, id != "" {
             meetingStatus.value = .waitingForPlaceSuggestion
             locationVM.acceptInvitation(meetingIdentifier: id, location: location)
         } else {

@@ -24,8 +24,11 @@ class LocationViewModel: LocationViewModelProtocol {
     private let disposeBag = DisposeBag()
     private let apiProvider = GonnaMeetClient()
     
-    init(controller: LocationViewControllerProtocol) {
+    private let locationInfoService: LocationInfoService
+    
+    init(controller: LocationViewControllerProtocol, locationInfoService: LocationInfoService = LocationInfoService.default) {
         self.controller = controller
+        self.locationInfoService = locationInfoService
     }
     
     func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D) {
@@ -53,6 +56,9 @@ class LocationViewModel: LocationViewModelProtocol {
     func listenForYourFriendSuggestions(from details: MeetingResponse) {
         apiProvider.meetingSuggestions(from: details.meetingLocationTopicName)
             .subscribe(onNext: { place in
+                if place.accepted {
+                    self.locationInfoService.meetingLocation.value = place.position
+                }
                 self.controller.didFetchFriendSuggestion(place: place)
             }, onError: { _ in
                 self.controller.didPerformRequestWithFailure()

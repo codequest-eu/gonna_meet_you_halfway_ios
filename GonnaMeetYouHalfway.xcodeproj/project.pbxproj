@@ -9,7 +9,21 @@
 /* Begin PBXBuildFile section */
 		283F36AF21F9428751A4D355 /* Pods_GonnaMeetYouHalfway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */; };
 		90041E681E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041E671E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift */; };
+		90041E941E0172C900DDBD97 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90041E921E0172C900DDBD97 /* Interface.storyboard */; };
+		90041E961E0172C900DDBD97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90041E951E0172C900DDBD97 /* Assets.xcassets */; };
+		90041E9D1E0172C900DDBD97 /* HalfwayWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 90041E9C1E0172C900DDBD97 /* HalfwayWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		90041EA41E0172C900DDBD97 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041EA31E0172C900DDBD97 /* ExtensionDelegate.swift */; };
+		90041EA61E0172C900DDBD97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90041EA51E0172C900DDBD97 /* Assets.xcassets */; };
+		90041EAA1E0172C900DDBD97 /* HalfwayWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 90041E901E0172C900DDBD97 /* HalfwayWatch.app */; };
+		90041EB41E01753F00DDBD97 /* ArrivalInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041EB31E01753F00DDBD97 /* ArrivalInterfaceController.swift */; };
+		90041EB61E01759200DDBD97 /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041EB51E01759200DDBD97 /* MapInterfaceController.swift */; };
+		90041EB81E0180FD00DDBD97 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
+		90041EB91E0180FD00DDBD97 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */; };
+		9028C3EE1E0296EA00F6AEC8 /* WatchNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */; };
+		9028C3F71E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */; };
+		9028C3F81E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */; };
+		9028C3FB1E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
 		9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */; };
@@ -19,6 +33,11 @@
 		906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874D31DFF51DC00F4136F /* GonnaMeetError.swift */; };
 		90741C791E00190B001E88E4 /* PlaceSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C781E00190B001E88E4 /* PlaceSuggestion.swift */; };
 		90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */; };
+		90BA3EF31E02F3D4002491D0 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */; };
+		90BA3EF41E02F3D4002491D0 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */; };
+		90BA3EF71E02F6AB002491D0 /* LocationInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF61E02F6AB002491D0 /* LocationInfoService.swift */; };
+		90BA3EF91E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */; };
+		90BA3EFA1E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */; };
 		EE0FC2731E02C97000463ADD /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2721E02C97000463ADD /* UserType.swift */; };
 		EE0FC2751E02CEDA00463ADD /* GonnaMeetRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */; };
 		EE0FC2771E03329600463ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE0FC2761E03329600463ADD /* Assets.xcassets */; };
@@ -29,8 +48,6 @@
 		EE3190761E00A1D50045569E /* InviteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3190741E00A1D50045569E /* InviteViewModel.swift */; };
 		EE3190771E00A1D50045569E /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3190751E00A1D50045569E /* LocationViewModel.swift */; };
 		EE3190781E00A2080045569E /* GonnaMeetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */; };
-		EE3190791E00A22F0045569E /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
-		EE31907A1E00A2470045569E /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		EE31907C1E00BDDB0045569E /* MeetingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31907B1E00BDDB0045569E /* MeetingStatus.swift */; };
 		EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3661DFEAAE600213743 /* ContactViewController.swift */; };
 		EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CC8031DFEB56F00E444F7 /* Globals.swift */; };
@@ -42,12 +59,67 @@
 		EEA12C401E01680B008A98CE /* GonnaMeetAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		90041E9E1E0172C900DDBD97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9060F3591DFEAAE600213743 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90041E9B1E0172C900DDBD97;
+			remoteInfo = "HalfwayWatch Extension";
+		};
+		90041EA81E0172C900DDBD97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9060F3591DFEAAE600213743 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90041E8F1E0172C900DDBD97;
+			remoteInfo = HalfwayWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		90041EB01E0172C900DDBD97 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				90041E9D1E0172C900DDBD97 /* HalfwayWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90041EB21E0172C900DDBD97 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				90041EAA1E0172C900DDBD97 /* HalfwayWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8201DA6CAC7D5D282D664A15 /* Pods-GonnaMeetYouHalfway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GonnaMeetYouHalfway.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GonnaMeetYouHalfway/Pods-GonnaMeetYouHalfway.debug.xcconfig"; sourceTree = "<group>"; };
 		8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GonnaMeetYouHalfway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA338C6C9937B0F5D67045C /* Pods-GonnaMeetYouHalfway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GonnaMeetYouHalfway.release.xcconfig"; path = "Pods/Target Support Files/Pods-GonnaMeetYouHalfway/Pods-GonnaMeetYouHalfway.release.xcconfig"; sourceTree = "<group>"; };
 		90041E671E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D_Mappable.swift; sourceTree = "<group>"; };
+		90041E901E0172C900DDBD97 /* HalfwayWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HalfwayWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90041E931E0172C900DDBD97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		90041E951E0172C900DDBD97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		90041E971E0172C900DDBD97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90041E9C1E0172C900DDBD97 /* HalfwayWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HalfwayWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90041EA31E0172C900DDBD97 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		90041EA51E0172C900DDBD97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		90041EA71E0172C900DDBD97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90041EB31E01753F00DDBD97 /* ArrivalInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalInterfaceController.swift; sourceTree = "<group>"; };
+		90041EB51E01759200DDBD97 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
 		9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptMeetingRequest.swift; sourceTree = "<group>"; };
+		9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchNotifier.swift; sourceTree = "<group>"; };
+		9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
+		9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfoInterfaceController.swift; sourceTree = "<group>"; };
 		9060F3611DFEAAE600213743 /* GonnaMeetYouHalfway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GonnaMeetYouHalfway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9060F3641DFEAAE600213743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9060F3661DFEAAE600213743 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +135,9 @@
 		906874D31DFF51DC00F4136F /* GonnaMeetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetError.swift; sourceTree = "<group>"; };
 		90741C781E00190B001E88E4 /* PlaceSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSuggestion.swift; sourceTree = "<group>"; };
 		90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingSuggestion.swift; sourceTree = "<group>"; };
+		90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
+		90BA3EF61E02F6AB002491D0 /* LocationInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfoService.swift; sourceTree = "<group>"; };
+		90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D_Dictionary.swift; sourceTree = "<group>"; };
 		EE0FC2721E02C97000463ADD /* UserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserType.swift; path = Helpers/UserType.swift; sourceTree = "<group>"; };
 		EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetRoute.swift; path = Helpers/GonnaMeetRoute.swift; sourceTree = "<group>"; };
 		EE0FC2761E03329600463ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +159,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		55126F5D77D4BAD6E3FE74A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90041E991E0172C900DDBD97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9060F35E1DFEAAE600213743 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,10 +184,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90041E911E0172C900DDBD97 /* HalfwayWatch */ = {
+			isa = PBXGroup;
+			children = (
+				90041E921E0172C900DDBD97 /* Interface.storyboard */,
+				90041E951E0172C900DDBD97 /* Assets.xcassets */,
+				90041E971E0172C900DDBD97 /* Info.plist */,
+			);
+			path = HalfwayWatch;
+			sourceTree = "<group>";
+		};
+		90041EA01E0172C900DDBD97 /* HalfwayWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				90041EA31E0172C900DDBD97 /* ExtensionDelegate.swift */,
+				90041EA51E0172C900DDBD97 /* Assets.xcassets */,
+				90041EA71E0172C900DDBD97 /* Info.plist */,
+				90041EB31E01753F00DDBD97 /* ArrivalInterfaceController.swift */,
+				90041EB51E01759200DDBD97 /* MapInterfaceController.swift */,
+				9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */,
+			);
+			path = "HalfwayWatch Extension";
+			sourceTree = "<group>";
+		};
+		9028C3EC1E0296D500F6AEC8 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */,
+			);
+			name = Watch;
+			sourceTree = "<group>";
+		};
+		9028C3F51E02B54700F6AEC8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */,
+				90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */,
+				90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		9060F3581DFEAAE600213743 = {
 			isa = PBXGroup;
 			children = (
+				9028C3F51E02B54700F6AEC8 /* Shared */,
 				9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */,
+				90041E911E0172C900DDBD97 /* HalfwayWatch */,
+				90041EA01E0172C900DDBD97 /* HalfwayWatch Extension */,
 				9060F3621DFEAAE600213743 /* Products */,
 				B58DEBF5039DB340F80B740C /* Pods */,
 				E6E80DAF6BE16F2315FBC6BD /* Frameworks */,
@@ -109,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				9060F3611DFEAAE600213743 /* GonnaMeetYouHalfway.app */,
+				90041E901E0172C900DDBD97 /* HalfwayWatch.app */,
+				90041E9C1E0172C900DDBD97 /* HalfwayWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,6 +251,8 @@
 		9060F3631DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXGroup;
 			children = (
+				90BA3EF51E02F697002491D0 /* Services */,
+				9028C3EC1E0296D500F6AEC8 /* Watch */,
 				EEA12C451E018B41008A98CE /* GonnaMeetYouHalfway.entitlements */,
 				EE3190731E00A1BE0045569E /* ViewModel */,
 				EE3190701E009D980045569E /* Helpers */,
@@ -156,6 +293,14 @@
 				906874D31DFF51DC00F4136F /* GonnaMeetError.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		90BA3EF51E02F697002491D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				90BA3EF61E02F6AB002491D0 /* LocationInfoService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		B58DEBF5039DB340F80B740C /* Pods */ = {
@@ -230,6 +375,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		90041E8F1E0172C900DDBD97 /* HalfwayWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90041EB11E0172C900DDBD97 /* Build configuration list for PBXNativeTarget "HalfwayWatch" */;
+			buildPhases = (
+				90041E8E1E0172C900DDBD97 /* Resources */,
+				90041EB01E0172C900DDBD97 /* Embed App Extensions */,
+				55126F5D77D4BAD6E3FE74A7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90041E9F1E0172C900DDBD97 /* PBXTargetDependency */,
+			);
+			name = HalfwayWatch;
+			productName = HalfwayWatch;
+			productReference = 90041E901E0172C900DDBD97 /* HalfwayWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		90041E9B1E0172C900DDBD97 /* HalfwayWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90041EAF1E0172C900DDBD97 /* Build configuration list for PBXNativeTarget "HalfwayWatch Extension" */;
+			buildPhases = (
+				90041E981E0172C900DDBD97 /* Sources */,
+				90041E991E0172C900DDBD97 /* Frameworks */,
+				90041E9A1E0172C900DDBD97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HalfwayWatch Extension";
+			productName = "HalfwayWatch Extension";
+			productReference = 90041E9C1E0172C900DDBD97 /* HalfwayWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		9060F3601DFEAAE600213743 /* GonnaMeetYouHalfway */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9060F3731DFEAAE600213743 /* Build configuration list for PBXNativeTarget "GonnaMeetYouHalfway" */;
@@ -240,10 +420,12 @@
 				9060F35F1DFEAAE600213743 /* Resources */,
 				EF728431292DF64DD7A3B03F /* [CP] Embed Pods Frameworks */,
 				0B5F1083437C2A41BE06568E /* [CP] Copy Pods Resources */,
+				90041EB21E0172C900DDBD97 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				90041EA91E0172C900DDBD97 /* PBXTargetDependency */,
 			);
 			name = GonnaMeetYouHalfway;
 			productName = GonnaMeetYouHalfway;
@@ -260,6 +442,16 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Codequest;
 				TargetAttributes = {
+					90041E8F1E0172C900DDBD97 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = W5SLRW4B3C;
+						ProvisioningStyle = Automatic;
+					};
+					90041E9B1E0172C900DDBD97 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = W5SLRW4B3C;
+						ProvisioningStyle = Automatic;
+					};
 					9060F3601DFEAAE600213743 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = W5SLRW4B3C;
@@ -286,11 +478,30 @@
 			projectRoot = "";
 			targets = (
 				9060F3601DFEAAE600213743 /* GonnaMeetYouHalfway */,
+				90041E8F1E0172C900DDBD97 /* HalfwayWatch */,
+				90041E9B1E0172C900DDBD97 /* HalfwayWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		90041E8E1E0172C900DDBD97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90041E961E0172C900DDBD97 /* Assets.xcassets in Resources */,
+				90041E941E0172C900DDBD97 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90041E9A1E0172C900DDBD97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90041EA61E0172C900DDBD97 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9060F35F1DFEAAE600213743 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,11 +563,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		90041E981E0172C900DDBD97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90BA3EF41E02F3D4002491D0 /* LocationInfo.swift in Sources */,
+				90041EA41E0172C900DDBD97 /* ExtensionDelegate.swift in Sources */,
+				9028C3FB1E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift in Sources */,
+				90BA3EFA1E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */,
+				90041EB41E01753F00DDBD97 /* ArrivalInterfaceController.swift in Sources */,
+				9028C3F81E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */,
+				90041EB61E01759200DDBD97 /* MapInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9060F35D1DFEAAE600213743 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE31907A1E00A2470045569E /* MeetingResponse.swift in Sources */,
+				90041EB81E0180FD00DDBD97 /* GonnaMeetAPI.swift in Sources */,
+				90041EB91E0180FD00DDBD97 /* MeetingResponse.swift in Sources */,
 				906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */,
 				EE0FC2731E02C97000463ADD /* UserType.swift in Sources */,
 				9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */,
@@ -368,12 +594,14 @@
 				EEA12C401E01680B008A98CE /* GonnaMeetAnnotation.swift in Sources */,
 				EE54420E1DFEDFF000EDC654 /* ContactCell.swift in Sources */,
 				EE2D53081E0151EA00D839C0 /* MeetingViewModel.swift in Sources */,
+				90BA3EF71E02F6AB002491D0 /* LocationInfoService.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
+				9028C3F71E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */,
 				EE3190771E00A1D50045569E /* LocationViewModel.swift in Sources */,
 				EE6ECA251E01A9B7006DE828 /* NavigationViewController.swift in Sources */,
+				90BA3EF31E02F3D4002491D0 /* LocationInfo.swift in Sources */,
 				EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */,
-				EE3190791E00A22F0045569E /* GonnaMeetAPI.swift in Sources */,
 				EE4CC8041DFEB56F00E444F7 /* Globals.swift in Sources */,
 				EE33F98E1E001364009297BB /* ContactViewController.swift in Sources */,
 				EE3190761E00A1D50045569E /* InviteViewModel.swift in Sources */,
@@ -385,12 +613,35 @@
 				EE31907C1E00BDDB0045569E /* MeetingStatus.swift in Sources */,
 				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,
 				90041E681E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift in Sources */,
+				9028C3EE1E0296EA00F6AEC8 /* WatchNotifier.swift in Sources */,
+				90BA3EF91E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		90041E9F1E0172C900DDBD97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90041E9B1E0172C900DDBD97 /* HalfwayWatch Extension */;
+			targetProxy = 90041E9E1E0172C900DDBD97 /* PBXContainerItemProxy */;
+		};
+		90041EA91E0172C900DDBD97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90041E8F1E0172C900DDBD97 /* HalfwayWatch */;
+			targetProxy = 90041EA81E0172C900DDBD97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		90041E921E0172C900DDBD97 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90041E931E0172C900DDBD97 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		9060F3681DFEAAE600213743 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -410,6 +661,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		90041EAB1E0172C900DDBD97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
+				IBSC_MODULE = HalfwayWatch_Extension;
+				INFOPLIST_FILE = HalfwayWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		90041EAC1E0172C900DDBD97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
+				IBSC_MODULE = HalfwayWatch_Extension;
+				INFOPLIST_FILE = HalfwayWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		90041EAD1E0172C900DDBD97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
+				INFOPLIST_FILE = "HalfwayWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		90041EAE1E0172C900DDBD97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = W5SLRW4B3C;
+				INFOPLIST_FILE = "HalfwayWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codequest.GonnaMeetYouHalfway.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 		9060F3711DFEAAE600213743 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -534,6 +855,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		90041EAF1E0172C900DDBD97 /* Build configuration list for PBXNativeTarget "HalfwayWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90041EAD1E0172C900DDBD97 /* Debug */,
+				90041EAE1E0172C900DDBD97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90041EB11E0172C900DDBD97 /* Build configuration list for PBXNativeTarget "HalfwayWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90041EAB1E0172C900DDBD97 /* Debug */,
+				90041EAC1E0172C900DDBD97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9060F35C1DFEAAE600213743 /* Build configuration list for PBXProject "GonnaMeetYouHalfway" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

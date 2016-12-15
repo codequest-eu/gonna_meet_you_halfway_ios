@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        return true
+    }
+    
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
         // Handle universal links
@@ -36,6 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
 //        }
 //                return false
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if url.scheme == "halfway" {
+            let meetingId = url.lastPathComponent
+        }
+        
+        return true
     }
     
     private func showLocationView() {

@@ -191,7 +191,7 @@ extension ContactViewController: UITextFieldDelegate {
         OperationQueue.main.addOperation {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchControllerIdentifier") as! SearchContactViewController
             vc.contacts = filterContacts
-            
+            vc.searchController.searchBar.text = self.inviteEmail.value
             vc.inviteContact
                 .asObservable()
                 .bindNext({ (contact) in

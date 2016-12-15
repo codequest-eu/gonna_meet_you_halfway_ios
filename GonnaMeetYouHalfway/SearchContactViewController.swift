@@ -17,7 +17,7 @@ class SearchContactViewController: UIViewController {
     var inviteContact = Variable(CNContact())
     var inviteEmailOutsideAddressbook = Variable("")
     fileprivate var filteredContacts = Variable([CNContact]())
-    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: nil)
     private let disposeBag = DisposeBag()
 
     // MARK: Outlets

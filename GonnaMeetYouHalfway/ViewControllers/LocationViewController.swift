@@ -38,6 +38,7 @@ class LocationViewController: UIViewController, AlertHandler {
     fileprivate var locationVM: LocationViewModelProtocol!
     fileprivate let disposeBag = DisposeBag()
     fileprivate var places: [PlaceSuggestion]?
+    fileprivate var friendAccepted = false
     private var locationFirstLoad = true
 
     //MARK: for test purpose
@@ -196,6 +197,11 @@ extension LocationViewController: LocationViewControllerProtocol {
         map.annotations.forEach { if !($0 is MKUserLocation) { map.removeAnnotation($0) } }
         addAnnotation(for: coordinates, image: "friend", title: friendName, subtitle: "")
         addPlacesSuggestionsToMap()
+        if !friendAccepted {
+            friendAccepted = true
+            showAlert(title: "Success", message: "Your invitation has been accepted!")
+            self.map.showAnnotations(self.map.annotations, animated: true)
+        }
     }
     
     func didAcceptInvitation(response: MeetingResponse) {

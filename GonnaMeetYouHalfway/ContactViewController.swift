@@ -84,7 +84,7 @@ class ContactViewController: UIViewController, AlertHandler {
             showLocationSettingsAlert()
             return
         }
-        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
+        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!.lowercased(), location: location)
 ////
 ////        // FOR TESTS
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
@@ -174,9 +174,6 @@ extension ContactViewController: UITextFieldDelegate {
                 contacts.append(contact)
             }
             filterContacts = contacts.filter { $0.emailAddresses.count > 0 }
-            if filterContacts.count == 0 {
-                message = "No contacts were found."
-            }
         } catch {
             message = "Sorry, an error occured."
         }

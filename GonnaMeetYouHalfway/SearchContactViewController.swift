@@ -26,8 +26,9 @@ class SearchContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search email"
+        searchController.searchBar.placeholder = "Add email"
         searchController.searchBar.delegate = self
+        searchController.searchBar.keyboardType = .emailAddress
         searchController.searchBar.returnKeyType = .done
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar

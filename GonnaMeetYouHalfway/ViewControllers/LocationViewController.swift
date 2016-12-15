@@ -47,6 +47,7 @@ class LocationViewController: UIViewController, AlertHandler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createGradient(view: view)
         setupMap()
         observeStatusChanges()
         locationVM = LocationViewModel(controller: self)
@@ -76,6 +77,10 @@ class LocationViewController: UIViewController, AlertHandler {
         map.delegate = self
         map.showsScale = true
         map.showsUserLocation = true
+        map.clipsToBounds = true
+        map.layer.cornerRadius = Globals.cornerRadius
+        map.layer.borderColor = UIColor.black.cgColor
+        map.layer.borderWidth = 0.7
     }
     
     //MARK: - RxSetup

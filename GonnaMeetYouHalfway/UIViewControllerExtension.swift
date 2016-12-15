@@ -14,7 +14,7 @@ extension UIViewController {
     func createGradient(view aView: UIView) {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = self.view.bounds
-        gradient.colors = [Globals.darkGreen1.cgColor, Globals.darkGreen.cgColor]
+        gradient.colors = [Globals.darkGreen.cgColor, Globals.darkGreen1.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
         aView.layer.insertSublayer(gradient, at:0)

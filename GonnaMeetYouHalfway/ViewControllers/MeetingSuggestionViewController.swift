@@ -46,6 +46,7 @@ class MeetingSuggestionViewController: UIViewController, AlertHandler {
         meetingVM = MeetingViewModel(controller: self)
         setupLabels()
         setupMap()
+        createGradient(view: view)
     }
     
     private func setupLabels() {
@@ -61,6 +62,8 @@ class MeetingSuggestionViewController: UIViewController, AlertHandler {
     private func setupMap() {
         map.showsScale = true
         map.showsUserLocation = true
+        map.clipsToBounds = true
+        map.layer.cornerRadius = 3.0
         let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)
         let region = MKCoordinateRegion(center: place.position, span: span)
         self.map.setRegion(region, animated: true)

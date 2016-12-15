@@ -48,6 +48,7 @@ class NavigationViewController: UIViewController, AlertHandler {
         addDestinationAnnotation()
         observeUserLocation()
         observeFriendLocation()
+        createGradient(view: view)
     }
     
     // MARK: - RxSetup

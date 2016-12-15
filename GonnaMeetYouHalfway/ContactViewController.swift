@@ -54,7 +54,9 @@ class ContactViewController: UIViewController, AlertHandler {
     
     fileprivate func updateButtonState(active: Bool) {
         inviteButton.isEnabled = active
-        inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
+        inviteButton.backgroundColor = active ? Globals.brightGreen : Globals.inactiveButtonColor
+        inviteButton.layer.cornerRadius = Globals.cornerRadius
+        inviteButton.clipsToBounds = true
     }
     
     fileprivate func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {

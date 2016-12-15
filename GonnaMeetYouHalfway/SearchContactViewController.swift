@@ -36,6 +36,7 @@ class SearchContactViewController: UIViewController {
         setupCellConfiguration()
         setupCellTapHandling()
         setupSearchFilter()
+        createGradient(view: view)
     }
     
     override func viewDidAppear(_ animated: Bool) {

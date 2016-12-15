@@ -22,11 +22,13 @@ class NavigationViewController: UIViewController, AlertHandler {
     @IBOutlet weak var map: MKMapView!
     
     // MARK: - Properties
-//    var finalPlace: MeetingSuggestion!
-    var friendLocation: Variable<CLLocationCoordinate2D> = Variable(CLLocationCoordinate2DMake(37.436180, -122.395842))
-    var finalPlace: Variable<CLLocationCoordinate2D> = Variable(CLLocationCoordinate2DMake(36.58, -122.1))
+    var finalPlace: MeetingSuggestion!
+    var friendLocation: Variable<CLLocationCoordinate2D?> = Variable(nil)
+    //TEST
+//    var friendLocation: Variable<CLLocationCoordinate2D> = Variable(CLLocationCoordinate2DMake(37.436180, -122.395842))
+//    var finalPlace: Variable<CLLocationCoordinate2D> = Variable(CLLocationCoordinate2DMake(36.58, -122.1))
     
-//    var meetingDetails: MeetingResponse!
+    var meetingDetails: MeetingResponse!
     var friendName = ""
     fileprivate let lm = LocationManager.sharedInstance
     fileprivate var locationVM: LocationViewModelProtocol!
@@ -42,7 +44,7 @@ class NavigationViewController: UIViewController, AlertHandler {
         super.viewDidLoad()
         setupMap()
         locationVM = LocationViewModel(controller: self)
-//        locationVM.getFriendLocation(from: meetingDetails)
+        locationVM.getFriendLocation(from: meetingDetails)
         addDestinationAnnotation()
         observeUserLocation()
         observeFriendLocation()
@@ -94,11 +96,11 @@ class NavigationViewController: UIViewController, AlertHandler {
         }
     }
     
-    private func updateFriendLocation(coordinates: CLLocationCoordinate2D) {
+    private func updateFriendLocation(coordinates: CLLocationCoordinate2D?) {
         map.annotations.forEach { if !($0 is MKUserLocation) { map.removeAnnotation($0) } }
-        addAnnotation(for: coordinates, image: "friend", title: friendName, subtitle: "")
+        addAnnotation(for: coordinates!, image: "friend", title: friendName, subtitle: "")
         addDestinationAnnotation()
-        setDirectionRequest(for: coordinates, userType: .friend)
+        setDirectionRequest(for: coordinates!, userType: .friend)
     }
     
     private func setDistanceLabel(distance: CLLocationDistance?) {
@@ -143,12 +145,14 @@ class NavigationViewController: UIViewController, AlertHandler {
     
     private func addDestinationAnnotation() {
         var placeTitle = ""
-//        if let name = finalPlace.name {
-//            placeTitle = name
-//        } else {
-//            placeTitle = "Destination"
-//        }
-        addAnnotation(for: finalPlace.value, image: "place", title: placeTitle, subtitle: "")
+        if let name = finalPlace.name {
+            placeTitle = name
+        } else {
+            placeTitle = "Destination"
+        }
+        addAnnotation(for: finalPlace.position, image: "place", title: placeTitle, subtitle: "")
+        //TEST
+//        addAnnotation(for: finalPlace.value, image: "place", title: placeTitle, subtitle: "")
     }
     
     private func setupMap() {
@@ -162,7 +166,7 @@ class NavigationViewController: UIViewController, AlertHandler {
         
         let directionsRequest = MKDirectionsRequest()
         let start = MKPlacemark(coordinate: CLLocationCoordinate2DMake(startPoint.latitude, startPoint.longitude), addressDictionary: nil)
-        let destination = MKPlacemark(coordinate: CLLocationCoordinate2DMake(finalPlace.value.latitude, finalPlace.value.longitude), addressDictionary: nil)
+        let destination = MKPlacemark(coordinate: CLLocationCoordinate2DMake(finalPlace.position.latitude, finalPlace.position.longitude), addressDictionary: nil)
         
         directionsRequest.source = MKMapItem(placemark: start)
         directionsRequest.destination = MKMapItem(placemark: destination)
@@ -202,7 +206,6 @@ class NavigationViewController: UIViewController, AlertHandler {
     }
     
     // MARK: - Actions:
-    
     @IBAction func centerMap(_ sender: Any) {
         map.showAnnotations(map.annotations, animated: true)
     }

@@ -224,8 +224,8 @@ extension LocationViewController: LocationViewControllerProtocol {
     private func showNavivigationController(with place: MeetingSuggestion) {
         let showFinalController = UIAlertAction(title: "Great!", style: .default, handler: { _ in
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
-//            vc.finalPlace = place
-//            vc.meetingDetails = self.meetingDetails
+            vc.finalPlace = place
+            vc.meetingDetails = self.meetingDetails
             vc.friendName = self.friendName
             self.present(vc, animated: true, completion: nil)
         })

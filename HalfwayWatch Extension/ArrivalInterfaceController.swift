@@ -9,11 +9,16 @@ class ArrivalInterfaceController: MeetingInfoInterfaceController {
     override var meetingInfo: MeetingInfo? {
         didSet {
             guard let meetingInfo = meetingInfo else { return }
-            let myTime = Int(meetingInfo.mine.time)
-            let otherTime = Int(meetingInfo.other.time)
-            myTimeLabel.setText("\(myTime) min")
-            otherTimeLabel.setText("\(otherTime) min")
+            myTimeLabel.setText(timeInMinutes(from: meetingInfo.mine.time))
+            otherTimeLabel.setText(timeInMinutes(from: meetingInfo.other.time))
         }
+    }
+    
+    private func timeInMinutes(from timeInterval: TimeInterval) -> String {
+        let totalSeconds = Int(timeInterval)
+        let minutes = totalSeconds / 60
+        let seconds = totalSeconds % 60
+        return String(format: "%d:%02d", minutes, seconds)
     }
     
 }

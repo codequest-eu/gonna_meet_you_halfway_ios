@@ -36,6 +36,8 @@
 		90BA3EF31E02F3D4002491D0 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */; };
 		90BA3EF41E02F3D4002491D0 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */; };
 		90BA3EF71E02F6AB002491D0 /* LocationInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF61E02F6AB002491D0 /* LocationInfoService.swift */; };
+		90BA3EF91E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */; };
+		90BA3EFA1E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */; };
 		EE0FC2731E02C97000463ADD /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2721E02C97000463ADD /* UserType.swift */; };
 		EE0FC2751E02CEDA00463ADD /* GonnaMeetRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */; };
 		EE2D53061E014CD700D839C0 /* MeetingSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */; };
@@ -135,6 +137,7 @@
 		90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingSuggestion.swift; sourceTree = "<group>"; };
 		90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
 		90BA3EF61E02F6AB002491D0 /* LocationInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfoService.swift; sourceTree = "<group>"; };
+		90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D_Dictionary.swift; sourceTree = "<group>"; };
 		EE0FC2721E02C97000463ADD /* UserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserType.swift; path = Helpers/UserType.swift; sourceTree = "<group>"; };
 		EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetRoute.swift; path = Helpers/GonnaMeetRoute.swift; sourceTree = "<group>"; };
 		EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingSuggestionViewController.swift; path = ViewControllers/MeetingSuggestionViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +220,7 @@
 			children = (
 				9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */,
 				90BA3EF21E02F3D4002491D0 /* LocationInfo.swift */,
+				90BA3EF81E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -566,6 +570,7 @@
 				90BA3EF41E02F3D4002491D0 /* LocationInfo.swift in Sources */,
 				90041EA41E0172C900DDBD97 /* ExtensionDelegate.swift in Sources */,
 				9028C3FB1E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift in Sources */,
+				90BA3EFA1E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */,
 				90041EB41E01753F00DDBD97 /* ArrivalInterfaceController.swift in Sources */,
 				9028C3F81E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */,
 				90041EB61E01759200DDBD97 /* MapInterfaceController.swift in Sources */,
@@ -609,6 +614,7 @@
 				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,
 				90041E681E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift in Sources */,
 				9028C3EE1E0296EA00F6AEC8 /* WatchNotifier.swift in Sources */,
+				90BA3EF91E03441F002491D0 /* CLLocationCoordinate2D_Dictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

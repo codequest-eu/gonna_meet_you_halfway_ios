@@ -7,15 +7,13 @@ class WatchNotifier: NSObject {
     
     var identifier: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     
+    let locationInfoService: LocationInfoService
     var started: Bool = false
-    let client: GonnaMeetClient
-    let locationsTopicName: String
     var disposeBag = DisposeBag()
     var session: WCSession? = nil
     
-    init(client: GonnaMeetClient = GonnaMeetClient.default, locationsTopicName: String) {
-        self.client = client
-        self.locationsTopicName = locationsTopicName
+    init(locationInfoService: LocationInfoService = LocationInfoService.default) {
+        self.locationInfoService = locationInfoService
     }
 
     func initialize() {        
@@ -28,17 +26,14 @@ class WatchNotifier: NSObject {
     
     func startNotification(with session: WCSession) {
         if !started {
-            client.otherLocations(from: locationsTopicName).subscribe(onNext: { location in
-                let mine = LocationInfo(time: location.latitude, location: location, distance: location.latitude)
-                let other = LocationInfo(time: location.longitude, location: location, distance: location.longitude)
-                let meetingInfo = MeetingInfo(mine: mine, other: other)
-                do {
-                    try session.updateApplicationContext(["meetingInfo": meetingInfo.toDictionary()])
-                } catch {
-                    print(error)
-                }
-            }, onError: { error in
-                print(error)
+            Observable.combineLatest(locationInfoService.myLocationInfos,
+                                     locationInfoService.otherLocationInfos,
+                                     locationInfoService.meetingLocation.asObservable().filterNil()) {
+                MeetingInfo(mine: $0, other: $1, meetingLocation: $2)
+            }.subscribe(onNext: {
+                try? session.updateApplicationContext(["meetingInfo": $0.toDictionary()])
+            }, onError: {
+                print($0)
             }).addDisposableTo(disposeBag)
         }
     }

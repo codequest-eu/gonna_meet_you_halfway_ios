@@ -18,8 +18,8 @@
                             <items>
                                 <group width="1" alignment="left" layout="vertical" id="rRx-NF-w4i">
                                     <items>
-                                        <label alignment="left" text="You will arrive in" id="HDe-Y6-yMP">
-                                            <fontDescription key="font" type="system" pointSize="14"/>
+                                        <label alignment="center" text="You will arrive in" id="HDe-Y6-yMP">
+                                            <fontDescription key="font" type="system" pointSize="11"/>
                                         </label>
                                         <label alignment="center" text="15 min" id="k78-OZ-gE6">
                                             <color key="textColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -30,8 +30,8 @@
                                 </group>
                                 <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="Y00-mn-9EC">
                                     <items>
-                                        <label alignment="left" text="Lukasz will arrive in" id="nkI-dH-wib">
-                                            <fontDescription key="font" type="system" pointSize="14"/>
+                                        <label alignment="center" text="Your buddy will arrive in" id="nkI-dH-wib">
+                                            <fontDescription key="font" type="system" pointSize="11"/>
                                         </label>
                                         <label alignment="center" text="15 min" id="0rs-XE-WZb">
                                             <color key="textColor" red="0.015686274510000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>

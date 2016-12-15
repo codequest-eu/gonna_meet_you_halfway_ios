@@ -19,14 +19,14 @@ extension LocationInfo {
     
     init(dictionary: [String: Any]) {
         let time = dictionary["time"] as! TimeInterval
-        let location = dictionary["location"] as! CLLocationCoordinate2D
+        let location = CLLocationCoordinate2D(dictionary: dictionary["location"] as! [String: Any])
         let distance = dictionary["distance"] as! CLLocationDistance
         self.init(time: time, location: location, distance: distance)
     }
     
     func toDictionary() -> [String: Any] {
         return ["time": time,
-                "location": location,
+                "location": location.toDictionary(),
                 "distance": distance]
     }
     

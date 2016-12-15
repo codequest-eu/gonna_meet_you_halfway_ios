@@ -50,7 +50,7 @@ class LocationViewController: UIViewController, AlertHandler {
         locationVM.getPlaceSugestions(from: meetingDetails)
         locationVM.listenForYourFriendSuggestions(from: meetingDetails)
         locationVM.getFriendLocation(from: meetingDetails)
-        guard let location = lm.userLocation else {
+        guard let location = lm.userLocation.value else {
             showLocationSettingsAlert()
             return
         }
@@ -106,7 +106,7 @@ class LocationViewController: UIViewController, AlertHandler {
     
     // Zoom map to current user location
     fileprivate func showUserCurrentLocation() {
-        if let location = self.lm.userLocation {
+        if let location = self.lm.userLocation.value {
             let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)
             let region = MKCoordinateRegion(center: location, span: span)
             map.setRegion(region, animated: true)
@@ -224,8 +224,8 @@ extension LocationViewController: LocationViewControllerProtocol {
     private func showNavivigationController(with place: MeetingSuggestion) {
         let showFinalController = UIAlertAction(title: "Great!", style: .default, handler: { _ in
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
-            vc.finalPlace = place
-            vc.meetingDetails = self.meetingDetails
+//            vc.finalPlace = place
+//            vc.meetingDetails = self.meetingDetails
             vc.friendName = self.friendName
             self.present(vc, animated: true, completion: nil)
         })

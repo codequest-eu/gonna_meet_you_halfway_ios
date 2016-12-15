@@ -52,8 +52,8 @@ class ContactViewController: UIViewController, AlertHandler {
     }
     
     fileprivate func updateButtonState(active: Bool) {
-        inviteButton.isEnabled = active
-        inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
+//        inviteButton.isEnabled = active
+//        inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
     }
     
     fileprivate func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
@@ -80,18 +80,18 @@ class ContactViewController: UIViewController, AlertHandler {
     
     //MARK: Actions
     @IBAction func invite(_ sender: Any) {
-        guard let location = lm.userLocation else {
-            showLocationSettingsAlert()
-            return
-        }
-        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
+//        guard let location = lm.userLocation else {
+//            showLocationSettingsAlert()
+//            return
+//        }
+//        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
 //
 //        // FOR TESTS
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
 //        if let name = inviteName {
 //            vc.friendName = name
 //        }
-//        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     func showError(error: Error.Protocol) {

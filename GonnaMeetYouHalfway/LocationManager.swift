@@ -8,14 +8,18 @@
 
 import Foundation
 import CoreLocation
+import RxSwift
+import MapKit
+
 
 class LocationManager: NSObject {
     
     static let sharedInstance = LocationManager()
     
     var locationManager: CLLocationManager!
-    var userLocation: CLLocationCoordinate2D?
-
+    var userLocation: Variable<CLLocationCoordinate2D?> = Variable(nil)
+    var placemark: CLPlacemark?
+    
     private override init() {
         super.init()
         if (CLLocationManager.locationServicesEnabled()) {
@@ -43,8 +47,15 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            self.userLocation = location.coordinate
+            self.userLocation.value = location.coordinate
         }
+        
+        CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {  (placemarks, error) in
+            if let placemarks = placemarks {
+                self.placemark = placemarks[0] // user’s current address
+            }
+        })
+
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

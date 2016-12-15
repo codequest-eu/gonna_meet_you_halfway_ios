@@ -407,39 +407,81 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John time to destination:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7s-Fd-f1b">
-                                <rect key="frame" x="16" y="58" width="189" height="21"/>
+                                <rect key="frame" x="16" y="67" width="189" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00 h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgM-kj-7wj">
-                                <rect key="frame" x="219" y="58" width="47" height="21"/>
+                                <rect key="frame" x="219" y="67" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7mc-MJ-kNe">
-                                <rect key="frame" x="0.0" y="87" width="375" height="580"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="549"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns4-bv-Au5">
+                                <rect key="frame" x="16" y="637" width="22" height="22"/>
+                                <connections>
+                                    <action selector="centerMap:" destination="fjE-yq-gmR" eventType="touchUpInside" id="CAj-ZC-r7e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IM2-ye-rc3">
+                                <rect key="frame" x="16" y="41" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORZ-3p-UIP">
+                                <rect key="frame" x="16" y="88" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50.666 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBo-fy-Pqc">
+                                <rect key="frame" x="219" y="41" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66.666 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jE6-Rb-aU1">
+                                <rect key="frame" x="219" y="88" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3Hw-3S-xkA" firstAttribute="centerY" secondItem="HeJ-Od-dip" secondAttribute="centerY" id="0jO-5O-fdM"/>
+                            <constraint firstItem="IM2-ye-rc3" firstAttribute="leading" secondItem="HeJ-Od-dip" secondAttribute="leading" id="2WJ-S9-ZXK"/>
                             <constraint firstItem="SgM-kj-7wj" firstAttribute="centerY" secondItem="d7s-Fd-f1b" secondAttribute="centerY" id="3EO-BB-W20"/>
+                            <constraint firstItem="pBo-fy-Pqc" firstAttribute="leading" secondItem="3Hw-3S-xkA" secondAttribute="leading" id="DbJ-G2-1fe"/>
+                            <constraint firstItem="IM2-ye-rc3" firstAttribute="top" secondItem="HeJ-Od-dip" secondAttribute="bottom" id="EbE-p9-SnM"/>
+                            <constraint firstItem="pBo-fy-Pqc" firstAttribute="centerY" secondItem="IM2-ye-rc3" secondAttribute="centerY" id="GWt-Nf-B86"/>
+                            <constraint firstItem="jE6-Rb-aU1" firstAttribute="leading" secondItem="SgM-kj-7wj" secondAttribute="leading" id="Hvi-D5-IGN"/>
+                            <constraint firstItem="d7s-Fd-f1b" firstAttribute="top" secondItem="IM2-ye-rc3" secondAttribute="bottom" constant="5" id="IlD-SP-5nH"/>
                             <constraint firstItem="3Hw-3S-xkA" firstAttribute="leading" secondItem="d7s-Fd-f1b" secondAttribute="trailing" constant="14" id="MRC-K8-JEt"/>
+                            <constraint firstItem="jE6-Rb-aU1" firstAttribute="centerY" secondItem="ORZ-3p-UIP" secondAttribute="centerY" id="Nap-En-GXn"/>
                             <constraint firstItem="SgM-kj-7wj" firstAttribute="leading" secondItem="3Hw-3S-xkA" secondAttribute="leading" id="Odg-Ju-Daz"/>
                             <constraint firstItem="De1-SY-dsF" firstAttribute="top" secondItem="7mc-MJ-kNe" secondAttribute="bottom" id="SVP-J7-SLc"/>
                             <constraint firstAttribute="trailing" secondItem="7mc-MJ-kNe" secondAttribute="trailing" id="UHr-S2-uZO"/>
+                            <constraint firstItem="De1-SY-dsF" firstAttribute="top" secondItem="Ns4-bv-Au5" secondAttribute="bottom" constant="8" id="Z4a-cv-7uw"/>
                             <constraint firstItem="HeJ-Od-dip" firstAttribute="top" secondItem="WJf-sd-XrM" secondAttribute="bottom" id="ZRT-bA-PrQ"/>
                             <constraint firstItem="7mc-MJ-kNe" firstAttribute="leading" secondItem="y6k-Bx-Gqd" secondAttribute="leading" id="ca2-mk-O19"/>
                             <constraint firstItem="d7s-Fd-f1b" firstAttribute="leading" secondItem="HeJ-Od-dip" secondAttribute="leading" id="fjw-i0-dMK"/>
-                            <constraint firstItem="7mc-MJ-kNe" firstAttribute="top" secondItem="d7s-Fd-f1b" secondAttribute="bottom" constant="8" id="qv9-41-fBq"/>
+                            <constraint firstItem="ORZ-3p-UIP" firstAttribute="leading" secondItem="d7s-Fd-f1b" secondAttribute="leading" id="mvF-m0-hDX"/>
+                            <constraint firstItem="Ns4-bv-Au5" firstAttribute="leading" secondItem="y6k-Bx-Gqd" secondAttribute="leading" constant="16" id="qtB-If-CQX"/>
+                            <constraint firstItem="7mc-MJ-kNe" firstAttribute="top" secondItem="d7s-Fd-f1b" secondAttribute="bottom" constant="30" id="qv9-41-fBq"/>
                             <constraint firstItem="HeJ-Od-dip" firstAttribute="leading" secondItem="y6k-Bx-Gqd" secondAttribute="leading" constant="16" id="rQ6-8d-QKy"/>
-                            <constraint firstItem="d7s-Fd-f1b" firstAttribute="top" secondItem="HeJ-Od-dip" secondAttribute="bottom" constant="17" id="z3Z-RY-6Xu"/>
+                            <constraint firstItem="ORZ-3p-UIP" firstAttribute="top" secondItem="d7s-Fd-f1b" secondAttribute="bottom" id="uNd-E2-uS3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="destinationDistanceLabel" destination="pBo-fy-Pqc" id="Z1v-a8-7Hz"/>
                         <outlet property="destinationTimeLabel" destination="3Hw-3S-xkA" id="xyu-xs-0Q3"/>
+                        <outlet property="friendDestinationDistanceLabel" destination="jE6-Rb-aU1" id="3j9-jk-s0u"/>
                         <outlet property="friendDestinationTimeLabel" destination="SgM-kj-7wj" id="GqW-qs-MCa"/>
                         <outlet property="friendInfoLabel" destination="d7s-Fd-f1b" id="CgF-Lq-ick"/>
                         <outlet property="map" destination="7mc-MJ-kNe" id="GTl-82-nFh"/>

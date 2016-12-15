@@ -31,7 +31,7 @@ class RxMqttClient {
         mqttClient.publish(string: message, topic: topic, qos: qos, retain: retain)
     }
     
-    func subscribe(to topic: String, qos: Int32 = 2) -> Observable<String> {
+    func subscribe(to topic: String, qos: Int32 = 1) -> Observable<String> {
         return connect()
             .flatMap { self.trySubscribe(to: topic, qos: qos) }
             .flatMap { _ in self.incomingMessages.asObservable() }
@@ -46,7 +46,7 @@ class RxMqttClient {
         return self.connected.asObservable().filter { $0 }.map { _ in }
     }
     
-    private func trySubscribe(to topic: String, qos: Int32 = 2) -> Observable<Int> {
+    private func trySubscribe(to topic: String, qos: Int32 = 1) -> Observable<Int> {
         return Observable.create({ observer in
             let cancel = Disposables.create {
                 self.mqttClient.unsubscribe(topic)

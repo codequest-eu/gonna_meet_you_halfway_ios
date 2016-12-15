@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
 		window = UIWindow.init(frame: UIScreen.main.bounds)
 		navigationController = UINavigationController()
+        navigationController.navigationBar.barTintColor = Globals.darkGreen
 		showLocationView(in: navigationController, id: nil)
 		window?.rootViewController = navigationController
 		window?.makeKeyAndVisible()

@@ -21,6 +21,7 @@
 		90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */; };
 		EE0FC2731E02C97000463ADD /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2721E02C97000463ADD /* UserType.swift */; };
 		EE0FC2751E02CEDA00463ADD /* GonnaMeetRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */; };
+		EE0FC2771E03329600463ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE0FC2761E03329600463ADD /* Assets.xcassets */; };
 		EE2D53061E014CD700D839C0 /* MeetingSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */; };
 		EE2D53081E0151EA00D839C0 /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D53071E0151EA00D839C0 /* MeetingViewModel.swift */; };
 		EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31906C1E009BB90045569E /* LocationViewController.swift */; };
@@ -39,7 +40,6 @@
 		EE6ECA251E01A9B7006DE828 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6ECA241E01A9B7006DE828 /* NavigationViewController.swift */; };
 		EE6ECA271E01AD91006DE828 /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6ECA261E01AD91006DE828 /* AlertHandler.swift */; };
 		EEA12C401E01680B008A98CE /* GonnaMeetAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */; };
-		EEA12C421E0170B4008A98CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA12C411E0170B4008A98CE /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +65,7 @@
 		90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingSuggestion.swift; sourceTree = "<group>"; };
 		EE0FC2721E02C97000463ADD /* UserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserType.swift; path = Helpers/UserType.swift; sourceTree = "<group>"; };
 		EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetRoute.swift; path = Helpers/GonnaMeetRoute.swift; sourceTree = "<group>"; };
+		EE0FC2761E03329600463ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingSuggestionViewController.swift; path = ViewControllers/MeetingSuggestionViewController.swift; sourceTree = "<group>"; };
 		EE2D53071E0151EA00D839C0 /* MeetingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingViewModel.swift; path = ViewModel/MeetingViewModel.swift; sourceTree = "<group>"; };
 		EE31906C1E009BB90045569E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ViewControllers/LocationViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		EE6ECA241E01A9B7006DE828 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = ViewControllers/NavigationViewController.swift; sourceTree = "<group>"; };
 		EE6ECA261E01AD91006DE828 /* AlertHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHandler.swift; path = Helpers/AlertHandler.swift; sourceTree = "<group>"; };
 		EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetAnnotation.swift; path = Helpers/GonnaMeetAnnotation.swift; sourceTree = "<group>"; };
-		EEA12C411E0170B4008A98CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEA12C451E018B41008A98CE /* GonnaMeetYouHalfway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GonnaMeetYouHalfway.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +129,7 @@
 				9060F36D1DFEAAE600213743 /* LaunchScreen.storyboard */,
 				9060F3701DFEAAE600213743 /* Info.plist */,
 				EE4CC8031DFEB56F00E444F7 /* Globals.swift */,
-				EEA12C411E0170B4008A98CE /* Assets.xcassets */,
+				EE0FC2761E03329600463ADD /* Assets.xcassets */,
 			);
 			path = GonnaMeetYouHalfway;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9060F36F1DFEAAE600213743 /* LaunchScreen.storyboard in Resources */,
-				EEA12C421E0170B4008A98CE /* Assets.xcassets in Resources */,
+				EE0FC2771E03329600463ADD /* Assets.xcassets in Resources */,
 				9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

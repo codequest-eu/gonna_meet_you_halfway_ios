@@ -41,6 +41,7 @@ class ContactViewController: UIViewController, AlertHandler {
         inviteEmailTextField.delegate = self
         createGradient(view: self.view)
         setupTextChangeHandling()
+        navigationController?.isNavigationBarHidden = true
     }
 
     // Validate email format

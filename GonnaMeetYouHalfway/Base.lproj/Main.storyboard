@@ -87,6 +87,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="5h4-4i-P1g">
+                                <rect key="frame" x="206" y="600" width="22" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40392156862745099" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -519,6 +523,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" width="512" height="512"/>
         <image name="logo_cq" width="2000" height="295"/>
         <image name="pin" width="256" height="256"/>
     </resources>

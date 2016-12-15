@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		283F36AF21F9428751A4D355 /* Pods_GonnaMeetYouHalfway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D923706F2C9DCF4BA8A1CF6 /* Pods_GonnaMeetYouHalfway.framework */; };
 		90041E681E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90041E671E01681D00DDBD97 /* CLLocationCoordinate2D_Mappable.swift */; };
-		90041EBA1E0182CA00DDBD97 /* GonnaMeetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F37D1DFEB20900213743 /* GonnaMeetAPI.swift */; };
-		90041EBB1E0182CA00DDBD97 /* GonnaMeetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874CD1DFEBCB600F4136F /* GonnaMeetClient.swift */; };
-		90041EBC1E0182CA00DDBD97 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
@@ -22,6 +19,8 @@
 		906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906874D31DFF51DC00F4136F /* GonnaMeetError.swift */; };
 		90741C791E00190B001E88E4 /* PlaceSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C781E00190B001E88E4 /* PlaceSuggestion.swift */; };
 		90741C7B1E002341001E88E4 /* MeetingSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */; };
+		EE0FC2731E02C97000463ADD /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2721E02C97000463ADD /* UserType.swift */; };
+		EE0FC2751E02CEDA00463ADD /* GonnaMeetRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */; };
 		EE2D53061E014CD700D839C0 /* MeetingSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */; };
 		EE2D53081E0151EA00D839C0 /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D53071E0151EA00D839C0 /* MeetingViewModel.swift */; };
 		EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31906C1E009BB90045569E /* LocationViewController.swift */; };
@@ -64,6 +63,8 @@
 		906874D31DFF51DC00F4136F /* GonnaMeetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GonnaMeetError.swift; sourceTree = "<group>"; };
 		90741C781E00190B001E88E4 /* PlaceSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSuggestion.swift; sourceTree = "<group>"; };
 		90741C7A1E002341001E88E4 /* MeetingSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingSuggestion.swift; sourceTree = "<group>"; };
+		EE0FC2721E02C97000463ADD /* UserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserType.swift; path = Helpers/UserType.swift; sourceTree = "<group>"; };
+		EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GonnaMeetRoute.swift; path = Helpers/GonnaMeetRoute.swift; sourceTree = "<group>"; };
 		EE2D53051E014CD700D839C0 /* MeetingSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingSuggestionViewController.swift; path = ViewControllers/MeetingSuggestionViewController.swift; sourceTree = "<group>"; };
 		EE2D53071E0151EA00D839C0 /* MeetingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingViewModel.swift; path = ViewModel/MeetingViewModel.swift; sourceTree = "<group>"; };
 		EE31906C1E009BB90045569E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ViewControllers/LocationViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +194,8 @@
 				EE31907B1E00BDDB0045569E /* MeetingStatus.swift */,
 				EEA12C3F1E01680B008A98CE /* GonnaMeetAnnotation.swift */,
 				EE6ECA261E01AD91006DE828 /* AlertHandler.swift */,
+				EE0FC2721E02C97000463ADD /* UserType.swift */,
+				EE0FC2741E02CEDA00463ADD /* GonnaMeetRoute.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			files = (
 				EE31907A1E00A2470045569E /* MeetingResponse.swift in Sources */,
 				906874D41DFF51DC00F4136F /* GonnaMeetError.swift in Sources */,
+				EE0FC2731E02C97000463ADD /* UserType.swift in Sources */,
 				9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */,
 				906874D21DFEE2AD00F4136F /* RxMqttClient.swift in Sources */,
 				EE3190721E009DA80045569E /* LocationManager.swift in Sources */,
@@ -376,6 +380,7 @@
 				EE3190781E00A2080045569E /* GonnaMeetClient.swift in Sources */,
 				EE6ECA271E01AD91006DE828 /* AlertHandler.swift in Sources */,
 				906874D01DFED95700F4136F /* SuggestionRequest.swift in Sources */,
+				EE0FC2751E02CEDA00463ADD /* GonnaMeetRoute.swift in Sources */,
 				9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */,
 				EE31907C1E00BDDB0045569E /* MeetingStatus.swift in Sources */,
 				9060F3781DFEB0AB00213743 /* MeetingRequest.swift in Sources */,

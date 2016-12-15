@@ -23,16 +23,19 @@ class NavigationViewController: UIViewController, AlertHandler {
     
     // MARK: - Properties
 //    var finalPlace: MeetingSuggestion!
-    var friendLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.436180, -122.395842)
+    var friendLocation: Variable<CLLocationCoordinate2D> = Variable(CLLocationCoordinate2DMake(37.436180, -122.395842))
+    var finalPlace: Variable<CLLocationCoordinate2D> = Variable(CLLocationCoordinate2DMake(36.58, -122.1))
     
 //    var meetingDetails: MeetingResponse!
     var friendName = ""
     fileprivate let lm = LocationManager.sharedInstance
     fileprivate var locationVM: LocationViewModelProtocol!
-    fileprivate var myRoute : MKRoute!
+    fileprivate var myRoute : GonnaMeetRoute!
     fileprivate let disposeBag = DisposeBag()
     fileprivate var distance: Variable<CLLocationDistance?> = Variable(nil)
     fileprivate var time: Variable<TimeInterval?> = Variable(nil)
+    fileprivate var friendDistance: Variable<CLLocationDistance?> = Variable(nil)
+    fileprivate var friendTime: Variable<TimeInterval?> = Variable(nil)
     fileprivate var isFirstLoad = true
 
     override func viewDidLoad() {
@@ -42,6 +45,7 @@ class NavigationViewController: UIViewController, AlertHandler {
 //        locationVM.getFriendLocation(from: meetingDetails)
         addDestinationAnnotation()
         observeUserLocation()
+        observeFriendLocation()
     }
     
     // MARK: - RxSetup
@@ -55,25 +59,46 @@ class NavigationViewController: UIViewController, AlertHandler {
         distance.asObservable()
             .bindNext(setDistanceLabel)
             .addDisposableTo(disposeBag)
+        
+        friendDistance.asObservable()
+            .bindNext(setFriendDistanceLabel)
+            .addDisposableTo(disposeBag)
     }
     
     private func observeTimeChanges() {
         time.asObservable()
             .bindNext(setTimeLabel)
             .addDisposableTo(disposeBag)
+        
+        friendTime.asObservable()
+            .bindNext(setFriendTimeLabel)
+            .addDisposableTo(disposeBag)
+    }
+    
+    private func observeFriendLocation() {
+        friendLocation.asObservable()
+            .bindNext(updateFriendLocation)
+            .addDisposableTo(disposeBag)
     }
     
     private func setDirection(userLocation: CLLocationCoordinate2D?) {
         if isFirstLoad {
             //        locationVM.sendUserLocation(location: userLocation, topic: meetingDetails.myLocationTopicName)
-            setDirectionRequest()
+            setDirectionRequest(for: userLocation!, userType: .user)
             observeDistanceChanges()
             observeTimeChanges()
             map.showAnnotations(map.annotations, animated: true)
             isFirstLoad = false
         } else {
-            setDirectionRequest()
+            setDirectionRequest(for: userLocation!, userType: .user)
         }
+    }
+    
+    private func updateFriendLocation(coordinates: CLLocationCoordinate2D) {
+        map.annotations.forEach { if !($0 is MKUserLocation) { map.removeAnnotation($0) } }
+        addAnnotation(for: coordinates, image: "friend", title: friendName, subtitle: "")
+        addDestinationAnnotation()
+        setDirectionRequest(for: coordinates, userType: .friend)
     }
     
     private func setDistanceLabel(distance: CLLocationDistance?) {
@@ -83,11 +108,25 @@ class NavigationViewController: UIViewController, AlertHandler {
         destinationDistanceLabel.text = "\(distanceMeters / 1000) km"
     }
     
+    private func setFriendDistanceLabel(distance: CLLocationDistance?) {
+        guard let distanceMeters = distance else {
+            return
+        }
+        friendDestinationDistanceLabel.text = "\(distanceMeters / 1000) km"
+    }
+    
     private func setTimeLabel(time: TimeInterval?) {
         guard let timeInterval = time else {
             return
         }
         destinationTimeLabel.text = format(timeInterval)
+    }
+    
+    private func setFriendTimeLabel(time: TimeInterval?) {
+        guard let timeInterval = time else {
+            return
+        }
+        friendDestinationTimeLabel.text = format(timeInterval)
     }
     
     private func format(_ duration: TimeInterval) -> String {
@@ -109,7 +148,7 @@ class NavigationViewController: UIViewController, AlertHandler {
 //        } else {
 //            placeTitle = "Destination"
 //        }
-        addAnnotation(for: friendLocation, image: "place", title: placeTitle, subtitle: "")
+        addAnnotation(for: finalPlace.value, image: "place", title: placeTitle, subtitle: "")
     }
     
     private func setupMap() {
@@ -119,17 +158,13 @@ class NavigationViewController: UIViewController, AlertHandler {
         map.showAnnotations(map.annotations, animated: true)
     }
     
-    private func setDirectionRequest() {
-        
-        guard let userLocation = lm.userLocation.value else {
-            return
-        }
+    private func setDirectionRequest(for startPoint: CLLocationCoordinate2D, userType: UserType) {
         
         let directionsRequest = MKDirectionsRequest()
-        let user = MKPlacemark(coordinate: CLLocationCoordinate2DMake(userLocation.latitude, userLocation.longitude), addressDictionary: nil)
-        let destination = MKPlacemark(coordinate: CLLocationCoordinate2DMake(friendLocation.latitude, friendLocation.longitude), addressDictionary: nil)
+        let start = MKPlacemark(coordinate: CLLocationCoordinate2DMake(startPoint.latitude, startPoint.longitude), addressDictionary: nil)
+        let destination = MKPlacemark(coordinate: CLLocationCoordinate2DMake(finalPlace.value.latitude, finalPlace.value.longitude), addressDictionary: nil)
         
-        directionsRequest.source = MKMapItem(placemark: user)
+        directionsRequest.source = MKMapItem(placemark: start)
         directionsRequest.destination = MKMapItem(placemark: destination)
         
         directionsRequest.transportType = MKDirectionsTransportType.automobile
@@ -139,11 +174,18 @@ class NavigationViewController: UIViewController, AlertHandler {
             response, error in
             
             if error == nil {
-                self.myRoute = response!.routes[0] as MKRoute
+                self.myRoute = GonnaMeetRoute(userType: userType, polyline: response!.routes[0].polyline)
+                self.myRoute.userType = userType
                 self.map.add(self.myRoute.polyline)
                 if let route = response?.routes.first {
-                    self.distance.value = route.distance
-                    self.time.value = route.expectedTravelTime
+                    switch userType {
+                    case .user:
+                        self.distance.value = route.distance
+                        self.time.value = route.expectedTravelTime
+                    case .friend:
+                        self.friendDistance.value = route.distance
+                        self.friendTime.value = route.expectedTravelTime
+                    }
                 }
             }
         })
@@ -192,7 +234,11 @@ extension NavigationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         let myLineRenderer = MKPolylineRenderer(polyline: myRoute.polyline)
-        myLineRenderer.strokeColor = UIColor.red
+        if myRoute.userType == .user {
+            myLineRenderer.strokeColor = UIColor.red
+        } else {
+            myLineRenderer.strokeColor = UIColor.blue
+        }
         myLineRenderer.lineWidth = 3
         return myLineRenderer
     }
@@ -206,8 +252,7 @@ extension NavigationViewController: LocationViewControllerProtocol {
     }
     
     func didFetchFriendLocation(coordinates: CLLocationCoordinate2D) {
-        map.annotations.forEach { if !($0 is MKUserLocation) { map.removeAnnotation($0) } }
-        addAnnotation(for: coordinates, image: "friend", title: friendName, subtitle: "")
+        friendLocation.value = coordinates
     }
     
     func didFetchPlacesSugestion(places: [PlaceSuggestion]) {}

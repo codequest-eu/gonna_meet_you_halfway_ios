@@ -34,11 +34,12 @@ class LocationViewController: UIViewController, AlertHandler {
     var meetingStatus = Variable(MeetingStatus.pending)
     var getInvitation = false
     var meetingId: String?
+    var waitForFriendInvitationResponse = true
     fileprivate let lm = LocationManager.sharedInstance
     fileprivate var locationVM: LocationViewModelProtocol!
     fileprivate let disposeBag = DisposeBag()
     fileprivate var places: [PlaceSuggestion]?
-    fileprivate var friendAccepted = false
+    var friendAccepted = false
     private var locationFirstLoad = true
 
     //MARK: for test purpose
@@ -199,6 +200,7 @@ extension LocationViewController: LocationViewControllerProtocol {
         addPlacesSuggestionsToMap()
         if !friendAccepted {
             friendAccepted = true
+            meetingStatus.value = .waitingForPlaceSuggestion
             showAlert(title: "Success", message: "Your invitation has been accepted!")
             self.map.showAnnotations(self.map.annotations, animated: true)
         }

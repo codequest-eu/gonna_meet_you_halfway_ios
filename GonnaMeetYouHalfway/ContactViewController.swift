@@ -13,20 +13,31 @@ import RxCocoa
 
 let throttleInterval = 0.1
 
-class ContactViewController: UIViewController {
+protocol ContactViewControllerProtocol {
+    func didInviteFriendWithSuccess(response: MeetingResponse)
+    func didInviteFriendWithFailure()
+}
 
+class ContactViewController: UIViewController, AlertHandler {
+
+    //MARK: - Outlets
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var inviteEmailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var inviteButton: UIButton!
 
+    //MARK: - Properties
     var contactStore = CNContactStore()
     var inviteEmail = Variable("")
+    var inviteName: String?
+    fileprivate let lm = LocationManager.sharedInstance
     fileprivate let disposeBag = DisposeBag()
     fileprivate let inviteEmailTextVariable = Variable("")
+    var vm: InviteViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        vm = InviteViewModel(controller: self)
         inviteEmailTextField.delegate = self
         createGradient(view: self.view)
         setupTextChangeHandling()
@@ -41,6 +52,7 @@ class ContactViewController: UIViewController {
     }
     
     fileprivate func updateButtonState(active: Bool) {
+        inviteButton.isEnabled = active
         inviteButton.backgroundColor = active ? Globals.activeButtonColor : Globals.inactiveButtonColor
     }
     
@@ -66,11 +78,31 @@ class ContactViewController: UIViewController {
         }
     }
     
-    //MARK: - Rx Setup
+    //MARK: Actions
+    @IBAction func invite(_ sender: Any) {
+        guard let location = lm.userLocation.value else {
+            showLocationSettingsAlert()
+            return
+        }
+        vm.inviteFriend(name: nameTextField.text!, inviteEmail: inviteEmailTextField.text!, userEmail: userEmailTextField.text!, location: location)
+////
+////        // FOR TESTS
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
+////        if let name = inviteName {
+////            vc.friendName = name
+////        }
+//        self.present(vc, animated: true, completion: nil)
+    }
     
+    func showError(error: Error.Protocol) {
+        self.showAlert(title: "Warning", message: "Sorry, an error occured while inviting. Please try again later")
+    }
+    
+    //MARK: - Rx Setup
     func setupTextChangeHandling() {
         
         inviteEmail.asObservable().bindTo(inviteEmailTextField.rx.text).addDisposableTo(disposeBag)
+        inviteEmailTextVariable.asObservable().bindTo(inviteEmailTextField.rx.text).addDisposableTo(disposeBag)
         
         let userMailValid = userEmailTextField
             .rx
@@ -175,6 +207,7 @@ extension ContactViewController: UITextFieldDelegate {
                         return
                     }
                     self.inviteEmail.value = contact.emailAddresses[0].value as String
+                    self.inviteName = contact.givenName
                 })
                 .addDisposableTo(self.disposeBag)
             
@@ -188,6 +221,7 @@ extension ContactViewController: UITextFieldDelegate {
     }
 
     private func displayAlertForMoreThanOneEmail(with contact: CNContact) {
+        self.inviteName = contact.givenName
         let email1 = contact.emailAddresses[0].value as String
         let email2 = contact.emailAddresses[1].value as String
         displayActionSheet(email1, buttonOneAction: { _ in
@@ -195,5 +229,21 @@ extension ContactViewController: UITextFieldDelegate {
         }, buttonTwoTitle: email2, buttonTwoAction: { _ in
             self.inviteEmail.value = contact.emailAddresses[1].value as String
         }, cancelAction: nil)
+    }
+}
+
+extension ContactViewController: ContactViewControllerProtocol {
+    
+    func didInviteFriendWithSuccess(response: MeetingResponse) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        if let name = inviteName {
+            vc.friendName = name
+        }
+        vc.meetingDetails = response
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func didInviteFriendWithFailure() {
+        showError()
     }
 }

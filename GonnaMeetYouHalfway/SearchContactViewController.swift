@@ -106,7 +106,7 @@ extension SearchContactViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
         if searchBar.text != "" {
-            inviteEmailOutsideAddressbook.value = searchBar.text!
+            inviteEmailOutsideAddressbook.value = searchBar.text!.lowercased()
         }
         
         self.searchController.dismiss(animated: true, completion: nil)

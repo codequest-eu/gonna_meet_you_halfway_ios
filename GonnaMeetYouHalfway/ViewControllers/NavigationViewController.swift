@@ -260,4 +260,5 @@ extension NavigationViewController: LocationViewControllerProtocol {
     
     func didFetchPlacesSugestion(places: [PlaceSuggestion]) {}
     func didFetchFriendSuggestion(place: MeetingSuggestion) {}
+    func didAcceptInvitation(response: MeetingResponse) {}
 }

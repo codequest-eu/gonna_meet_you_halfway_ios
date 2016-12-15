@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			mainController = storyboard.instantiateViewController(withIdentifier: "LocationViewController")
 				as! LocationViewController
 			(mainController as! LocationViewController).meetingId = id
+            (mainController as! LocationViewController).friendAccepted = true
 		} else {
 			mainController = storyboard.instantiateViewController(withIdentifier: "ContactViewController")
 				as! ContactViewController

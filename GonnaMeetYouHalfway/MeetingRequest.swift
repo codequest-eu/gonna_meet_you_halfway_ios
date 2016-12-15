@@ -5,6 +5,6 @@ struct MeetingRequest {
     let name: String
     let email: String
     let otherEmail: String
-    let position: Location
+    let position: CLLocationCoordinate2D
     
 }

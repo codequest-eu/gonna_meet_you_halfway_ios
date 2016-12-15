@@ -59,7 +59,7 @@ extension GonnaMeetAPI: TargetType {
                  "myLocationTopicName": "UUID-A",
                  "otherLocationTopicName": "UUID-B",
                  "meetingLocationTopicName": "UUID-P"
-                ]] as [String : Any]
+            ]] as [String: Any]
             return try! JSONSerialization.data(withJSONObject: response)
         case .suggest(_):
             return Data()

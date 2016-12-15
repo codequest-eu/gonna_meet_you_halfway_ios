@@ -202,8 +202,7 @@ extension LocationViewController: LocationViewControllerProtocol {
                 if let placeDescription = place.description {
                     description = placeDescription
                 }
-                let coordinates = CLLocationCoordinate2DMake(place.latitude, place.longitude)
-                addAnnotation(for: coordinates, image: "place", title: place.name, subtitle: description)
+                addAnnotation(for: place.position, image: "place", title: place.name, subtitle: description)
             }
         }
     }

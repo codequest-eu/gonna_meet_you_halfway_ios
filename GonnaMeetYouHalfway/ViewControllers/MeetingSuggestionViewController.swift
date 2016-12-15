@@ -61,9 +61,8 @@ class MeetingSuggestionViewController: UIViewController, AlertHandler {
     private func setupMap() {
         map.showsScale = true
         map.showsUserLocation = true
-        let coordinates = CLLocationCoordinate2DMake(place.latitude, place.longitude)
         let span = MKCoordinateSpanMake(mapLatDelta, mapLonDelta)
-        let region = MKCoordinateRegion(center: coordinates, span: span)
+        let region = MKCoordinateRegion(center: place.position, span: span)
         self.map.setRegion(region, animated: true)
     }
 }

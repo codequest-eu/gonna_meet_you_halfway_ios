@@ -223,20 +223,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFw-th-1Qg">
-                                <rect key="frame" x="171" y="50" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Nyb-2z-aFC" kind="show" id="HK4-c7-OAm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6W-dg-cnw">
-                                <rect key="frame" x="131.5" y="623" width="112" height="30"/>
-                                <state key="normal" title="Show Directions"/>
-                                <connections>
-                                    <action selector="showDirections:" destination="zwu-aA-R17" eventType="touchUpInside" id="qV6-23-eoZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6Q-QX-E0U">
                                 <rect key="frame" x="160" y="14" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -259,22 +245,16 @@
                             <constraint firstItem="4pc-2p-cv3" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="-26" id="BbM-rY-OWh"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leading" constant="16" id="CdN-CJ-xFP"/>
                             <constraint firstItem="Rqq-ea-zUO" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="59" id="F3q-Fx-8sC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fFw-th-1Qg" secondAttribute="trailing" constant="142" id="HV2-Gv-o4h"/>
-                            <constraint firstItem="fFw-th-1Qg" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="30" id="JQa-Hd-WYJ"/>
                             <constraint firstAttribute="trailing" secondItem="Fl1-KP-wah" secondAttribute="trailing" constant="16" id="JbT-xF-nVw"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="top" secondItem="waA-bF-hUL" secondAttribute="bottom" constant="74" id="Moj-NG-6yj"/>
-                            <constraint firstItem="E6W-dg-cnw" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" constant="15" id="Sy6-8O-biT"/>
                             <constraint firstItem="f1H-6j-tVp" firstAttribute="centerX" secondItem="Div-3S-Yzl" secondAttribute="centerX" id="Y6t-Xj-N7k"/>
-                            <constraint firstItem="fFw-th-1Qg" firstAttribute="leading" secondItem="Div-3S-Yzl" secondAttribute="leadingMargin" constant="155" id="dxD-0z-oZ5"/>
                             <constraint firstItem="Fl1-KP-wah" firstAttribute="leading" secondItem="4pc-2p-cv3" secondAttribute="trailing" constant="-34" id="gOi-R4-Tak"/>
                             <constraint firstItem="wiw-d1-8Pl" firstAttribute="top" secondItem="Fl1-KP-wah" secondAttribute="bottom" id="hiO-Rl-tKL"/>
-                            <constraint firstItem="E6W-dg-cnw" firstAttribute="centerX" secondItem="Div-3S-Yzl" secondAttribute="centerX" id="s6G-89-3Oq"/>
                             <constraint firstItem="wiw-d1-8Pl" firstAttribute="trailing" secondItem="Fl1-KP-wah" secondAttribute="trailing" id="xXv-51-BOS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="map" destination="Fl1-KP-wah" id="JeZ-Ja-tJH"/>
-                        <outlet property="showDirectionsButton" destination="E6W-dg-cnw" id="UVN-1Q-4Dm"/>
                         <outlet property="statusLabel" destination="f1H-6j-tVp" id="RIl-NH-J4r"/>
                     </connections>
                 </viewController>

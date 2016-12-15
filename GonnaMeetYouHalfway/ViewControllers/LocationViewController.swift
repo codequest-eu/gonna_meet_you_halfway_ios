@@ -26,7 +26,6 @@ class LocationViewController: UIViewController, AlertHandler {
     //MARK: - Outlets
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var showDirectionsButton: UIButton!
     
     // MARK: - Properties
     var friendName = ""
@@ -78,7 +77,6 @@ class LocationViewController: UIViewController, AlertHandler {
     
     private func updateLabel(with status: MeetingStatus) {
         statusLabel.text = status.rawValue
-        showDirectionsButton.isHidden = !(status == .accepted)
     }
 
     // Show user and his friend position on the map
@@ -117,10 +115,6 @@ class LocationViewController: UIViewController, AlertHandler {
     
     @IBAction func centerMapOnUserLocation(_ sender: Any) {
         showUserCurrentLocation()
-    }
-    
-    @IBAction func showDirections(_ sender: Any) {
-        
     }
     
     @IBAction func centerMap(_ sender: Any) {

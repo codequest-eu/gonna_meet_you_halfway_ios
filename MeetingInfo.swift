@@ -2,16 +2,12 @@ import CoreLocation
 
 struct MeetingInfo {
     
-    let myTime: Int
-    let otherTime: Int
-    let myLocation: CLLocationCoordinate2D
-    let otherLocation: CLLocationCoordinate2D
+    let mine: LocationInfo
+    let other: LocationInfo
 
-    init(myTime: Int, otherTime: Int, myLocation: CLLocationCoordinate2D, otherLocation: CLLocationCoordinate2D) {
-        self.myTime = myTime
-        self.otherTime = otherTime
-        self.myLocation = myLocation
-        self.otherLocation = otherLocation
+    init(mine: LocationInfo, other: LocationInfo) {
+        self.mine = mine
+        self.other = other
     }
     
 }
@@ -19,24 +15,14 @@ struct MeetingInfo {
 extension MeetingInfo {
     
     init(dictionary: [String: Any]) {
-        let myTime = dictionary["myTime"] as! Int
-        let otherTime = dictionary["otherTime"] as! Int
-        let myLatitude = dictionary["myLatitude"] as! CLLocationDegrees
-        let myLongitude = dictionary["myLongitude"] as! CLLocationDegrees
-        let myLocation = CLLocationCoordinate2D(latitude: myLatitude, longitude: myLongitude)
-        let otherLatitude = dictionary["otherLatitude"] as! CLLocationDegrees
-        let otherLongitude = dictionary["otherLongitude"] as! CLLocationDegrees
-        let otherLocation = CLLocationCoordinate2D(latitude: otherLatitude, longitude: otherLongitude)
-        self.init(myTime: myTime, otherTime: otherTime, myLocation: myLocation, otherLocation: otherLocation)
+        let mine = LocationInfo(dictionary: dictionary["mine"] as! [String: Any])
+        let other = LocationInfo(dictionary: dictionary["other"] as! [String: Any])
+        self.init(mine: mine, other: other)
     }
     
     func toDictionary() -> [String: Any] {
-        return ["myTime": myTime,
-                "otherTime": otherTime,
-                "myLatitude": myLocation.latitude,
-                "myLongitude": myLocation.longitude,
-                "otherLatitude": otherLocation.latitude,
-                "otherLongitude": otherLocation.longitude]
+        return ["mine": mine,
+                "other": other]
     }
     
 }

@@ -17,7 +17,7 @@ class MapInterfaceController: MeetingInfoInterfaceController {
         didSet {
             guard let meetingInfo = meetingInfo else { return }
             map.removeAllAnnotations()
-            let mapLocation = meetingInfo.myLocation
+            let mapLocation = meetingInfo.mine.location
             let coordinateSpan = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
             map.addAnnotation(mapLocation, with: WKInterfaceMapPinColor.purple)
             map.setRegion(MKCoordinateRegion(center: mapLocation, span: coordinateSpan))

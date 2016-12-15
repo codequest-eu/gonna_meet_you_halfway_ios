@@ -9,8 +9,10 @@ class ArrivalInterfaceController: MeetingInfoInterfaceController {
     override var meetingInfo: MeetingInfo? {
         didSet {
             guard let meetingInfo = meetingInfo else { return }
-            myTimeLabel.setText("\(meetingInfo.myTime) min")
-            otherTimeLabel.setText("\(meetingInfo.otherTime) min")
+            let myTime = Int(meetingInfo.mine.time)
+            let otherTime = Int(meetingInfo.other.time)
+            myTimeLabel.setText("\(myTime) min")
+            otherTimeLabel.setText("\(otherTime) min")
         }
     }
     

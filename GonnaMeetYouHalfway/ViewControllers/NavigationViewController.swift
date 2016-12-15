@@ -158,6 +158,10 @@ class NavigationViewController: UIViewController, AlertHandler {
     private func setupMap() {
         map.delegate = self
         map.showsScale = true
+        map.clipsToBounds = true
+        map.layer.cornerRadius = 3.0
+        map.layer.borderWidth = 0.5
+        map.layer.borderColor = UIColor.black.cgColor
         map.showsUserLocation = true
         map.showAnnotations(map.annotations, animated: true)
     }

@@ -25,47 +25,47 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ejt-Ht-SuA">
                                 <rect key="frame" x="31" y="145" width="313" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljw-RS-zvE">
-                                <rect key="frame" x="31" y="116" width="94" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="31" y="113" width="95" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-8o-Hkn">
-                                <rect key="frame" x="31" y="201" width="85" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="31" y="198" width="85" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email to invite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83S-JJ-3an">
-                                <rect key="frame" x="31" y="286" width="106" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="31" y="283" width="110" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S43-xU-ObF">
                                 <rect key="frame" x="31" y="230" width="313" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQa-V4-1i6">
                                 <rect key="frame" x="31" y="315" width="313" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RR0-LS-PhX">
-                                <rect key="frame" x="147" y="388" width="80" height="30"/>
+                                <rect key="frame" x="87" y="388" width="200" height="35"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="N72-1i-izp"/>
-                                    <constraint firstAttribute="height" constant="30" id="wha-oi-WUX"/>
+                                    <constraint firstAttribute="width" constant="200" id="N72-1i-izp"/>
+                                    <constraint firstAttribute="height" constant="35" id="wha-oi-WUX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="19"/>
                                 <state key="normal" title="INVITE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.4842526882" green="1" blue="0.64976226709999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,20 +74,37 @@
                                     <action selector="invite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1O9-DK-LIA"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_cq" translatesAutoresizingMaskIntoConstraints="NO" id="P60-vr-0wJ">
+                                <rect key="frame" x="112" y="620" width="151" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="0MP-Xz-TNf"/>
+                                    <constraint firstAttribute="width" constant="151" id="TGd-ny-vN7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with      by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaI-rk-2zv">
+                                <rect key="frame" x="125" y="599" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.40392156862745099" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="OQa-V4-1i6" secondAttribute="trailing" constant="15" id="1rF-zu-bO6"/>
                             <constraint firstItem="Ejt-Ht-SuA" firstAttribute="top" secondItem="Ljw-RS-zvE" secondAttribute="bottom" constant="8" id="2Mx-V6-wpS"/>
+                            <constraint firstItem="P60-vr-0wJ" firstAttribute="top" secondItem="XaI-rk-2zv" secondAttribute="bottom" id="4qw-rV-v75"/>
                             <constraint firstItem="RR0-LS-PhX" firstAttribute="top" secondItem="OQa-V4-1i6" secondAttribute="bottom" constant="43" id="Cnw-Gt-W2z"/>
+                            <constraint firstItem="P60-vr-0wJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fw6-Oj-Sd8"/>
                             <constraint firstItem="Ljw-RS-zvE" firstAttribute="leading" secondItem="Ejt-Ht-SuA" secondAttribute="leading" id="Gse-me-HG8"/>
                             <constraint firstItem="OQa-V4-1i6" firstAttribute="top" secondItem="S43-xU-ObF" secondAttribute="bottom" constant="55" id="GuF-Su-qSx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P60-vr-0wJ" secondAttribute="bottom" constant="8" id="J39-3b-zmx"/>
                             <constraint firstItem="Ejt-Ht-SuA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="Mvs-n7-2OT"/>
                             <constraint firstItem="S43-xU-ObF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="QTB-Vm-Zt3"/>
                             <constraint firstItem="S43-xU-ObF" firstAttribute="top" secondItem="Ejt-Ht-SuA" secondAttribute="bottom" constant="55" id="T1Q-Su-PbS"/>
                             <constraint firstItem="1Go-8o-Hkn" firstAttribute="leading" secondItem="S43-xU-ObF" secondAttribute="leading" id="UEW-2b-nJj"/>
                             <constraint firstItem="OQa-V4-1i6" firstAttribute="top" secondItem="83S-JJ-3an" secondAttribute="bottom" constant="8" id="WM2-Bm-aCf"/>
                             <constraint firstItem="OQa-V4-1i6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="XFi-RD-RdQ"/>
+                            <constraint firstItem="XaI-rk-2zv" firstAttribute="centerX" secondItem="P60-vr-0wJ" secondAttribute="centerX" id="Y3L-zk-2bX"/>
                             <constraint firstItem="S43-xU-ObF" firstAttribute="top" secondItem="1Go-8o-Hkn" secondAttribute="bottom" constant="8" id="flY-aP-HBV"/>
                             <constraint firstItem="83S-JJ-3an" firstAttribute="leading" secondItem="OQa-V4-1i6" secondAttribute="leading" id="pv2-yB-9I7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ejt-Ht-SuA" secondAttribute="trailing" constant="15" id="s09-6B-4VM"/>
@@ -106,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-18"/>
+            <point key="canvasLocation" x="556" y="-18.440779610194905"/>
         </scene>
         <!--Search Contact View Controller-->
         <scene sceneID="tHg-ty-JTY">
@@ -502,6 +519,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo_cq" width="2000" height="295"/>
         <image name="pin" width="256" height="256"/>
     </resources>
 </document>

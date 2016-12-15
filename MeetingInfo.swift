@@ -1,6 +1,6 @@
 import CoreLocation
 
-struct LocationInfo {
+struct MeetingInfo {
     
     let myTime: Int
     let otherTime: Int
@@ -16,7 +16,7 @@ struct LocationInfo {
     
 }
 
-extension LocationInfo {
+extension MeetingInfo {
     
     init(dictionary: [String: Any]) {
         let myTime = dictionary["myTime"] as! Int

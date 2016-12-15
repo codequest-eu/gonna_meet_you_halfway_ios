@@ -1,25 +1,16 @@
-//
-//  ArrivalInterfaceController.swift
-//  GonnaMeetYouHalfway
-//
-//  Created by Michal Karwanski on 14/12/2016.
-//  Copyright © 2016 Codequest. All rights reserved.
-//
-
 import WatchKit
 import Foundation
 
-
-class ArrivalInterfaceController: LocationInfoInterfaceController {
+class ArrivalInterfaceController: MeetingInfoInterfaceController {
     
     @IBOutlet var myTimeLabel: WKInterfaceLabel!
     @IBOutlet var otherTimeLabel: WKInterfaceLabel!
     
-    override var locationInfo: LocationInfo? {
+    override var meetingInfo: MeetingInfo? {
         didSet {
-            guard let locationInfo = locationInfo else { return }
-            myTimeLabel.setText("\(locationInfo.myTime) min")
-            otherTimeLabel.setText("\(locationInfo.otherTime) min")
+            guard let meetingInfo = meetingInfo else { return }
+            myTimeLabel.setText("\(meetingInfo.myTime) min")
+            otherTimeLabel.setText("\(meetingInfo.otherTime) min")
         }
     }
     

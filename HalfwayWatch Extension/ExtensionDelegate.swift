@@ -1,28 +1,18 @@
-//
-//  ExtensionDelegate.swift
-//  HalfwayWatch Extension
-//
-//  Created by Michal Karwanski on 14/12/2016.
-//  Copyright © 2016 Codequest. All rights reserved.
-//
-
 import WatchKit
 import WatchConnectivity
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate, LocationInfoInterfaceControllerDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, MeetingInfoInterfaceControllerDelegate {
 
     private var session: WCSession?
-    fileprivate var controllers: [LocationInfoInterfaceController] = []
+    fileprivate var controllers: [MeetingInfoInterfaceController] = []
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-    
         if WCSession.isSupported() {
             session = WCSession.default()
             session?.delegate = self
             session?.activate()
         }
-        
     }
 
     func applicationDidBecomeActive() {
@@ -33,6 +23,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, LocationInfoInterfaceCon
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
+        
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
@@ -59,7 +50,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, LocationInfoInterfaceCon
         }
     }
 
-    func locationInfoInterfaceControllerDidWakeUp(_ controller: LocationInfoInterfaceController) {
+    func meetingInfoInterfaceControllerDidWakeUp(_ controller: MeetingInfoInterfaceController) {
         if !controllers.contains(controller) {
             controllers.append(controller)
         }
@@ -92,10 +83,10 @@ extension ExtensionDelegate: WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        guard let locationInfoDictionary = applicationContext["locationInfo"] as? [String: Any] else { return }
-        let locationInfo = LocationInfo(dictionary: locationInfoDictionary)
+        guard let meetingInfoDictionary = applicationContext["meetingInfo"] as? [String: Any] else { return }
+        let meetingInfo = MeetingInfo(dictionary: meetingInfoDictionary)
         controllers.forEach { controller in
-            controller.locationInfo = locationInfo
+            controller.meetingInfo = meetingInfo
         }
     }
         

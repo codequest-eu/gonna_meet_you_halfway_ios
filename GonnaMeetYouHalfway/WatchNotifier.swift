@@ -29,12 +29,12 @@ class WatchNotifier: NSObject {
     func startNotification(with session: WCSession) {
         if !started {
             client.otherLocations(from: locationsTopicName).subscribe(onNext: { location in
-                let locationInfo = LocationInfo(myTime: Int(location.latitude),
+                let meetingInfo = MeetingInfo(myTime: Int(location.latitude),
                                                 otherTime: Int(location.longitude),
                                                 myLocation: location,
                                                 otherLocation: location)
                 do {
-                    try session.updateApplicationContext(["locationInfo": locationInfo.toDictionary()])
+                    try session.updateApplicationContext(["meetingInfo": meetingInfo.toDictionary()])
                 } catch {
                     print(error)
                 }

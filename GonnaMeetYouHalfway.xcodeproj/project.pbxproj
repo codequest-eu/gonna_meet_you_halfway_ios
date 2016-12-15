@@ -21,8 +21,8 @@
 		90041EB91E0180FD00DDBD97 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3791DFEB12800213743 /* MeetingResponse.swift */; };
 		9026C1E21E00424F00BACF03 /* AcceptMeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */; };
 		9028C3EE1E0296EA00F6AEC8 /* WatchNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */; };
-		9028C3F71E02B56E00F6AEC8 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */; };
-		9028C3F81E02B56E00F6AEC8 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */; };
+		9028C3F71E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */; };
+		9028C3F81E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */; };
 		9028C3FB1E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */; };
 		9060F3651DFEAAE600213743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9060F3641DFEAAE600213743 /* AppDelegate.swift */; };
 		9060F36A1DFEAAE600213743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9060F3681DFEAAE600213743 /* Main.storyboard */; };
@@ -113,7 +113,7 @@
 		90041EB51E01759200DDBD97 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
 		9026C1E11E00424F00BACF03 /* AcceptMeetingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptMeetingRequest.swift; sourceTree = "<group>"; };
 		9028C3ED1E0296EA00F6AEC8 /* WatchNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchNotifier.swift; sourceTree = "<group>"; };
-		9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
+		9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
 		9028C3F91E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfoInterfaceController.swift; sourceTree = "<group>"; };
 		9060F3611DFEAAE600213743 /* GonnaMeetYouHalfway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GonnaMeetYouHalfway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9060F3641DFEAAE600213743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		9028C3F51E02B54700F6AEC8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				9028C3F61E02B56E00F6AEC8 /* LocationInfo.swift */,
+				9028C3F61E02B56E00F6AEC8 /* MeetingInfo.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -551,7 +551,7 @@
 				90041EA41E0172C900DDBD97 /* ExtensionDelegate.swift in Sources */,
 				9028C3FB1E02B9F500F6AEC8 /* LocationInfoInterfaceController.swift in Sources */,
 				90041EB41E01753F00DDBD97 /* ArrivalInterfaceController.swift in Sources */,
-				9028C3F81E02B56E00F6AEC8 /* LocationInfo.swift in Sources */,
+				9028C3F81E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */,
 				90041EB61E01759200DDBD97 /* MapInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,7 +575,7 @@
 				EE2D53081E0151EA00D839C0 /* MeetingViewModel.swift in Sources */,
 				EE4CC8091DFECE8800E444F7 /* SearchContactViewController.swift in Sources */,
 				EE4CC8071DFEB6A300E444F7 /* UIViewControllerExtension.swift in Sources */,
-				9028C3F71E02B56E00F6AEC8 /* LocationInfo.swift in Sources */,
+				9028C3F71E02B56E00F6AEC8 /* MeetingInfo.swift in Sources */,
 				EE3190771E00A1D50045569E /* LocationViewModel.swift in Sources */,
 				EE6ECA251E01A9B7006DE828 /* NavigationViewController.swift in Sources */,
 				EE31906D1E009BB90045569E /* LocationViewController.swift in Sources */,

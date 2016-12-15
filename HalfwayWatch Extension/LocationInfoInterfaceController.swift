@@ -1,28 +1,20 @@
-//
-//  LocationInfoInterfaceController.swift
-//  GonnaMeetYouHalfway
-//
-//  Created by Michal Karwanski on 15/12/2016.
-//  Copyright © 2016 Codequest. All rights reserved.
-//
-
 import WatchKit
 import Foundation
 
-class LocationInfoInterfaceController: WKInterfaceController {
+class MeetingInfoInterfaceController: WKInterfaceController {
 
-    var locationInfo: LocationInfo?
+    var meetingInfo: MeetingInfo?
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        guard let delegate = context as? LocationInfoInterfaceControllerDelegate else { return }
-        delegate.locationInfoInterfaceControllerDidWakeUp(self)
+        guard let delegate = context as? MeetingInfoInterfaceControllerDelegate else { return }
+        delegate.meetingInfoInterfaceControllerDidWakeUp(self)
     }
     
 }
 
-protocol LocationInfoInterfaceControllerDelegate {
+protocol MeetingInfoInterfaceControllerDelegate {
     
-    func locationInfoInterfaceControllerDidWakeUp(_ controller: LocationInfoInterfaceController)
+    func meetingInfoInterfaceControllerDidWakeUp(_ controller: MeetingInfoInterfaceController)
     
 }

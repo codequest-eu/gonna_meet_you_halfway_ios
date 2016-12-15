@@ -9,15 +9,15 @@
 import WatchKit
 import Foundation
 
-class MapInterfaceController: LocationInfoInterfaceController {
+class MapInterfaceController: MeetingInfoInterfaceController {
 
     @IBOutlet var map: WKInterfaceMap!
     
-    override var locationInfo: LocationInfo? {
+    override var meetingInfo: MeetingInfo? {
         didSet {
-            guard let locationInfo = locationInfo else { return }
+            guard let meetingInfo = meetingInfo else { return }
             map.removeAllAnnotations()
-            let mapLocation = locationInfo.myLocation
+            let mapLocation = meetingInfo.myLocation
             let coordinateSpan = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
             map.addAnnotation(mapLocation, with: WKInterfaceMapPinColor.purple)
             map.setRegion(MKCoordinateRegion(center: mapLocation, span: coordinateSpan))

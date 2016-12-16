@@ -4,6 +4,9 @@ import Moscapsule
 
 class RxMqttClient {
 
+    private static let shared = RxMqttClient()
+    static var `default`: RxMqttClient { return shared }
+    
     let connected: Variable<Bool> = Variable(false)
     let incomingMessages: Variable<(String, String)?> = Variable(nil)
 

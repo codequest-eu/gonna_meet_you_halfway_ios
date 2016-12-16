@@ -17,7 +17,7 @@ class MeetingViewModel: MeetingViewModelProtocol {
     
     private let controller: MeetingSuggestionViewControllerProtocol
     private let disposeBag = DisposeBag()
-    private let apiProvider = GonnaMeetClient()
+    private let apiProvider = GonnaMeetClient.default
     
     init(controller: MeetingSuggestionViewControllerProtocol) {
         self.controller = controller
@@ -26,7 +26,7 @@ class MeetingViewModel: MeetingViewModelProtocol {
     func acceptPlaceSuggestion(placeIdentifier: String) {
         apiProvider.accept(suggestionIdentifier: placeIdentifier)
             .subscribe(onNext: { (response) in
-                print(response)
+                print("Accept place suggestion \(response)")
                 self.controller.userDidAcceptSuggestion()
             }, onError: { _ in
                 self.controller.didPerformRequestWithFailure()

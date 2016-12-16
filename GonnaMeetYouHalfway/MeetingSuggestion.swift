@@ -14,7 +14,7 @@ struct MeetingSuggestion {
 extension MeetingSuggestion: ImmutableMappable {
     
     init(map: Map) throws {
-        suggestionIdentifier = try map.value("identifier")
+        suggestionIdentifier = try map.value("placeIdentifier")
         position = try map.value("position")
         name = try? map.value("name")
         description = try? map.value("description")

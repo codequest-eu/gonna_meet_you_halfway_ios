@@ -212,6 +212,7 @@ extension LocationViewController: LocationViewControllerProtocol {
     }
     
     func didAcceptInvitation(response: MeetingResponse) {
+        self.meetingDetails = response
         locationVM.getPlaceSugestions(from: response)
         locationVM.listenForYourFriendSuggestions(from: response)
         locationVM.getFriendLocation(from: response)

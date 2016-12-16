@@ -17,7 +17,7 @@ class InviteViewModel: InviteViewModelProtocol {
     
     private let controller: ContactViewControllerProtocol
     private let disposeBag = DisposeBag()
-    private let apiProvider = GonnaMeetClient()
+    private let apiProvider = GonnaMeetClient.default
     
     private let locationInfoService: LocationInfoService
     
@@ -31,7 +31,7 @@ class InviteViewModel: InviteViewModelProtocol {
             .subscribe(onNext: { (response) in
                 self.controller.didInviteFriendWithSuccess(response: response)
                 self.locationInfoService.meetingResponse.value = response
-                print(response)
+                print("Invite friend \(response)")
             }, onError: { (error) in
                 self.controller.didInviteFriendWithFailure()
                 print(error)

@@ -22,7 +22,7 @@ class LocationViewModel: LocationViewModelProtocol {
     
     private let controller: LocationViewControllerProtocol
     private let disposeBag = DisposeBag()
-    private let apiProvider = GonnaMeetClient()
+    private let apiProvider = GonnaMeetClient.default
     
     private let locationInfoService: LocationInfoService
     
@@ -35,7 +35,7 @@ class LocationViewModel: LocationViewModelProtocol {
         apiProvider.suggest(meetingIdentifier: details.meetingIdentifier, coordinate: coordinates)
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { response in
-                print(response)
+                print("Propose place to meet \(response)")
             }, onError: { _ in
                 self.controller.didPerformRequestWithFailure()
             })
@@ -47,7 +47,7 @@ class LocationViewModel: LocationViewModelProtocol {
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { (places) in
                 self.controller.didFetchPlacesSugestion(places: places)
-                print(places)
+                print("Get place suggestions \(places)")
             }, onError: { _ in
                 //TODO: Add error handling when error occurs: for example here user should send invitation again
                 self.controller.didPerformRequestWithFailure()

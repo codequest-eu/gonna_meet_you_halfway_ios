@@ -30,7 +30,7 @@ class GonnaMeetClient {
     }
 
     private static func defaultMqttClient() -> RxMqttClient {
-        return RxMqttClient()
+        return RxMqttClient.default
     }
     
     func requestMeeting(name: String, email: String, otherEmail: String, location: CLLocationCoordinate2D) -> Observable<MeetingResponse> {
@@ -68,7 +68,9 @@ class GonnaMeetClient {
     //listen for meeting suggest from friend
     func meetingSuggestions(from topic: String) -> Observable<MeetingSuggestion> {
         return mqttClient.subscribe(to: topic)
-            .map { try? MeetingSuggestion(JSONString: $0) }
+            .map {
+                try? MeetingSuggestion(JSONString: $0)
+            }
             .filterNil()
     }
     

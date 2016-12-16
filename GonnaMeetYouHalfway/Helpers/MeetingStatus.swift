@@ -7,7 +7,7 @@
 //
 
 enum MeetingStatus: String {
-    case pending = "Waiting for inviation approval"
+    case pending = "Waiting for invitation approval"
     case waitingForPlaceSuggestion = "Waiting for place suggestions"
     case waitingForPlaceApproval = "Waiting for place meeting approval"
     case accepted = "Meeting location submitted"

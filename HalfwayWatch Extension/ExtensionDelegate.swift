@@ -59,7 +59,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, MeetingInfoInterfaceCont
     func startNotification(with session: WCSession) {
         session.sendMessage(["startWatchNotification": true],
                             replyHandler: { [weak self] map in
-                                let backgroundTimeRemaining = map["backgroundTimeRemaining"] as! TimeInterval
+                                var backgroundTimeRemaining = map["backgroundTimeRemaining"] as! TimeInterval
+                                if backgroundTimeRemaining > 1000 { // sometimes it is max double :/
+                                    backgroundTimeRemaining = 50
+                                }
                                 let seconds = Int(backgroundTimeRemaining) + 5
                                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(seconds)) {
                                     self?.startNotification(with: session)

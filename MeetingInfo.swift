@@ -24,8 +24,8 @@ extension MeetingInfo {
     }
     
     func toDictionary() -> [String: Any] {
-        return ["mine": mine,
-                "other": other,
+        return ["mine": mine.toDictionary(),
+                "other": other.toDictionary(),
                 "meetingLocation": meetingLocation.toDictionary()]
     }
     

@@ -55,12 +55,15 @@ extension WatchNotifier: WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Swift.Void) {
-        identifier = UIApplication.shared.beginBackgroundTask(withName: "startWatchNotification") {
-            self.started = false
-            self.disposeBag = DisposeBag()
-            UIApplication.shared.endBackgroundTask(self.identifier)
-        }
+        if identifier == UIBackgroundTaskInvalid {
+            identifier = UIApplication.shared.beginBackgroundTask(withName: "startWatchNotification") {
+                self.started = false
+                self.disposeBag = DisposeBag()
+                UIApplication.shared.endBackgroundTask(self.identifier)
+                self.identifier = UIBackgroundTaskInvalid
+            }
         startNotification(with: session)
+        }
         DispatchQueue.main.async {
             replyHandler(["backgroundTimeRemaining": UIApplication.shared.backgroundTimeRemaining])
         }

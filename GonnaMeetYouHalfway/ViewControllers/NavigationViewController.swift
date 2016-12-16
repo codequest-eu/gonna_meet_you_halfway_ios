@@ -50,6 +50,11 @@ class NavigationViewController: UIViewController, AlertHandler {
         observeUserLocation()
         observeFriendLocation()
         createGradient(view: view)
+        
+        LocationInfoService.default.meetingLocation.asObservable().subscribe(onNext: { print("Meeting location \($0)") }).addDisposableTo(disposeBag)
+        LocationInfoService.default.meetingResponse.asObservable().subscribe(onNext: { print("Meeting response \($0)") }).addDisposableTo(disposeBag)
+        LocationInfoService.default.myLocationInfos.subscribe(onNext: { print("My location \($0)") }).addDisposableTo(disposeBag)
+        LocationInfoService.default.otherLocationInfos.subscribe(onNext: { print("His location \($0)") }).addDisposableTo(disposeBag)
     }
     
     // MARK: - RxSetup

@@ -68,8 +68,14 @@ class GonnaMeetClient {
     //listen for meeting suggest from friend
     func meetingSuggestions(from topic: String) -> Observable<MeetingSuggestion> {
         return mqttClient.subscribe(to: topic)
-            .map {
-                try? MeetingSuggestion(JSONString: $0)
+            .map { (response) -> MeetingSuggestion? in
+                var suggestion: MeetingSuggestion? = nil
+                do {
+                    suggestion = try MeetingSuggestion(JSONString: response)
+                } catch {
+                    print(error)
+                }
+                return suggestion
             }
             .filterNil()
     }

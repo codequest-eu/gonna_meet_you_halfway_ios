@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="Halfway_Widget" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to destination:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVw-Dg-RdU">
+                                <rect key="frame" x="8" y="10" width="244" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="not determined" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="V8S-JX-yfY">
+                                <rect key="frame" x="252" y="10" width="60" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Yte-Bc-9eJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Um2-8q-2pf">
+                                <rect key="frame" x="8" y="25" width="244" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend time to destination:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-of-ny9">
+                                <rect key="frame" x="8" y="51" width="175" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="not determined" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GU4-e8-YXX">
+                                <rect key="frame" x="252" y="25" width="60" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="not determined" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4pa-eL-zve">
+                                <rect key="frame" x="252" y="51" width="60" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="not determined" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-FS-QUd">
+                                <rect key="frame" x="252" y="67" width="60" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuL-fQ-gnH">
+                                <rect key="frame" x="8" y="67" width="62" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="4Hz-FS-QUd" firstAttribute="leading" secondItem="4pa-eL-zve" secondAttribute="leading" id="03F-NC-Xdu"/>
+                            <constraint firstItem="Um2-8q-2pf" firstAttribute="leading" secondItem="LVw-Dg-RdU" secondAttribute="leading" id="91o-AZ-LKe"/>
+                            <constraint firstItem="V8S-JX-yfY" firstAttribute="centerY" secondItem="LVw-Dg-RdU" secondAttribute="centerY" id="9Pb-gH-5NB"/>
+                            <constraint firstItem="V8S-JX-yfY" firstAttribute="leading" secondItem="LVw-Dg-RdU" secondAttribute="trailing" id="9ar-uL-Rs8"/>
+                            <constraint firstItem="LVw-Dg-RdU" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-8" id="BXz-Hw-TI6"/>
+                            <constraint firstItem="GU4-e8-YXX" firstAttribute="leading" secondItem="V8S-JX-yfY" secondAttribute="leading" id="Bk9-AT-xvS"/>
+                            <constraint firstItem="TuL-fQ-gnH" firstAttribute="leading" secondItem="a3p-of-ny9" secondAttribute="leading" id="LCg-mf-8XM"/>
+                            <constraint firstItem="a3p-of-ny9" firstAttribute="top" secondItem="Um2-8q-2pf" secondAttribute="bottom" constant="10" id="LGZ-Fz-d1h"/>
+                            <constraint firstItem="4pa-eL-zve" firstAttribute="leading" secondItem="GU4-e8-YXX" secondAttribute="leading" id="MN0-Yf-HmR"/>
+                            <constraint firstItem="4Hz-FS-QUd" firstAttribute="trailing" secondItem="4pa-eL-zve" secondAttribute="trailing" id="Qgu-gy-e4j"/>
+                            <constraint firstItem="Um2-8q-2pf" firstAttribute="trailing" secondItem="LVw-Dg-RdU" secondAttribute="trailing" id="S53-Dy-tB2"/>
+                            <constraint firstItem="Um2-8q-2pf" firstAttribute="top" secondItem="LVw-Dg-RdU" secondAttribute="bottom" constant="-1" id="U1c-jm-JoS"/>
+                            <constraint firstAttribute="trailing" secondItem="V8S-JX-yfY" secondAttribute="trailing" constant="8" id="Uih-wN-4TC"/>
+                            <constraint firstItem="a3p-of-ny9" firstAttribute="leading" secondItem="Um2-8q-2pf" secondAttribute="leading" id="dRq-j6-yOT"/>
+                            <constraint firstItem="GU4-e8-YXX" firstAttribute="centerY" secondItem="Um2-8q-2pf" secondAttribute="centerY" id="fYI-DU-fEO"/>
+                            <constraint firstItem="GU4-e8-YXX" firstAttribute="trailing" secondItem="V8S-JX-yfY" secondAttribute="trailing" id="h6T-Fj-pbh"/>
+                            <constraint firstItem="4pa-eL-zve" firstAttribute="centerY" secondItem="a3p-of-ny9" secondAttribute="centerY" id="jM2-Xa-J87"/>
+                            <constraint firstItem="LVw-Dg-RdU" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="10" id="m8k-A0-P55"/>
+                            <constraint firstItem="TuL-fQ-gnH" firstAttribute="top" secondItem="a3p-of-ny9" secondAttribute="bottom" id="mtB-lF-oRr"/>
+                            <constraint firstItem="4pa-eL-zve" firstAttribute="trailing" secondItem="GU4-e8-YXX" secondAttribute="trailing" id="o8j-R9-4Ws"/>
+                            <constraint firstItem="4Hz-FS-QUd" firstAttribute="centerY" secondItem="TuL-fQ-gnH" secondAttribute="centerY" id="wUx-yl-dR2"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="110"/>
+                    <connections>
+                        <outlet property="distanceLabel" destination="GU4-e8-YXX" id="ROt-NU-xr9"/>
+                        <outlet property="friendDistanceLabel" destination="4Hz-FS-QUd" id="IS1-cg-5di"/>
+                        <outlet property="friendTimeLabel" destination="4pa-eL-zve" id="keD-Nw-DSz"/>
+                        <outlet property="timeLabel" destination="V8S-JX-yfY" id="41M-C6-aP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="177.59999999999999" y="115.14242878560721"/>
+        </scene>
+    </scenes>
+</document>

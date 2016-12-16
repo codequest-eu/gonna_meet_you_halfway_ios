@@ -19,6 +19,7 @@ class NavigationViewController: UIViewController, AlertHandler {
     @IBOutlet weak var friendDestinationTimeLabel: UILabel!
     @IBOutlet weak var friendDestinationDistanceLabel: UILabel!
     @IBOutlet weak var friendInfoLabel: UILabel!
+    
     @IBOutlet weak var map: MKMapView!
     
     // MARK: - Properties

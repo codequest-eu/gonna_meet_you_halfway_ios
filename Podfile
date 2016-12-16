@@ -16,3 +16,12 @@ target 'GonnaMeetYouHalfway' do
 	pod 'OpenSSL-Universal', '~> 1.0.1.18'
 end
 
+target 'Halfway Widget' do
+	pod 'Moya-ObjectMapper/RxSwift'
+	pod 'RxSwift'
+        pod 'RxOptional'
+	pod 'RxCocoa'
+	pod 'Wrap'
+	pod 'Moscapsule', :git => 'https://github.com/flightonary/Moscapsule.git'
+end
+

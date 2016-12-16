@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zoi-Zw-upe">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+    </dependencies>
+    <scenes>
+        <!--Arrive in-->
+        <scene sceneID="KZK-Za-te4">
+            <objects>
+                <controller identifier="Arrival" title="Arrive in" id="zoi-Zw-upe" customClass="ArrivalInterfaceController" customModule="HalfwayWatch_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="3qT-Qj-Iyy">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" id="rRx-NF-w4i">
+                                    <items>
+                                        <label alignment="center" text="You will arrive in" id="HDe-Y6-yMP">
+                                            <fontDescription key="font" type="system" pointSize="11"/>
+                                        </label>
+                                        <label alignment="center" text="15 min" id="k78-OZ-gE6">
+                                            <color key="textColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="32"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="8" bottom="0.0"/>
+                                </group>
+                                <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="Y00-mn-9EC">
+                                    <items>
+                                        <label alignment="center" text="Your buddy will arrive in" id="nkI-dH-wib">
+                                            <fontDescription key="font" type="system" pointSize="11"/>
+                                        </label>
+                                        <label alignment="center" text="15 min" id="0rs-XE-WZb">
+                                            <color key="textColor" red="0.015686274510000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="32"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="8"/>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="myTimeLabel" destination="k78-OZ-gE6" id="Oyf-gb-9xE"/>
+                        <outlet property="otherTimeLabel" destination="0rs-XE-WZb" id="Ot4-ME-Na5"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-108" y="-111"/>
+        </scene>
+        <!--Locations-->
+        <scene sceneID="R1g-zH-teP">
+            <objects>
+                <controller identifier="Map" title="Locations" id="uQG-rU-KSy" customClass="MapInterfaceController" customModule="HalfwayWatch_Extension">
+                    <items>
+                        <map width="1" height="1" alignment="center" verticalAlignment="center" id="brg-Qe-oma"/>
+                    </items>
+                    <connections>
+                        <outlet property="map" destination="brg-Qe-oma" id="tew-LR-kJf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="160" y="-111"/>
+        </scene>
+    </scenes>
+</document>

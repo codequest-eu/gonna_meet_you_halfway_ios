@@ -15,8 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var contactStore = CNContactStore()
 	var navigationController: UINavigationController!
+    let watchNotifier = WatchNotifier()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+       
+        watchNotifier.initialize()
         application.statusBarStyle = UIStatusBarStyle.lightContent
         UINavigationBar.appearance().tintColor = UIColor.white
 		window = UIWindow.init(frame: UIScreen.main.bounds)

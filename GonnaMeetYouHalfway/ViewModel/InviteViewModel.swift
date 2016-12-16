@@ -19,14 +19,18 @@ class InviteViewModel: InviteViewModelProtocol {
     private let disposeBag = DisposeBag()
     private let apiProvider = GonnaMeetClient()
     
-    init(controller: ContactViewControllerProtocol) {
+    private let locationInfoService: LocationInfoService
+    
+    init(controller: ContactViewControllerProtocol, locationInfoService: LocationInfoService = LocationInfoService.default) {
         self.controller = controller
+        self.locationInfoService = locationInfoService
     }
     
     func inviteFriend(name: String, inviteEmail: String, userEmail: String, location: CLLocationCoordinate2D) {
         apiProvider.requestMeeting(name: name, email: userEmail, otherEmail: inviteEmail, location: location)
             .subscribe(onNext: { (response) in
                 self.controller.didInviteFriendWithSuccess(response: response)
+                self.locationInfoService.meetingResponse.value = response
                 print(response)
             }, onError: { (error) in
                 self.controller.didInviteFriendWithFailure()

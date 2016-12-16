@@ -51,7 +51,7 @@ class MeetingSuggestionViewController: UIViewController, AlertHandler {
     
     private func setupLabels() {
         let result: String
-        if let name = friendName, name != "" {
+        if let name = friendName, name.isNotEmpty {
             result = name
         } else {
             result = "Your buddy"

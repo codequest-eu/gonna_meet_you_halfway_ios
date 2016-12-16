@@ -81,6 +81,7 @@ class NavigationViewController: UIViewController, AlertHandler {
     
     private func observeFriendLocation() {
         friendLocation.asObservable()
+            .filterNil()
             .bindNext(updateFriendLocation)
             .addDisposableTo(disposeBag)
     }

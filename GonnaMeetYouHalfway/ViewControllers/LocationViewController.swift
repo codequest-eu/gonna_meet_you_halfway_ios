@@ -256,6 +256,7 @@ extension LocationViewController: LocationViewControllerProtocol {
             vc.friendName = self.friendName
             self.present(vc, animated: true, completion: nil)
         })
-        showAlert(title: "Success", message: "\(friendName) has accepted your place suggestion!", action: showFinalController)
+        let name = friendName.isEmpty ? "Your buddy" : friendName
+        showAlert(title: "Success", message: "\(name) has accepted your place suggestion!", action: showFinalController)
     }
 }

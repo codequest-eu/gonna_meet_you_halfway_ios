@@ -59,7 +59,7 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func listenForYourFriendSuggestions(from details: MeetingResponse) {
         apiProvider.meetingSuggestions(from: details.meetingLocationTopicName)
-            .filter { $0.senderLocationTopicName == details.otherLocationTopicName }
+            .filter { $0.senderLocationTopicName == details.otherLocationTopicName || $0.accepted }
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { place in
                 if place.accepted {

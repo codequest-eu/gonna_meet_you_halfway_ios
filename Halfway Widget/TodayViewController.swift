@@ -19,8 +19,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var friendTimeLabel: UILabel!
     @IBOutlet weak var friendDistanceLabel: UILabel!
-    @IBOutlet weak var friendInfoLabel: UILabel!
-    @IBOutlet weak var destinationLabel: UILabel!
     
     let locationService = LocationInfoService.default
     var disposeBag = DisposeBag()

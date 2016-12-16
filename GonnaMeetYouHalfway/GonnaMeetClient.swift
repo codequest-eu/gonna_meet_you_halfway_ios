@@ -3,6 +3,7 @@ import Moya
 import RxSwift
 import RxOptional
 import CoreLocation
+import ObjectMapper
 import Moya_ObjectMapper
 
 class GonnaMeetClient {
@@ -61,7 +62,7 @@ class GonnaMeetClient {
     // get place suggestions from server
     func placeSuggestions(from topic: String) -> Observable<[PlaceSuggestion]> {
         return mqttClient.subscribe(to: topic)
-            .map { [PlaceSuggestion](JSONString: $0) ?? [] }
+            .map { (try? Mapper<PlaceSuggestion>().mapArray(JSONString: $0)) ?? [] }
     }
 
     //listen for meeting suggest from friend

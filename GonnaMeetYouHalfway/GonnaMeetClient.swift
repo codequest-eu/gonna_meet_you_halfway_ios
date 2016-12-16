@@ -45,12 +45,13 @@ class GonnaMeetClient {
             .mapObject(MeetingResponse.self)
     }
     
-    func suggest(meetingIdentifier: String, coordinate: CLLocationCoordinate2D,
+    func suggest(meetingIdentifier: String, coordinate: CLLocationCoordinate2D, myLocationTopicName: String,
                  name: String? = nil, description: String? = nil) -> Observable<Void> {
         let suggestion = SuggestionRequest(meetingIdentifier: meetingIdentifier,
                                            position: coordinate,
                                            name: name,
-                                           description: description)
+                                           description: description,
+                                           senderLocationTopicName: myLocationTopicName)
         return provider.request(.suggest(suggestion: suggestion)).map { _ in }
     }
     

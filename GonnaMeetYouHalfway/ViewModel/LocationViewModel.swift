@@ -32,7 +32,9 @@ class LocationViewModel: LocationViewModelProtocol {
     }
     
     func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D) {
-        apiProvider.suggest(meetingIdentifier: details.meetingIdentifier, coordinate: coordinates)
+        apiProvider.suggest(meetingIdentifier: details.meetingIdentifier,
+                            coordinate: coordinates,
+                            myLocationTopicName: details.myLocationTopicName)
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { response in
                 print("Propose place to meet \(response)")
@@ -57,6 +59,7 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func listenForYourFriendSuggestions(from details: MeetingResponse) {
         apiProvider.meetingSuggestions(from: details.meetingLocationTopicName)
+            .filter { $0.senderLocationTopicName == details.otherLocationTopicName }
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { place in
                 if place.accepted {

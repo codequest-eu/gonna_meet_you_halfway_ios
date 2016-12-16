@@ -50,7 +50,13 @@ class MeetingSuggestionViewController: UIViewController, AlertHandler {
     }
     
     private func setupLabels() {
-        infoLabel.text = "\(friendName) has send you meeting place suggestion!"
+        let result: String
+        if let name = friendName, name != "" {
+            result = name
+        } else {
+            result = "Your buddy"
+        }
+        infoLabel.text = "\(result) has sent you meeting place suggestion!"
         if let name = place.name {
             titleLabel.text = name
         }

@@ -8,6 +8,7 @@ struct MeetingSuggestion {
     let name: String?
     let description: String?
     let accepted: Bool
+    let senderLocationTopicName: String
     
 }
 
@@ -19,6 +20,7 @@ extension MeetingSuggestion: ImmutableMappable {
         name = try? map.value("name")
         description = try? map.value("description")
         accepted = try map.value("accepted")
+        senderLocationTopicName = try map.value("senderLocationTopicName")
     }
     
 }

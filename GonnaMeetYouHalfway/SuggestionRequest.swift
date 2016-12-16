@@ -7,5 +7,6 @@ struct SuggestionRequest {
     let position: CLLocationCoordinate2D
     let name: String?
     let description: String?
+    let senderLocationTopicName: String
 
 }

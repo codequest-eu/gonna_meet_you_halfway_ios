@@ -3,6 +3,7 @@ import Moya
 import RxSwift
 import RxOptional
 import CoreLocation
+import ObjectMapper
 import Moya_ObjectMapper
 
 class GonnaMeetClient {
@@ -29,7 +30,7 @@ class GonnaMeetClient {
     }
 
     private static func defaultMqttClient() -> RxMqttClient {
-        return RxMqttClient()
+        return RxMqttClient.default
     }
     
     func requestMeeting(name: String, email: String, otherEmail: String, location: CLLocationCoordinate2D) -> Observable<MeetingResponse> {
@@ -61,13 +62,15 @@ class GonnaMeetClient {
     // get place suggestions from server
     func placeSuggestions(from topic: String) -> Observable<[PlaceSuggestion]> {
         return mqttClient.subscribe(to: topic)
-            .map { [PlaceSuggestion](JSONString: $0) ?? [] }
+            .map { (try? Mapper<PlaceSuggestion>().mapArray(JSONString: $0)) ?? [] }
     }
 
     //listen for meeting suggest from friend
     func meetingSuggestions(from topic: String) -> Observable<MeetingSuggestion> {
         return mqttClient.subscribe(to: topic)
-            .map { try? MeetingSuggestion(JSONString: $0) }
+            .map {
+                try? MeetingSuggestion(JSONString: $0)
+            }
             .filterNil()
     }
     
@@ -79,12 +82,9 @@ class GonnaMeetClient {
     
     // fetch friend location constantly
     func otherLocations(from topic: String) -> Observable<CLLocationCoordinate2D> {
-        return Observable<Int>.interval(5, scheduler: MainScheduler.asyncInstance).map({ index in
-            CLLocationCoordinate2D(latitude: CLLocationDegrees(index), longitude: CLLocationDegrees(index+1))
-        })
-//        return mqttClient.subscribe(to: topic)
-//            .map { try? CLLocationCoordinate2D(JSONString: $0) }
-//            .filterNil()
+        return mqttClient.subscribe(to: topic)
+            .map { try? CLLocationCoordinate2D(JSONString: $0) }
+            .filterNil()
     }
     
 }

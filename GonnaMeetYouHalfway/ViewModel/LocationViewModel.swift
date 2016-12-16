@@ -22,7 +22,7 @@ class LocationViewModel: LocationViewModelProtocol {
     
     private let controller: LocationViewControllerProtocol
     private let disposeBag = DisposeBag()
-    private let apiProvider = GonnaMeetClient()
+    private let apiProvider = GonnaMeetClient.default
     
     private let locationInfoService: LocationInfoService
     
@@ -33,8 +33,9 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func proposePlaceToMeet(with details: MeetingResponse, coordinates: CLLocationCoordinate2D) {
         apiProvider.suggest(meetingIdentifier: details.meetingIdentifier, coordinate: coordinates)
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { response in
-                print(response)
+                print("Propose place to meet \(response)")
             }, onError: { _ in
                 self.controller.didPerformRequestWithFailure()
             })
@@ -43,9 +44,10 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func getPlaceSugestions(from details: MeetingResponse) {
         apiProvider.placeSuggestions(from: details.suggestionsTopicName)
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { (places) in
                 self.controller.didFetchPlacesSugestion(places: places)
-                print(places)
+                print("Get place suggestions \(places)")
             }, onError: { _ in
                 //TODO: Add error handling when error occurs: for example here user should send invitation again
                 self.controller.didPerformRequestWithFailure()
@@ -55,6 +57,7 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func listenForYourFriendSuggestions(from details: MeetingResponse) {
         apiProvider.meetingSuggestions(from: details.meetingLocationTopicName)
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { place in
                 if place.accepted {
                     self.locationInfoService.meetingLocation.value = place.position
@@ -68,6 +71,7 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func getFriendLocation(from details: MeetingResponse) {
         apiProvider.otherLocations(from: details.otherLocationTopicName)
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { location in
                 let coordinates = CLLocationCoordinate2DMake(location.latitude, location.longitude)
                 self.controller.didFetchFriendLocation(coordinates: coordinates)
@@ -83,6 +87,7 @@ class LocationViewModel: LocationViewModelProtocol {
     
     func acceptInvitation(meetingIdentifier: String, location: CLLocationCoordinate2D) {
         apiProvider.acceptMeeting(name: "", meetingIdentifier: meetingIdentifier, location: location)
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { (response) in
                 self.controller.didAcceptInvitation(response: response)
             }, onError: { _ in

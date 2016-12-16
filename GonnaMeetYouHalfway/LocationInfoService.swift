@@ -25,17 +25,30 @@ class LocationInfoService {
     }
     
     private func setUpObservables() {
-        let meetingLocations = meetingLocation.asObservable().filterNil()
-        let myLocations = locationManager.userLocation.asObservable().filterNil()
-        let otherLocations = meetingResponse.asObservable().filterNil().map { $0.otherLocationTopicName }.flatMap { topic in
-            self.client.otherLocations(from: topic)
-        }
+        print("LocationInfoService \(self)")
+        let meetingLocations = meetingLocation.asObservable()
+            .do(onNext: { print("Meeting location before filter \($0)") })
+            .filterNil()
+            .do(onNext: { print("Meeting location after filter \($0)") })
+        let myLocations = locationManager.userLocation.asObservable()
+            .do(onNext: { print("My location before filter \($0)") })
+            .filterNil()
+            .do(onNext: { print("My location after filter \($0)") })
+        let otherLocations = meetingResponse.asObservable()
+            .do(onNext: { print("Meeting response before filter \($0)") })
+            .filterNil()
+            .do(onNext: { print("Meeting response after filter \($0)") })
+            .map { $0.otherLocationTopicName }
+            .do(onNext: { print("Topic for getting locations \($0)") })
+            .flatMap { self.client.otherLocations(from: $0) }
+            .do(onNext: { print("Other location \($0)") })
         myLocationInfos = combine(userLocation: myLocations, meetingLocation: meetingLocations)
         otherLocationInfos = combine(userLocation: otherLocations, meetingLocation: meetingLocations)
     }
     
     private func locationInfo(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) -> Observable<LocationInfo?> {
         return Observable.create { observer in
+            print("Computing directions")
             let request = self.directionsRequest(with: start, end)
             let directions = MKDirections(request: request)
             directions.calculate { (response, error) in
@@ -72,7 +85,7 @@ class LocationInfoService {
         return Observable.combineLatest(userLocation, meetingLocation) { ($0, $1) }
             .flatMap { [weak self] (start, end) in
                 self?.locationInfo(start: start, end: end) ?? Observable.just(nil)
-            }.filterNil()
+            }.filterNil().shareReplay(1)
     }
     
 }
